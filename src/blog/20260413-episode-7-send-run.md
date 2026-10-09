@@ -1,6 +1,6 @@
 ---
 title: "CDEvents in Action #7: Instrument Any CI Step"
-description: "cdviz-collector send --run wraps any CI command and automatically emits CDEvents — branch, commit, and job name auto-detected from the CI environment."
+description: "cdviz-collector send --run wraps any CI command and emits CDEvents. Branch, commit, and job name are detected from the CI environment."
 tags:
   [
     "cdevents",
@@ -40,7 +40,7 @@ cdviz-collector send --run testsuiterun_junit \
   -- npm test
 ```
 
-The collector runs your command normally. When it exits, it emits `testSuiteRun.started` + `testSuiteRun.finished` CDEvents with parsed test results included. Your exit code is preserved — CI still fails if tests fail.
+The collector runs your command normally. When it exits, it emits `testSuiteRun.started` + `testSuiteRun.finished` CDEvents with parsed test results included. Your exit code is preserved: CI still fails if tests fail.
 
 > [!NOTE]
 > Authentication: `--header "Authorization: Bearer $TOKEN"` is shown here for clarity. HMAC signature authentication is also supported and may be preferred depending on your server configuration. See the [send documentation](/docs/cdviz-collector/send) for options.
@@ -55,11 +55,11 @@ The collector runs your command normally. When it exits, it emits `testSuiteRun.
 | `taskrun`            | `taskRun.started` / `.finished`      | Any other step (build, deploy, …)  |
 
 > [!TIP]
-> More options, custom run types, and output path overrides are available — see the [send --run reference](/docs/cdviz-collector/send-run).
+> More options, custom run types, and output path overrides are available. See the [send --run reference](/docs/cdviz-collector/send-run).
 
 ## CI Auto-Detection
 
-Branch, commit SHA, and job name are read automatically — **no `--metadata` flags needed for those**:
+Branch, commit SHA, and job name are read automatically. **You need no `--metadata` flags for them**:
 
 | CI system      | Variables detected automatically                                           |
 | -------------- | -------------------------------------------------------------------------- |
@@ -106,11 +106,11 @@ cdviz-collector send --run testsuiterun_junit \
   -- npm test
 ```
 
-CDviz records a `testedAgainst` link between the test run and the artifact — useful for tracing which image version a test failure was against.
+CDviz records a `testedAgainst` link between the test run and the artifact. Use it to trace which image version a test failure ran against.
 
 ## What You Get
 
-- **Test trend dashboards** — pass/fail rates per suite over time
-- **Step durations** — how long build, test, and deploy steps take per commit
-- **Failure context** — which suite failed, on which branch, at which commit
-- **Artifact traceability** — which tests ran against which image (when `tested_artifact_id` is set)
+- **Test trend dashboards**: pass/fail rates per suite over time
+- **Step durations**: how long build, test, and deploy steps take per commit
+- **Failure context**: which suite failed, on which branch, at which commit
+- **Artifact traceability**: which tests ran against which image (when `tested_artifact_id` is set)
