@@ -115,7 +115,7 @@ See [Installation](./install.md) for Helm chart configuration.
 
 ## Environment Variable Configuration
 
-Any config value can be set or overridden via environment variables using the pattern `CDVIZ_COLLECTOR__<SECTION>__<KEY>` — the key does not need to exist in the TOML file:
+Any config value can be set or overridden via environment variables using the pattern `CDVIZ_COLLECTOR__<SECTION>__<KEY>`. The key does not need to exist in the TOML file:
 
 ```bash
 # Set database URL (no TOML entry needed)
@@ -129,7 +129,7 @@ CDVIZ_COLLECTOR__SINKS__DATABASE__ENABLED="true" \
 
 ## Related
 
-- [Configuration Guide](./configuration.md) — full TOML config reference
-- [Installation](./install.md) — Helm chart and Docker setup
-- [Send Command](./send.md) — one-shot event delivery without starting a server
-- [Troubleshooting](./troubleshooting.md) — common issues and solutions
+- [Configuration Guide](./configuration.md): full TOML config reference
+- [Installation](./install.md): Helm chart and Docker setup
+- [Send Command](./send.md): one-shot event delivery without starting a server
+- [Troubleshooting](./troubleshooting.md): common issues and solutions
