@@ -1,0 +1,299 @@
+/*
+ * CDviz × daisyUI Themes
+ * Day & Night themes mapping the CDviz design system to daisyUI's semantic tokens.
+ *
+ * Usage (daisyUI v5 — Tailwind v4):
+ *   @import "tailwindcss";
+ *   @plugin "daisyui";
+ *   @import "./daisyui-theme.css";
+ *
+ * Then apply with <html data-theme="cdviz-night"> or "cdviz-day".
+ *
+ * Usage (daisyUI v4 — tailwind.config.js):
+ *   Copy the JSON blocks at the bottom of this file into
+ *   daisyui.themes in your tailwind config.
+ */
+
+/* ─────────────────────────────────────────────────────────────────
+   daisyUI v5 — @plugin syntax
+   ───────────────────────────────────────────────────────────────── */
+
+@plugin "daisyui/theme" {
+  name: "cdviz-night";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Brand */
+  --color-primary: oklch(74.22% 0.166 64.29); /* CDviz orange */
+  --color-primary-content: oklch(15% 0.012 244); /* near-black on orange */
+  --color-secondary: oklch(69.49% 0.068 298.56); /* purple */
+  --color-secondary-content: oklch(15% 0.012 244);
+  --color-accent: oklch(49.68% 0.104 307.15); /* deep purple */
+  --color-accent-content: oklch(98% 0 0);
+  --color-neutral: oklch(22% 0.014 244); /* slate-dark */
+  --color-neutral-content: oklch(80.5% 0.019 255.54);
+
+  /* Surfaces (dark-first) */
+  --color-base-100: oklch(10.5% 0.01 244); /* #0e151b — page */
+  --color-base-200: oklch(15% 0.012 244); /* raised surface */
+  --color-base-300: oklch(22% 0.014 244); /* deeper raised */
+  --color-base-content: oklch(80.5% 0.019 255.54); /* fog text */
+
+  /* State (used inside data viz only) */
+  --color-info: oklch(70% 0.12 230);
+  --color-info-content: oklch(15% 0.012 244);
+  --color-success: oklch(70% 0.15 145);
+  --color-success-content: oklch(15% 0.012 244);
+  --color-warning: oklch(80% 0.16 85);
+  --color-warning-content: oklch(15% 0.012 244);
+  --color-error: oklch(65% 0.22 28);
+  --color-error-content: oklch(98% 0 0);
+
+  /* Shape language */
+  --radius-selector: 9999px; /* checkbox, toggle, badge — pill */
+  --radius-field: 0.5rem; /* inputs, select, btn — 8px */
+  --radius-box: 0.75rem; /* cards, modal — 12px */
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0; /* flat — no skeuomorphic shadows */
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "cdviz-day";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Brand — same orange voice, calibrated for light surfaces */
+  --color-primary: oklch(64% 0.18 50); /* slightly deeper orange for AA on white */
+  --color-primary-content: oklch(98% 0 0);
+  --color-secondary: oklch(49.68% 0.104 307.15); /* deep purple becomes the secondary in light */
+  --color-secondary-content: oklch(98% 0 0);
+  --color-accent: oklch(69.49% 0.068 298.56);
+  --color-accent-content: oklch(19.15% 0.016 244.65);
+  --color-neutral: oklch(40% 0.016 244.65);
+  --color-neutral-content: oklch(98% 0 0);
+
+  /* Surfaces (light) */
+  --color-base-100: oklch(98% 0 0); /* white — page */
+  --color-base-200: oklch(96% 0.005 255); /* subtle tint */
+  --color-base-300: oklch(90% 0.012 255); /* card edge / muted */
+  --color-base-content: oklch(19.15% 0.016 244.65); /* near-black text */
+
+  /* State */
+  --color-info: oklch(55% 0.15 230);
+  --color-info-content: oklch(98% 0 0);
+  --color-success: oklch(52% 0.15 145);
+  --color-success-content: oklch(98% 0 0);
+  --color-warning: oklch(70% 0.16 85);
+  --color-warning-content: oklch(15% 0.012 244);
+  --color-error: oklch(55% 0.22 28);
+  --color-error-content: oklch(98% 0 0);
+
+  /* Shape language — identical to night */
+  --radius-selector: 9999px;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Easing tokens — defined in colors_and_type.css, not duplicated here.
+   Import colors_and_type.css before this file to get --ease-* tokens.
+   ───────────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────────────
+   Font wiring — CDviz uses brand fonts inside the theme
+   ───────────────────────────────────────────────────────────────── */
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
+  --font-display: "JetBrains Mono", monospace; /* brand display */
+  --font-sketch: "Excalifont", "Comic Sans MS", sans-serif; /* matches colors_and_type.css */
+}
+
+html {
+  font-family: var(--font-sans);
+}
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+code, pre, kbd, samp, .font-mono {
+  font-family: var(--font-mono);
+}
+.font-sketch {
+  font-family: var(--font-sketch);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   CDviz signatures — opt-in utilities layered on top of daisyUI
+   ───────────────────────────────────────────────────────────────── */
+
+/* Data-grid background */
+.bg-data-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--color-primary) 3%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--color-primary) 3%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+}
+
+/* Gradient brand text */
+.text-brand-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cdviz-gradient-shift 3s ease-in-out infinite;
+}
+@keyframes cdviz-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Card hover (apply alongside daisyUI's `card`) — marketing surfaces only */
+.card-cdviz {
+  transition:
+    border-color 160ms var(--ease-ui),
+    box-shadow 160ms var(--ease-ui),
+    transform 160ms var(--ease-ui);
+}
+.card-cdviz:hover {
+  border-color: color-mix(in oklch, var(--color-primary) 40%, transparent);
+  box-shadow: 0 8px 25px -8px color-mix(in oklch, var(--color-primary) 30%, transparent);
+  transform: scale(1.02);
+}
+
+/* Button motion override — daisyUI buttons keep their styles, we just add the bounce */
+.btn {
+  transition: transform 160ms var(--ease-ui), box-shadow 160ms var(--ease-ui);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+/* Float + glow utilities — canonical definitions in colors_and_type.css.
+   Aliases here for Tailwind @plugin consumers who only import daisyui-theme.css. */
+.animate-float {
+  animation: cdviz-float 3s ease-in-out infinite;
+}
+
+/* Glow: opacity-on-::after pattern (GPU-composited, no box-shadow animation). */
+.animate-glow {
+  position: relative;
+}
+.animate-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 30px color-mix(in oklch, var(--color-primary) 50%, transparent);
+  opacity: 0.3;
+  animation: cdviz-glow-fade 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-brand-gradient,
+  .animate-float,
+  .animate-glow,
+  .animate-glow::after {
+    animation: none;
+  }
+  .card-cdviz:hover, .btn:active, .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   daisyUI v4 — tailwind.config.js JSON
+   Copy these objects into `daisyui.themes` in your config.
+   ─────────────────────────────────────────────────────────────────
+
+   daisyui: {
+     themes: [
+       {
+         "cdviz-night": {
+           "primary":           "oklch(74.22% 0.166 64.29)",
+           "primary-content":   "oklch(15% 0.012 244)",
+           "secondary":         "oklch(69.49% 0.068 298.56)",
+           "secondary-content": "oklch(15% 0.012 244)",
+           "accent":            "oklch(49.68% 0.104 307.15)",
+           "accent-content":    "oklch(98% 0 0)",
+           "neutral":           "oklch(22% 0.014 244)",
+           "neutral-content":   "oklch(80.5% 0.019 255.54)",
+           "base-100":          "oklch(10.5% 0.01 244)",
+           "base-200":          "oklch(15% 0.012 244)",
+           "base-300":          "oklch(22% 0.014 244)",
+           "base-content":      "oklch(80.5% 0.019 255.54)",
+           "info":              "oklch(70% 0.12 230)",
+           "success":           "oklch(70% 0.15 145)",
+           "warning":           "oklch(80% 0.16 85)",
+           "error":             "oklch(65% 0.22 28)",
+           "--rounded-box":     "0.75rem",
+           "--rounded-btn":     "0.5rem",
+           "--rounded-badge":   "9999px",
+           "--border-btn":      "1px",
+           "--tab-radius":      "0.5rem"
+         },
+         "cdviz-day": {
+           "primary":           "oklch(64% 0.18 50)",
+           "primary-content":   "oklch(98% 0 0)",
+           "secondary":         "oklch(49.68% 0.104 307.15)",
+           "secondary-content": "oklch(98% 0 0)",
+           "accent":            "oklch(69.49% 0.068 298.56)",
+           "accent-content":    "oklch(19.15% 0.016 244.65)",
+           "neutral":           "oklch(40% 0.016 244.65)",
+           "neutral-content":   "oklch(98% 0 0)",
+           "base-100":          "oklch(98% 0 0)",
+           "base-200":          "oklch(96% 0.005 255)",
+           "base-300":          "oklch(90% 0.012 255)",
+           "base-content":      "oklch(19.15% 0.016 244.65)",
+           "info":              "oklch(55% 0.15 230)",
+           "success":           "oklch(52% 0.15 145)",
+           "warning":           "oklch(70% 0.16 85)",
+           "error":             "oklch(55% 0.22 28)",
+           "--rounded-box":     "0.75rem",
+           "--rounded-btn":     "0.5rem",
+           "--rounded-badge":   "9999px",
+           "--border-btn":      "1px",
+           "--tab-radius":      "0.5rem"
+         }
+       }
+     ],
+     darkTheme: "cdviz-night"
+   }
+*/

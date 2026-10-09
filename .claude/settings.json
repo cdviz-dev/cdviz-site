@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "cdviz": {
+      "source": {
+        "source": "github",
+        "repo": "cdviz-dev/cdviz-site"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "cdviz@cdviz": true
+  }
+}

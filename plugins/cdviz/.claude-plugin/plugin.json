@@ -1,0 +1,10 @@
+{
+  "name": "cdviz",
+  "description": "CDviz design system and writing rules, shared by the cdviz.dev website, docs and the CDviz apps",
+  "author": {
+    "name": "CDviz team"
+  },
+  "homepage": "https://cdviz.dev",
+  "repository": "https://github.com/cdviz-dev/cdviz-site",
+  "license": "Apache-2.0"
+}

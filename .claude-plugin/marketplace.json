@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cdviz",
+  "description": "Agent plugins for CDviz repositories",
+  "owner": {
+    "name": "CDviz team"
+  },
+  "plugins": [
+    {
+      "name": "cdviz",
+      "source": "./plugins/cdviz",
+      "description": "CDviz design system (cdviz-design) and writing rules for docs, articles and copy (cdviz-writing)"
+    }
+  ]
+}

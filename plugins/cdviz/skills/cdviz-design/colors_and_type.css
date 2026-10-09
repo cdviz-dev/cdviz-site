@@ -1,0 +1,365 @@
+/*
+ * CDviz Design System — Colors & Typography
+ * Source: cdviz-dev/cdviz (cdviz-site/.vitepress/theme/style.css)
+ * Built with: realtimecolors.com, oklch color space
+ */
+
+/* ─── Web Fonts ──────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Excalifont";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src:
+    local("Excalifont"),
+    url("./fonts/Excalifont-Regular.woff2") format("woff2");
+}
+
+/* ─── Base Color Tokens ──────────────────────────────────────────── */
+:root {
+  /* Raw palette — oklch for perceptual uniformity */
+  --cdviz-orange: oklch(74.22% 0.166 64.29); /* #f29107 approx */
+  --cdviz-orange-dim: oklch(64% 0.14 64.29);
+  --cdviz-orange-muted: oklch(74.22% 0.08 64.29);
+  --cdviz-purple: oklch(69.49% 0.068 298.56); /* secondary */
+  --cdviz-purple-deep: oklch(49.68% 0.104 307.15); /* accent */
+  --cdviz-black: oklch(10.5% 0.01 244); /* #0e151b */
+  --cdviz-ink: oklch(15% 0.012 244);
+  --cdviz-slate: oklch(55% 0.018 255);
+  --cdviz-fog: oklch(80.5% 0.019 255.54); /* #c9d2de */
+  --cdviz-white: oklch(98% 0 0);
+
+  /* ─── Semantic color tokens ─── */
+  --color-primary: var(--cdviz-orange);
+  --color-secondary: var(--cdviz-purple);
+  --color-accent: var(--cdviz-purple-deep);
+  --color-bg: var(--cdviz-black);
+  --color-bg-raised: var(--cdviz-ink);
+  --color-bg-subtle: color-mix(in oklch, var(--cdviz-purple) 8%, var(--cdviz-black));
+  --color-border: color-mix(in oklch, var(--cdviz-purple) 20%, transparent);
+  --color-border-hover: color-mix(in oklch, var(--cdviz-orange) 40%, transparent);
+  --color-text: var(--cdviz-fog);
+  --color-text-muted: color-mix(in oklch, var(--cdviz-fog) 70%, transparent);
+  --color-text-dim: color-mix(in oklch, var(--cdviz-fog) 50%, transparent);
+  --color-text-inverse: var(--cdviz-black);
+
+  /* State tokens */
+  --color-primary-hover: var(--cdviz-orange-dim);
+  --color-focus-ring: color-mix(in oklch, var(--cdviz-orange) 30%, transparent);
+
+  /* Glow tokens */
+  --shadow-primary-glow: 0 8px 30px -8px color-mix(in oklch, var(--cdviz-orange) 50%, transparent);
+  --shadow-card: 0 1px 3px color-mix(in oklch, var(--cdviz-black) 40%, transparent);
+  --shadow-card-hover: 0 8px 25px -8px color-mix(in oklch, var(--cdviz-orange) 30%, transparent);
+
+}
+
+/* ─── Light mode overrides (VitePress .dark class) ──────────────── */
+html:not(.dark) {
+  /* Raw palette — L-mirrored for contrast on light bg; H and C preserved */
+  --cdviz-orange: oklch(42% 0.185 64.29);     /* dark mode: 74.22%; 4.82:1 vs fog bg — AA */
+  --cdviz-orange-dim: oklch(52% 0.155 64.29); /* hover / dim; 3.11:1 vs fog — AA-large */
+
+  /* Semantic tokens */
+  --color-primary: var(--cdviz-orange);
+  --color-bg: var(--cdviz-fog);
+  --color-bg-raised: var(--cdviz-white);
+  --color-bg-subtle: color-mix(in oklch, var(--cdviz-purple) 6%, var(--cdviz-white));
+  --color-text: oklch(19.15% 0.016 244.65);   /* 10.03:1 vs fog — AAA */
+  --color-text-muted: oklch(40% 0.016 244.65); /* 5.01:1 vs fog — AA */
+  --color-text-inverse: var(--cdviz-fog);
+  --color-primary-hover: var(--cdviz-orange-dim);
+}
+
+/* Secondary button needs explicit light-mode overrides for WCAG 1.4.11 (UI contrast) */
+/* purple L=69.49% on fog bg = 1.52:1 — fail; L=41% on fog = 4.99:1 — pass */
+html:not(.dark) .cdviz-btn-secondary {
+  background: oklch(41% 0.09 298.56); /* #513e74; 4.99:1 vs fog bg */
+  color: var(--cdviz-fog);             /* fog on dark purple = 4.99:1 — AA */
+}
+
+/* ─── Font Family Tokens ─────────────────────────────────────────── */
+:root {
+  --font-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-display: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
+  --font-mono: "JetBrains Mono", "SF Mono", Monaco, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+  --font-sketch: "Excalifont", "Comic Sans MS", sans-serif;
+}
+
+/* ─── Type Scale (Material Design 3 + golden ratio) ─────────────── */
+:root {
+  /* MD3 size scale */
+  --type-display-lg: 3.5625rem; /* 57px */
+  --type-display-md: 2.8125rem; /* 45px */
+  --type-display-sm: 2.25rem; /* 36px */
+  --type-headline-lg: 2rem; /* 32px */
+  --type-headline-md: 1.75rem; /* 28px */
+  --type-headline-sm: 1.5rem; /* 24px */
+  --type-title-lg: 1.375rem; /* 22px */
+  --type-title-md: 1rem; /* 16px */
+  --type-title-sm: 0.875rem; /* 14px */
+  --type-body-lg: 1rem; /* 16px */
+  --type-body-md: 0.875rem; /* 14px */
+  --type-body-sm: 0.75rem; /* 12px */
+
+  /* Line heights */
+  --lh-display-lg: 4rem;
+  --lh-display-md: 3.25rem;
+  --lh-display-sm: 2.75rem;
+  --lh-headline-lg: 2.5rem;
+  --lh-headline-md: 2.25rem;
+  --lh-headline-sm: 2rem;
+  --lh-title-lg: 1.875rem;
+  --lh-body-lg: 1.5rem;
+  --lh-body-md: 1.25rem;
+  --lh-body-sm: 1rem;
+}
+
+/* ─── Spacing Tokens (golden ratio: 1.618) ───────────────────────── */
+:root {
+  --space-2xs: 0.3rem; /*  4.8px */
+  --space-xs: 0.486rem; /*  7.8px */
+  --space-sm: 0.786rem; /* 12.6px */
+  --space-md: 1.272rem; /* 20.4px */
+  --space-lg: 2.058rem; /* 32.9px */
+  --space-xl: 3.33rem; /* 53.3px */
+  --space-2xl: 5.388rem; /* 86.2px */
+  --space-3xl: 8.718rem; /* 139.5px */
+  --space-4xl: 14.106rem; /* 225.7px */
+
+  /* Semantic spacing */
+  --space-component-gap: var(--space-md);
+  --space-element-gap: var(--space-sm);
+  --space-section-y: var(--space-2xl);
+  --space-section-x: var(--space-lg);
+  --space-content-gap: var(--space-lg);
+  --space-text-gap: var(--space-xs);
+}
+
+/* ─── Easing Tokens (single source — do NOT redeclare in daisyui-theme.css) ─── */
+:root {
+  --ease-ui: cubic-bezier(0.23, 1, 0.32, 1); /* interactions, entrances, dropdowns */
+  --ease-move: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement, position changes */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); /* drawers, sheets, slide-in panels */
+  --ease-reveal: cubic-bezier(0.4, 0, 0.2, 1); /* scroll-triggered reveals (600–800ms only) */
+}
+
+/* ─── Border Radius ──────────────────────────────────────────────── */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px; /* cards */
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px; /* pill/badge */
+}
+
+/* ─── Semantic Typography Classes ───────────────────────────────── */
+.cdviz-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--type-headline-lg), 4vw, var(--type-display-md));
+  line-height: var(--lh-display-md);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.cdviz-h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-headline-lg);
+  line-height: var(--lh-headline-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.cdviz-h3 {
+  font-family: var(--font-display);
+  font-size: var(--type-headline-sm);
+  line-height: var(--lh-headline-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.cdviz-body {
+  font-family: var(--font-base);
+  font-size: var(--type-body-lg);
+  line-height: var(--lh-body-lg);
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.cdviz-body-sm {
+  font-family: var(--font-base);
+  font-size: var(--type-body-md);
+  line-height: var(--lh-body-md);
+  color: var(--color-text-muted);
+}
+
+.cdviz-mono {
+  font-family: var(--font-mono);
+  font-size: var(--type-body-md);
+  line-height: var(--lh-body-md);
+}
+
+.cdviz-sketch {
+  font-family: var(--font-sketch);
+}
+
+/* Landing page only — hero H1 and tagline. Excalifont has one weight; hierarchy via size + color. */
+.cdviz-h1-sketch {
+  font-family: var(--font-sketch);
+  font-size: clamp(var(--type-headline-lg), 5vw, var(--type-display-lg));
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+.cdviz-tagline-sketch {
+  font-family: var(--font-sketch);
+  font-size: clamp(var(--type-title-lg), 2vw, var(--type-headline-sm));
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+}
+
+/* ─── Gradient text utility ──────────────────────────────────────── */
+.cdviz-gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--cdviz-orange),
+    var(--cdviz-purple-deep),
+    var(--cdviz-orange)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ─── Card base ──────────────────────────────────────────────────── */
+.cdviz-card {
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.cdviz-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
+  transform: scale(1.02);
+}
+
+/* ─── Button variants ────────────────────────────────────────────── */
+.cdviz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-base);
+  font-size: var(--type-body-lg);
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-ui), box-shadow 160ms var(--ease-ui);
+  position: relative;
+  overflow: hidden;
+}
+
+.cdviz-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  box-shadow: 0 4px 15px color-mix(in oklch, var(--cdviz-orange) 25%, transparent);
+}
+
+.cdviz-btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-primary-glow);
+}
+
+.cdviz-btn-primary:active {
+  transform: scale(0.95);
+}
+
+.cdviz-btn-secondary {
+  background: var(--color-secondary); /* dark: purple L=69.49% on black = 7.38:1 — AAA */
+  color: var(--color-text);           /* dark: fog on purple = adequate; light: overridden below */
+}
+
+.cdviz-btn-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ─── Data grid background pattern ──────────────────────────────── */
+.cdviz-data-grid-bg {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--cdviz-orange) 3%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--cdviz-orange) 3%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+}
+
+/* ─── Animations (marketing surfaces only) ───────────────────────── */
+@keyframes cdviz-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.cdviz-float {
+  animation: cdviz-float 3s ease-in-out infinite;
+}
+
+/* Glow via ::after opacity — animates opacity not box-shadow, GPU-composited. */
+@keyframes cdviz-glow-fade {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cdviz-glow {
+  position: relative;
+}
+.cdviz-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 30px color-mix(in oklch, var(--cdviz-orange) 50%, transparent);
+  opacity: 0.3;
+  animation: cdviz-glow-fade 3s ease-in-out infinite;
+  pointer-events: none;
+}

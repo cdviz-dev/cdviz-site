@@ -76,6 +76,15 @@ cdviz-site/
 └── .mise.toml           # Task runner configuration
 ```
 
+## Agent Skills (Claude Code plugin)
+
+This repository hosts the `cdviz` Claude Code plugin (`.claude-plugin/marketplace.json`, `plugins/cdviz/`), enabled here by `.claude/settings.json` and reusable by other CDviz repositories (e.g. cdviz-saas):
+
+- **cdviz-design** (`plugins/cdviz/skills/cdviz-design/`): design system, read before any UI or visual change
+- **cdviz-writing** (`plugins/cdviz/skills/cdviz-writing/`): voice, style and structure for docs, articles and copy, read before writing content
+
+Other agents: read those files directly. To test skill edits before pushing: `claude --plugin-dir ./plugins/cdviz`.
+
 ## Code Style & Guidelines
 
 ### Documentation Writing
@@ -185,9 +194,9 @@ mise run perf:report    # Check performance (optional)
 ### Adding Blog Post
 
 1. Create file: `src/blog/YYYYMMDD-topic.md`
-2. Include proper frontmatter (title, date, description)
-3. Update blog sidebar in `.vitepress/config.mts`
-4. Follow existing blog post structure and tone
+2. Include proper frontmatter (see `plugins/cdviz/skills/cdviz-writing/articles.md`)
+3. Leave the sidebar alone: the blog index and sidebar are generated from `src/blog/` (`.vitepress/blog-utils.ts`)
+4. Follow the `cdviz-writing` skill for structure and tone
 
 ## Troubleshooting
 
