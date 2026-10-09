@@ -9,7 +9,7 @@ description: |
 
 ## Why `--run`?
 
-Webhook integrations (GitHub, GitLab, Jenkins) track pipeline and job-level events — when a workflow started, when it succeeded or failed. They do **not** capture what tests ran inside a job, which suites passed or failed, or how many assertions were skipped.
+Webhook integrations (GitHub, GitLab, Jenkins) track pipeline and job-level events: when a workflow started, when it succeeded or failed. They do **not** capture what tests ran inside a job, which suites passed or failed, or how many assertions were skipped.
 
 `cdviz-collector send --run testsuiterun_junit` fills that gap: it wraps your test command, collects JUnit XML (or TAP) output after the process exits, and emits structured `testSuiteRun.started` / `testSuiteRun.finished` CDEvents with per-suite results attached. This data drives test trend dashboards and cross-references test results with the artifact or environment under test.
 
@@ -43,22 +43,22 @@ It sets the following `metadata` fields when the corresponding variables are pre
 | `job`            | `GITHUB_JOB`      | `CI_JOB_NAME`        | `JOB_BASE_NAME`                |
 | pipeline / run   | `GITHUB_RUN_ID`   | `CI_PIPELINE_ID`     | `BUILD_NUMBER` (`JENKINS_URL`) |
 
-**When variables are absent** — for example running locally or in an unrecognized CI — the
+**When variables are absent** (for example, running locally or in an unrecognized CI), the
 detector leaves those fields unset; nothing fails. Supply the missing values yourself with
 `--metadata branch=… --metadata commit=…`, which is also how you set fields the detector does
 not cover (e.g. `tested_artifact_id`). Downstream transformers read these fields from `.metadata`
 to build the CDEvent.
 
-## `customData.links` — Cross-Referencing
+## `customData.links`: Cross-Referencing
 
 `customData.links` is the CDEvents standard mechanism for cross-referencing related subjects (until `context.links` gains full subject support in spec 0.6+). Use `--metadata` to supply identifiers that `--run` cannot auto-detect:
 
-| `--metadata` key     | Link kind       | Target subject type                                                |
-| -------------------- | --------------- | ------------------------------------------------------------------ |
-| `tested_artifact_id` | `testedAgainst` | `artifact` (repeatable — one link per value)                       |
-| `tested_env_id`      | `testedAgainst` | `environment`                                                      |
-| `tested_repo_id`     | `testedAgainst` | `repository`                                                       |
-| `results_url`        | `storedAt`      | `testoutput` — also triggers an extra `testoutput.published` event |
+| `--metadata` key     | Link kind       | Target subject type                                               |
+| -------------------- | --------------- | ----------------------------------------------------------------- |
+| `tested_artifact_id` | `testedAgainst` | `artifact` (repeatable, one link per value)                       |
+| `tested_env_id`      | `testedAgainst` | `environment`                                                     |
+| `tested_repo_id`     | `testedAgainst` | `repository`                                                      |
+| `results_url`        | `storedAt`      | `testoutput`, also triggers an extra `testoutput.published` event |
 
 Example resulting `customData.links` in the emitted CDEvent:
 
@@ -112,7 +112,7 @@ cdviz-collector send --run testsuiterun_tap \
   -- node --test --test-reporter=tap --test-reporter-destination=TEST-results.tap
 ```
 
-The report must be written to a file (stdout is not captured) — see [TAP Reports](../integrations/tap.md).
+The report must be written to a file (stdout is not captured). See [TAP Reports](../integrations/tap.md).
 
 ### SARIF (static analysis / security scanning)
 
@@ -184,7 +184,7 @@ cdviz-collector send --run testsuiterun_cargo \
 The `--config` file is merged on top of the built-in `send.base.toml`, so built-in keys (`testsuiterun_junit`, `testsuiterun_tap`, `testsuiterun_sarif`, `taskrun`) remain available.
 
 ::: warning Environment variables in custom transformers
-VRL `get_env_var()` only reads variables allowlisted in `[vrl] allowed_env_vars` (see [VRL Configuration](./configuration.md#vrl-configuration)). The built-in list covers the CI variables used by `ci_env_detection`. Arrays are replaced, not merged, so to read more variables copy that list from `cdviz-collector config --for send --print` and extend it — never with broad patterns like `GITHUB_*` that also match `GITHUB_TOKEN`.
+VRL `get_env_var()` only reads variables allowlisted in `[vrl] allowed_env_vars` (see [VRL Configuration](./configuration.md#vrl-configuration)). The built-in list covers the CI variables used by `ci_env_detection`. Arrays are replaced, not merged, so to read more variables copy that list from `cdviz-collector config --for send --print` and extend it. Never use broad patterns like `GITHUB_*` that also match `GITHUB_TOKEN`.
 :::
 
 ## Additional Flags
@@ -193,7 +193,7 @@ VRL `get_env_var()` only reads variables allowlisted in `[vrl] allowed_env_vars`
 | ------------------------------ | ------------------------------------------------------------------------------ |
 | `--no-data`                    | Skip result file parsing entirely; use exit code only (overrides `data_globs`) |
 | `--fail-on-collector-error`    | Exit non-zero if the sink is unreachable (default: warn and continue)          |
-| `--log-full-response-on-error` | Log full HTTP response body on non-2xx errors — useful for CI debugging        |
+| `--log-full-response-on-error` | Log full HTTP response body on non-2xx errors (for CI debugging)               |
 
 ## CI Integration Guides
 
