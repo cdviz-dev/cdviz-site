@@ -11,7 +11,7 @@ head:
 
 Looking for Powerpipe alternatives for pipeline observability? This page compares CDviz and Powerpipe across data model, deployment, and integration approach.
 
-Both are open-source, self-hosted tools for engineering visibility — but they solve different problems with different data models.
+Both are open-source, self-hosted tools for engineering visibility, but they solve different problems with different data models.
 
 > _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-powerpipe.md)._
 
@@ -34,10 +34,10 @@ Both are open-source, self-hosted tools for engineering visibility — but they 
 
 ## Key differences
 
-- **Focus area**: CDviz is purpose-built for SDLC event observability — deployments, pipelines, incidents. Powerpipe is built for cloud infrastructure dashboards — resource inventories, compliance benchmarks, security posture.
-- **Observe and act**: CDviz events are not read-only. The same event stream drives both observability and workflow triggers — an event-driven SDLC backbone. Powerpipe is purely for visualization of current state.
-- **Push vs pull**: CDviz ingests events as they happen, storing them in a timeseries database. Powerpipe queries live APIs on demand via [Steampipe](https://steampipe.io/) — great for current state, not for historical trend analysis.
-- **Customization**: CDviz lets you enrich events at ingestion, route to different backends (PostgreSQL, ClickHouse…), and connect to any analytics or reporting tool — Grafana, BI platforms, AI agents, MCP-connected tools, Internal Developer Platforms. Powerpipe dashboards are HCL-defined and self-contained.
+- **Focus area**: CDviz is purpose-built for SDLC event observability: deployments, pipelines, incidents. Powerpipe is built for cloud infrastructure dashboards: resource inventories, compliance benchmarks, security posture.
+- **Observe and act**: The same CDviz event stream drives both observability and workflow triggers. Powerpipe is purely for visualization of current state.
+- **Push vs pull**: CDviz ingests events as they happen, storing them in a timeseries database. Powerpipe queries live APIs on demand via [Steampipe](https://steampipe.io/). This works well for current state, not for historical trend analysis.
+- **Customization**: CDviz lets you enrich events at ingestion, route to different backends (PostgreSQL, ClickHouse…), and connect to any analytics or reporting tool: Grafana, BI platforms, AI agents, MCP-connected tools, Internal Developer Platforms. Powerpipe dashboards are HCL-defined and self-contained.
 - **Data retention**: CDviz stores historical event timeseries. Powerpipe reflects current state; historical trends require additional tooling ([Tailpipe](https://tailpipe.io/)).
 - **Commercial support**: CDviz offers commercial support. Powerpipe is community-supported only.
 
@@ -46,19 +46,19 @@ Both are open-source, self-hosted tools for engineering visibility — but they 
 - You want to track _what happened_ in your pipelines and deployments over time.
 - You need DORA metrics, deployment frequency, lead time, change failure rate.
 - You want events to trigger downstream workflows, not just be observed.
-- You need flexible reporting — Grafana, BI tools, AI agents, MCP, IDP integrations.
+- You need flexible reporting: Grafana, BI tools, AI agents, MCP, IDP integrations.
 - You are adopting the CDEvents open standard.
 - You want commercial support ([Pro plan](/pricing)) or a managed option ([Cloud plan](/pricing), €20/mo, 14-day free trial).
 
 ## When to choose Powerpipe
 
-- You need dashboards over _current cloud state_ — resource counts, IAM policies, compliance benchmarks.
+- You need dashboards over _current cloud state_: resource counts, IAM policies, compliance benchmarks.
 - You already use Steampipe and want to add visual dashboards on top.
 - Your use case is security posture or infrastructure inventory, not delivery pipelines.
 
 ## Summary
 
-These tools solve different problems. Powerpipe visualizes current cloud state (resource inventories, compliance benchmarks); CDviz tracks what happened in your delivery pipeline over time and routes events to trigger downstream automation. If your primary need is SDLC observability, CDviz is purpose-built for it — Powerpipe fills a separate cloud infrastructure gap.
+These tools solve different problems. Powerpipe visualizes current cloud state (resource inventories, compliance benchmarks); CDviz tracks what happened in your delivery pipeline over time and routes events to trigger downstream automation. If your primary need is SDLC observability, CDviz is purpose-built for it. Powerpipe fills a separate cloud infrastructure gap.
 
 <!--@include: ./parts/get-started-cta.md-->
 
@@ -66,11 +66,11 @@ These tools solve different problems. Powerpipe visualizes current cloud state (
 
 **Is Powerpipe free?** Powerpipe is open-source under AGPL v3. Note: AGPL requires source disclosure for networked deployments, which may affect enterprise use. CDviz uses the more permissive Apache 2.0 license.
 
-**Can CDviz query cloud APIs like Powerpipe?** Not on demand. CDviz receives push events from your SDLC toolchain and can periodically [poll HTTP/SDLC APIs](/docs/cdviz-collector/sources/http_polling) (e.g. Jenkins), storing the results as CDEvents. Powerpipe instead runs on-demand SQL over live cloud state via Steampipe — current-state querying, not a historical event store.
+**Can CDviz query cloud APIs like Powerpipe?** Not on demand. CDviz receives push events from your SDLC toolchain and can periodically [poll HTTP/SDLC APIs](/docs/cdviz-collector/sources/http_polling) (e.g. Jenkins), storing the results as CDEvents. Powerpipe instead runs on-demand SQL over live cloud state via Steampipe. It queries current state; it is not a historical event store.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs Apache DevLake](./vs-apache-devlake.md) — open-source engineering metrics platform
+- [CDviz vs Apache DevLake](./vs-apache-devlake.md): open-source engineering metrics platform
 - [All alternatives](./)
