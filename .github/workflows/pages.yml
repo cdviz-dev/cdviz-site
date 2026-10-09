@@ -57,6 +57,11 @@ jobs:
           command: pages deploy ./.vitepress/dist --project-name=cdviz
           # Optional: Enable this if you want to have GitHub Deployments triggered
           # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Notify IndexNow
+        if: github.event_name == 'push'
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: mise run indexnow -- "$(git log -1 --format=%cI "$BEFORE_SHA" 2>/dev/null)"
       - name: print deployment-url
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}

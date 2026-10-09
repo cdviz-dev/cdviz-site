@@ -28,6 +28,10 @@ description = "guard against the indexation issues GSC flagged: no links to redi
 wait_for = ["build:site"]
 run = "bun run scripts/check-urls.ts"
 
+[tasks.indexnow]
+description = "submit pages changed since the given date (default: all) to IndexNow; run after deploy"
+run = "bun run scripts/indexnow.ts"
+
 [tasks.ci]
 depends = ["build"]
 
