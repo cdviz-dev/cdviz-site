@@ -53,11 +53,13 @@ Complete technical specifications:
 - **[Configuration Guide](./configuration.md)** - Main config structure and environment variables
 - **[TOML Syntax](./toml-guide.md)** - Configuration file format help
 - **[CLI Usage](./usage.md)** - Command-line interface
+- **[CDEvents Version Conversion](./cdevents-version-conversion.md)** - Upgrade or downgrade events between CDEvents versions
 
 **Commands:**
 
 - [`connect`](./connect.md) - Launch collector as a server to connect sources to sinks.
 - [`send`](./send.md) - Send JSON data directly to a sink for testing and scripting.
+- [`send --run`](./send-run.md) - Wrap a CI command and emit testSuiteRun and taskRun CDEvents.
 - [`transform`](./transform.md) - Transform local JSON files using configured transformers or test transformer.
 
 **Components:**
@@ -71,7 +73,9 @@ Complete technical specifications:
 
 Concepts and design decisions:
 
+- **[CDEvents](../cdevents.md)** - What CDEvents are and how CDviz uses them
 - **[CDEvents Standard](https://cdevents.dev/)** - Why we use CDEvents for standardization
+- **[Use Cases](./use-cases.md)** - DORA metrics, multi-tool pipelines, Kubernetes deployment tracking, audit trails
 
 **Architecture Concepts:**
 

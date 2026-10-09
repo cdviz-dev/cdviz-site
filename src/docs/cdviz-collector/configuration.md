@@ -159,7 +159,7 @@ cdviz-collector connect --config config.toml
 
 ## `--set` Flag
 
-The `connect`, `send`, and `config` subcommands accept `--set` to inject raw TOML fragments at runtime. Can be repeated; fragments are merged in order.
+The `connect`, `send`, and `config` [subcommands](./usage.md) accept `--set` to inject raw TOML fragments at runtime. Can be repeated; fragments are merged in order.
 
 ```
 --set <SET>    Override config with a raw TOML fragment. Can be repeated; fragments are concatenated.

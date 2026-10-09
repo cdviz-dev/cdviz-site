@@ -55,7 +55,7 @@ The database implementation requires PostgreSQL with specific extensions:
   - adding support for continuous aggregates
   - adding support for periodic maintenance tasks (metrics aggregation, vacuuming, update of materialized view etc.)
 
-Please refer to the hosting documentation for supported deployment options.
+Please refer to [Database Hosting Options](./hosting.md) for supported deployment options.
 
 ### Data Retention
 
