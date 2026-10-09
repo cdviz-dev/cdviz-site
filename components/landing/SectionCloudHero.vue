@@ -36,9 +36,8 @@ const screenshots = [
       id="cloud-hero-title"
       class="cdviz-h1-sketch max-w-[18ch] mx-auto mb-lg"
     >
-      See which pipelines break — and
-      <span class="text-primary">which keep breaking</span>
-      — across all your repos.
+      See which pipelines break, and
+      <span class="text-primary">which keep breaking</span>, across all your repos.
     </h1>
     <div class="text-text/70 text-base sm:text-lg max-w-[60ch] mx-auto mb-lg">
       Stop opening every repo's CI tab to find what's red. Connect GitHub or GitLab and get one
