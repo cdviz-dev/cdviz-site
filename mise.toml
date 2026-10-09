@@ -91,6 +91,11 @@ run = [
   "magick hero-dashboard-01.webp -quality 75 hero-dashboard-01.avif",
   "magick hero-dashboard-01-600w.webp -quality 75 hero-dashboard-01-600w.avif",
   "magick hero-dashboard-01-400w.webp -quality 75 hero-dashboard-01-400w.avif",
+  # Keep the <img> width/height in sync with the image ratio (reserves its box: no layout shift)
+  '''
+  set -- $(magick identify -format "%w %h" hero-dashboard-01.webp)
+  sed -i -E "/id=\"hero-image-img\"/,/height=/ { s/width=\"[0-9]+\"/width=\"$1\"/; s/height=\"[0-9]+\"/height=\"$2\"/ }" ../../components/landing/SectionHero.vue
+  ''',
 ]
 sources = ["assets/illustrations/hero-dashboard-01.webp"]
 outputs = [
