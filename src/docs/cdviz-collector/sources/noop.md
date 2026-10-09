@@ -4,7 +4,7 @@ description: "CDviz Collector noop source: no-operation extractor for pipeline t
 
 # Noop Extractor
 
-A no-operation extractor that does nothing — sleeps until cancelled. Use for testing sink connectivity, validating transformer configuration, and CI/CD config syntax checks without a live event source.
+A no-operation extractor that does nothing: it sleeps until cancelled. Use for testing sink connectivity, validating transformer configuration, and CI/CD config syntax checks without a live event source.
 
 ## Configuration
 
