@@ -12,7 +12,7 @@ CDviz Grafana provides pre-built dashboards that visualize CDEvents collected by
 
 > [!TIP] Online Demo
 > Explore a live read-only instance of the CDviz Grafana dashboards at
-> **[demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/)** — no installation required.
+> **[demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/)**. No installation required.
 
 > [!NOTE]
 > Dashboards, panels and SQL queries are provided for Grafana, but they can be adapted to your favorite dashboards & analytics system.
@@ -37,7 +37,7 @@ CDviz Grafana provides a comprehensive visualization layer for continuous delive
   - **volkovlabs-echarts-panel** (Business Charts)
   - **volkovlabs-form-panel** (Business Forms)
   - **volkovlabs-table-panel** (Business Table)
-  - **cdviz-executiontable-panel** (custom unsigned plugin — install from [GitHub releases](https://github.com/cdviz-dev/cdviz-executiontable-panel/releases))
+  - **cdviz-executiontable-panel** (custom unsigned plugin, install from [GitHub releases](https://github.com/cdviz-dev/cdviz-executiontable-panel/releases))
 - Database credentials with read access to a CDviz Database instance
 
 ### Manual Installation
@@ -51,15 +51,15 @@ CDviz Grafana provides a comprehensive visualization layer for continuous delive
 
 Available dashboards:
 
-| Dashboard                                     | Description                                                                                                           |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [Artifact Timeline](./artifact_timeline.md)   | Deployment and version tracking across environments                                                                   |
-| [Pipeline & Task Runs](./pipeline_runs.md)    | Spot slow, flaky, or failing pipelines and tasks: duration, queue time, and failure-rate trends                       |
-| [Test Results](./test_results.md)             | Find flaky tests and slow suites: pass/fail history per test and suite                                                |
-| [DORA Metrics](./dora_metrics.md)             | Deployment frequency, lead time, time to restore, change failure rate                                                 |
-| [Incidents & Tickets](./incidents_tickets.md) | Open incidents, MTTR, and change cycle time                                                                           |
-| [Changes](./changes.md)                       | Change lifecycle — created, in review, merged, abandoned — with merge throughput and cycle time _(CDviz Cloud today)_ |
-| [CDEvents Activity](./cdevents_activity.md)   | Raw CDEvent stream and activity overview                                                                              |
+| Dashboard                                     | Description                                                                                                         |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [Artifact Timeline](./artifact_timeline.md)   | Deployment and version tracking across environments                                                                 |
+| [Pipeline & Task Runs](./pipeline_runs.md)    | Spot slow, flaky, or failing pipelines and tasks: duration, queue time, and failure-rate trends                     |
+| [Test Results](./test_results.md)             | Find flaky tests and slow suites: pass/fail history per test and suite                                              |
+| [DORA Metrics](./dora_metrics.md)             | Deployment frequency, lead time, time to restore, change failure rate                                               |
+| [Incidents & Tickets](./incidents_tickets.md) | Open incidents, MTTR, and change cycle time                                                                         |
+| [Changes](./changes.md)                       | Change lifecycle (created, in review, merged, abandoned) with merge throughput and cycle time _(CDviz Cloud today)_ |
+| [CDEvents Activity](./cdevents_activity.md)   | Raw CDEvent stream and activity overview                                                                            |
 
 ### Kubernetes Deployment with Helm
 
