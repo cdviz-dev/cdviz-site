@@ -57,15 +57,6 @@ onMounted(() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced) return;
 
-  // Breathing glow: animates opacity of overlay element — no layout properties
-  gsap.to(".hero-image-glow", {
-    opacity: 1,
-    duration: 2.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut",
-  });
-
   gsap.delayedCall(3, cycleHeadline);
 });
 </script>
@@ -84,7 +75,7 @@ onMounted(() => {
         href="https://demo.cdviz.dev/grafana/"
         target="_blank"
         rel="noopener"
-        class="group relative block w-full"
+        class="group relative block w-full cdviz-float"
         aria-label="Open live CDviz Grafana demo"
       >
         <picture>
@@ -131,9 +122,6 @@ onMounted(() => {
             loading="eager"
           />
         </picture>
-
-        <!-- Glow overlay: opacity animated by GSAP (no layout property) -->
-        <div class="hero-image-glow" aria-hidden="true"></div>
 
         <!-- Hover overlay -->
         <div class="absolute inset-0 rounded-xl flex items-center justify-center bg-black/0 group-hover:bg-black/40 transition-all duration-300">
@@ -259,16 +247,6 @@ onMounted(() => {
 
 .cdevents-badge-glow {
   animation: badge-pulse-glow 3s ease-in-out infinite;
-}
-
-/* Glow overlay for hero image — opacity animated by GSAP */
-.hero-image-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 0.75rem; /* matches rounded-xl */
-  box-shadow: 0 0 30px color-mix(in oklch, var(--primary) 40%, transparent);
-  opacity: 0.3;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
