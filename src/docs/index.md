@@ -18,7 +18,7 @@ CDviz enables organizations to answer critical operational questions:
 - Version correlation between deployed applications and observable runtime metrics
 - End-to-end deployment process duration metrics
 - CI/CD pipeline performance analytics
-- DORA metrics implementation and visualization
+- [DORA metrics](./cdviz-grafana/dora_metrics.md) implementation and visualization
 
 ## Getting Started
 

@@ -18,23 +18,23 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 
 ## At a glance
 
-|                                           |                    **CDviz**                     |             **Splunk**              |
-| ----------------------------------------- | :----------------------------------------------: | :---------------------------------: |
-| License                                   |                    Apache 2.0                    |             Proprietary             |
-| Primary purpose                           |                SDLC observability                | Log aggregation / SIEM / monitoring |
-| Self-hosted                               |                        ✅                        |       ✅ (Splunk Enterprise)        |
-| SaaS option                               | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |     ✅ (Splunk Cloud Platform)      |
-| Commercial support                        |                        ✅                        |            ✅ (included)            |
-| Data ownership                            |                     ✅ full                      |        ✅ (self-hosted only)        |
-| [CDEvents](https://cdevents.dev) standard |                    ✅ native                     |                 ❌                  |
-| Data model                                |               Event-driven (push)                |     Log/metric ingestion (push)     |
-| DORA metrics (out of the box)             |                        ✅                        |     ⚠️ possible, requires setup      |
-| Beyond monitoring: trigger workflows      |                        ✅                        |    ✅ (via Splunk SOAR / alerts)    |
-| Deployment & artifact tracking            |                        ✅                        |     ⚠️ possible, requires setup      |
-| Customizable storage backends             |           ✅ (PostgreSQL, ClickHouse…)           |  ✅ (Splunk indexes / SmartStore)   |
-| Visualization                             |         Grafana, BI, AI agents, MCP, IDP         |   Splunk dashboards / Grafana OSS   |
-| Pricing model                             |   Free self-host · Cloud €20/mo · Pro €200/mo    |  Volume (GB/day) or workload-based  |
-| SDLC-specific setup effort                |                      ✅ low                      |               ⚠️ high                |
+|                                                                   |                    **CDviz**                     |             **Splunk**              |
+| ----------------------------------------------------------------- | :----------------------------------------------: | :---------------------------------: |
+| License                                                           |                    Apache 2.0                    |             Proprietary             |
+| Primary purpose                                                   |                SDLC observability                | Log aggregation / SIEM / monitoring |
+| Self-hosted                                                       |                        ✅                        |       ✅ (Splunk Enterprise)        |
+| SaaS option                                                       | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |     ✅ (Splunk Cloud Platform)      |
+| Commercial support                                                |                        ✅                        |            ✅ (included)            |
+| Data ownership                                                    |                     ✅ full                      |        ✅ (self-hosted only)        |
+| [CDEvents](https://cdevents.dev) standard                         |                    ✅ native                     |                 ❌                  |
+| Data model                                                        |               Event-driven (push)                |     Log/metric ingestion (push)     |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) (out of the box) |                        ✅                        |     ⚠️ possible, requires setup      |
+| Beyond monitoring: trigger workflows                              |                        ✅                        |    ✅ (via Splunk SOAR / alerts)    |
+| Deployment & artifact tracking                                    |                        ✅                        |     ⚠️ possible, requires setup      |
+| Customizable storage backends                                     |           ✅ (PostgreSQL, ClickHouse…)           |  ✅ (Splunk indexes / SmartStore)   |
+| Visualization                                                     |         Grafana, BI, AI agents, MCP, IDP         |   Splunk dashboards / Grafana OSS   |
+| Pricing model                                                     |   Free self-host · Cloud €20/mo · Pro €200/mo    |  Volume (GB/day) or workload-based  |
+| SDLC-specific setup effort                                        |                      ✅ low                      |               ⚠️ high                |
 
 ## Key differences
 

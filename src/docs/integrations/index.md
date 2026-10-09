@@ -47,7 +47,7 @@ Emit `testSuiteRun` CDEvents from any CI job with [`cdviz-collector send --run`]
 
 - **[PostgreSQL](./postgresql.md)** — the CDviz event store (TimescaleDB hypertable, DORA views)
 - **[ClickHouse](./clickhouse.md)** — alternative analytics storage via the ClickHouse sink
-- **[Grafana](../cdviz-grafana/index.md)** — pre-built dashboards for DORA metrics, deployments, and incidents
+- **[Grafana](../cdviz-grafana/index.md)** — pre-built dashboards for [DORA metrics](../cdviz-grafana/dora_metrics.md), deployments, and incidents
 
 ## Trigger Automation
 

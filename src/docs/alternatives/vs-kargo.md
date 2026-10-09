@@ -17,20 +17,20 @@ Full disclosure: Kargo was one of the inspirations for CDviz's [event reaction](
 
 ## At a glance
 
-|                                           |                                        **CDviz**                                        |                  **Kargo**                  |
-| ----------------------------------------- | :-------------------------------------------------------------------------------------: | :-----------------------------------------: |
-| License                                   |                                       Apache 2.0                                        |                 Apache 2.0                  |
-| Category                                  |                           SDLC observability + event reaction                           |     Continuous-promotion control plane      |
-| Made by                                   |                                          CDviz                                          |          Akuity (creators of Argo)          |
-| Self-hosted                               |                                           ✅                                            |                     ✅                      |
-| Commercial offering                       |                  ✅ [Cloud](/pricing) €20/mo · [Pro](/pricing) €200/mo                  |        ✅ Kargo Enterprise (Akuity)         |
-| [CDEvents](https://cdevents.dev) standard |                                        ✅ native                                        |                     ❌                      |
-| Scope                                     |            Any SDLC tool (CI, CD, registries, incidents…), Kubernetes or not            |  Kubernetes delivery with GitOps (Argo CD)  |
-| Promotion execution                       |     ⚠️ delegates to your workflow engine via [event reaction](/docs/event-reaction)      |  ✅ native (Warehouses → Freight → Stages)  |
-| Requires adopting a new delivery model    |                            ❌ listens to your existing tools                            |    ✅ model your pipelines as Kargo CRDs    |
-| Artifact lifecycle visibility             | ✅ cross-tool, from events ([Artifact Timeline](/docs/cdviz-grafana/artifact_timeline)) |      ✅ within Kargo-managed pipelines      |
-| DORA metrics & SDLC dashboards            |                                           ✅                                            |                     ❌                      |
-| Verification gates before promotion       |   via your workflow engine (e.g. [Argo Workflows](/docs/integrations/argo-workflows))   | ✅ built-in (analysis / verification steps) |
+|                                                                    |                                        **CDviz**                                        |                  **Kargo**                  |
+| ------------------------------------------------------------------ | :-------------------------------------------------------------------------------------: | :-----------------------------------------: |
+| License                                                            |                                       Apache 2.0                                        |                 Apache 2.0                  |
+| Category                                                           |                           SDLC observability + event reaction                           |     Continuous-promotion control plane      |
+| Made by                                                            |                                          CDviz                                          |          Akuity (creators of Argo)          |
+| Self-hosted                                                        |                                           ✅                                            |                     ✅                      |
+| Commercial offering                                                |                  ✅ [Cloud](/pricing) €20/mo · [Pro](/pricing) €200/mo                  |        ✅ Kargo Enterprise (Akuity)         |
+| [CDEvents](https://cdevents.dev) standard                          |                                        ✅ native                                        |                     ❌                      |
+| Scope                                                              |            Any SDLC tool (CI, CD, registries, incidents…), Kubernetes or not            |  Kubernetes delivery with GitOps (Argo CD)  |
+| Promotion execution                                                |     ⚠️ delegates to your workflow engine via [event reaction](/docs/event-reaction)      |  ✅ native (Warehouses → Freight → Stages)  |
+| Requires adopting a new delivery model                             |                            ❌ listens to your existing tools                            |    ✅ model your pipelines as Kargo CRDs    |
+| Artifact lifecycle visibility                                      | ✅ cross-tool, from events ([Artifact Timeline](/docs/cdviz-grafana/artifact_timeline)) |      ✅ within Kargo-managed pipelines      |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) & SDLC dashboards |                                           ✅                                            |                     ❌                      |
+| Verification gates before promotion                                |   via your workflow engine (e.g. [Argo Workflows](/docs/integrations/argo-workflows))   | ✅ built-in (analysis / verification steps) |
 
 ## Key differences
 

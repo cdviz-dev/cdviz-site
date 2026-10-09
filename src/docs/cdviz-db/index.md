@@ -8,7 +8,7 @@ import DbConceptual from '../../../components/diagrams/DbConceptual.vue'
 
 # CDviz Database
 
-CDviz Database is the persistence layer for CDEvents. It stores normalized delivery events in a PostgreSQL + TimescaleDB hypertable with a JSONB payload column, enabling time-series queries for DORA metrics, deployment timelines, and incident tracking.
+CDviz Database is the persistence layer for CDEvents. It stores normalized delivery events in a PostgreSQL + TimescaleDB hypertable with a JSONB payload column, enabling time-series queries for [DORA metrics](../cdviz-grafana/dora_metrics.md), deployment timelines, and incident tracking.
 
 ## Overview
 

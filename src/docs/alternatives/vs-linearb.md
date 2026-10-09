@@ -18,23 +18,23 @@ Both platforms surface engineering metrics for software delivery teams. They sol
 
 ## At a glance
 
-|                                           |                    **CDviz**                     |           **LinearB**            |
-| ----------------------------------------- | :----------------------------------------------: | :------------------------------: |
-| License                                   |                    Apache 2.0                    |           Proprietary            |
-| Self-hosted                               |                        ✅                        |                ❌                |
-| SaaS option                               | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |                ✅                |
-| Free tier                                 |                   ✅ self-host                   |    ✅ (up to 8 contributors)     |
-| Commercial support                        |                        ✅                        |          ✅ (included)           |
-| Data ownership                            |                     ✅ full                      |         ❌ vendor-hosted         |
-| [CDEvents](https://cdevents.dev) standard |                    ✅ native                     |                ❌                |
-| Data model                                |               Event-driven (push)                |       Pull-based (polling)       |
-| DORA metrics                              |                        ✅                        |                ✅                |
-| PR / cycle time analytics                 |                    ⏳ planned                    |        ✅ (core strength)        |
-| Beyond monitoring: trigger workflows      |                        ✅                        | ✅ (PR automations / AI actions) |
-| Built-in integrations                     |       GitHub, GitLab, ArgoCD, Kubernetes…        |  GitHub, GitLab, Jira, Linear…   |
-| Customizable storage backends             |           ✅ (PostgreSQL, ClickHouse…)           |                ❌                |
-| Visualization                             |      Grafana, BI, AI agents, MCP, IDP tools      |       built-in dashboards        |
-| Pricing model                             |   Free self-host · Cloud €20/mo · Pro €200/mo    | ~$420–$549 per contributor/year  |
+|                                                  |                    **CDviz**                     |           **LinearB**            |
+| ------------------------------------------------ | :----------------------------------------------: | :------------------------------: |
+| License                                          |                    Apache 2.0                    |           Proprietary            |
+| Self-hosted                                      |                        ✅                        |                ❌                |
+| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |                ✅                |
+| Free tier                                        |                   ✅ self-host                   |    ✅ (up to 8 contributors)     |
+| Commercial support                               |                        ✅                        |          ✅ (included)           |
+| Data ownership                                   |                     ✅ full                      |         ❌ vendor-hosted         |
+| [CDEvents](https://cdevents.dev) standard        |                    ✅ native                     |                ❌                |
+| Data model                                       |               Event-driven (push)                |       Pull-based (polling)       |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |                ✅                |
+| PR / cycle time analytics                        |                    ⏳ planned                    |        ✅ (core strength)        |
+| Beyond monitoring: trigger workflows             |                        ✅                        | ✅ (PR automations / AI actions) |
+| Built-in integrations                            |       GitHub, GitLab, ArgoCD, Kubernetes…        |  GitHub, GitLab, Jira, Linear…   |
+| Customizable storage backends                    |           ✅ (PostgreSQL, ClickHouse…)           |                ❌                |
+| Visualization                                    |      Grafana, BI, AI agents, MCP, IDP tools      |       built-in dashboards        |
+| Pricing model                                    |   Free self-host · Cloud €20/mo · Pro €200/mo    | ~$420–$549 per contributor/year  |
 
 ## Key differences
 

@@ -48,7 +48,7 @@ Events move through the platform in one direction, from source systems to insigh
 1. **Emit** — CI/CD tools, deployment systems, and incident tools emit events, either pushed to the Collector (webhooks, Kafka, NATS, SSE) or pulled by it (file inputs, HTTP polling).
 2. **Normalize** — the **Collector** validates each event and transforms it into a standard [CDEvent](https://cdevents.dev) via VRL transformers, enriching it with metadata along the way.
 3. **Persist** — normalized CDEvents are written to the **Database** (PostgreSQL + TimescaleDB), which keeps the full JSONB payload plus extracted columns optimized for time-series delivery queries.
-4. **Visualize** — **Grafana** queries the database directly to render DORA metrics, deployment timelines, and CDEvents activity — no intermediate API layer.
+4. **Visualize** — **Grafana** queries the database directly to render [DORA metrics](./cdviz-grafana/dora_metrics.md), deployment timelines, and CDEvents activity — no intermediate API layer.
 5. **React** — in parallel with persistence, the **Event Processing** layer can forward the same events to external systems through Collector sinks, triggering downstream automation.
 
 Steps 3–5 are independent consumers of the Collector's output: a deployment can be stored for dashboards and trigger a notification at the same time, and any of the consuming layers can be deployed on its own.
