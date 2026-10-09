@@ -40,7 +40,7 @@ onMounted(() => {
         </div>
         <p class="leading-relaxed text-sm sm:text-base text-text/90">
           Know which version is deployed where, and when it arrived. Dashboards across your entire
-          CI/CD pipeline — no more hunting across systems to understand your current state.
+          CI/CD pipeline. Stop searching across systems to know your current state.
         </p>
       </div>
       <!-- Second card - larger, emphasized, 3 columns -->
@@ -60,7 +60,7 @@ onMounted(() => {
           <H3 class="text-lg sm:text-xl">Works With What You Already Have</H3>
         </div>
         <p class="leading-relaxed text-base sm:text-lg text-text/90 relative z-10">
-          GitHub, GitLab, Jenkins, Kubernetes, Tekton, Harbor — plug in without changing a single
+          GitHub, GitLab, Jenkins, Kubernetes, Tekton, Harbor: plug in without changing a single
           workflow. Your team keeps shipping; CDviz starts watching.
         </p>
       </div>
@@ -80,7 +80,7 @@ onMounted(() => {
         </div>
         <p class="leading-relaxed text-sm sm:text-base text-text/90">
           Eliminate the "which version is in prod?" conversations. Shared dashboards mean shared
-          accountability — and faster incident response.
+          accountability and faster incident response.
         </p>
       </div>
     </div>
