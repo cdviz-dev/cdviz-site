@@ -89,7 +89,7 @@ cdviz-collector transform \
 
 ### Continuous mode with `connect`
 
-Run in server mode — all incoming events are normalized to v0.5 before reaching sinks:
+Run in server mode. All incoming events are normalized to v0.5 before reaching sinks:
 
 ```bash
 cdviz-collector connect --config conversion.toml
@@ -103,10 +103,10 @@ Add your `[sources.*]` (e.g. webhook) and `[sinks.*]` to `conversion.toml`. Even
 
 The conversion logic lives in the [transformers-community](https://github.com/cdviz-dev/transformers-community) repository. These files serve as human-readable migration guides showing exactly what changed between versions:
 
-- [`cdevents/cdevents_v0_3/to_v0_4.vrl`](https://github.com/cdviz-dev/transformers-community/blob/main/cdevents/cdevents_v0_3/to_v0_4.vrl) — field-by-field mapping from v0.3 to v0.4
-- [`cdevents/cdevents_v0_4/to_v0_5.vrl`](https://github.com/cdviz-dev/transformers-community/blob/main/cdevents/cdevents_v0_4/to_v0_5.vrl) — field-by-field mapping from v0.4 to v0.5
+- [`cdevents/cdevents_v0_3/to_v0_4.vrl`](https://github.com/cdviz-dev/transformers-community/blob/main/cdevents/cdevents_v0_3/to_v0_4.vrl): field-by-field mapping from v0.3 to v0.4
+- [`cdevents/cdevents_v0_4/to_v0_5.vrl`](https://github.com/cdviz-dev/transformers-community/blob/main/cdevents/cdevents_v0_4/to_v0_5.vrl): field-by-field mapping from v0.4 to v0.5
 
 ## See Also
 
-- **[Transformers](./transformers.md)** — full transformer reference, VRL syntax, remote sources
-- **[transformers-community](https://github.com/cdviz-dev/transformers-community)** — production-ready transformer library
+- **[Transformers](./transformers.md)**: full transformer reference, VRL syntax, remote sources
+- **[transformers-community](https://github.com/cdviz-dev/transformers-community)**: production-ready transformer library
