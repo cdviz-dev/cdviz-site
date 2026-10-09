@@ -39,7 +39,7 @@ A Message is composed of:
 
 ### Extractor Metadata Configuration
 
-All extractors accept a `metadata` field to inject static key/value pairs into every event — useful for tagging events with environment, team, or region without a custom transformer.
+All extractors accept a `metadata` field to inject static key/value pairs into every event. Use it to tag events with environment, team, or region without a custom transformer.
 
 If `metadata.context.source` is not set, it defaults to `{http.root_url}/?source={source_name}`.
 
@@ -80,7 +80,7 @@ Headers are used differently by various components:
 
 No configuration required. The loader converts each Message into a CDEvent:
 
-- Computes a content-based `context.id` (CID) when `context.id` is `"0"` or absent — enables downstream deduplication.
+- Computes a content-based `context.id` (CID) when `context.id` is `"0"` or absent, for downstream deduplication.
 - Serializes the message body as a CDEvent.
 - Pushes the CDEvent to all configured [Sinks].
 
