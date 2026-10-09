@@ -1,9 +1,9 @@
 ---
 title: "DORA Metrics Dashboard for Grafana"
-description: "DORA metrics dashboard built on CDEvents: deployment frequency, lead time for changes, change failure rate, and time to restore — visualized in Grafana."
+description: "DORA metrics dashboard built on CDEvents: deployment frequency, lead time for changes, change failure rate, and time to restore, visualized in Grafana."
 faq:
   - q: What is a DORA metrics dashboard?
-    a: A DORA metrics dashboard visualizes the four key DevOps Research and Assessment (DORA) indicators — Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service — in a single view. These metrics help engineering teams benchmark and improve their software delivery performance.
+    a: "A DORA metrics dashboard visualizes the four key DevOps Research and Assessment (DORA) indicators in a single view: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service. These metrics help engineering teams benchmark and improve their software delivery performance."
   - q: How do I build a DORA metrics dashboard in Grafana?
     a: CDviz provides a pre-built Grafana dashboard for DORA metrics powered by CDEvents. Install CDviz Collector to emit events from your CI/CD pipelines and deployments, connect a PostgreSQL datasource, and import the CDviz DORA Metrics dashboard JSON. The dashboard auto-populates deployment frequency, lead time, change failure rate, and MTTR panels.
   - q: What CDEvents are required for DORA metrics?
@@ -20,7 +20,7 @@ CDviz computes them from the CDEvents that your CI/CD pipelines, deployment tool
 ![DORA Metrics dashboard overview](/screenshots/grafana_dashboard_dora_metrics-20260222.png)
 
 > [!TIP] Online Demo
-> Explore a live read-only instance at [demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/) — search for the **DORA Metrics** dashboard.
+> Explore a live read-only instance at [demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/). Search for the **DORA Metrics** dashboard.
 
 ## Overview
 
@@ -36,8 +36,8 @@ CDviz computes them from the CDEvents that your CI/CD pipelines, deployment tool
 > If a step does not emit events, or the causal link fields (e.g. `artifactId`) are absent,
 > the corresponding metric falls back to a proxy or shows no data.
 >
-> Precise DORA measurement is an open problem across the industry — the cross-tool
-> tracing chain is genuinely difficult to close without a shared event standard.
+> Precise DORA measurement is an open problem across the industry. The cross-tool
+> tracing chain is difficult to close without a shared event standard.
 > [CDEvents](https://cdevents.dev) is the community effort to make these links explicit.
 > As your tools emit richer events, CDviz measurements improve automatically.
 >
@@ -52,14 +52,14 @@ CDviz computes them from the CDEvents that your CI/CD pipelines, deployment tool
 | **Change Failure Rate**         | ≤ 5%     | ≤ 10%    | ≤ 15%     | > 15%     |
 
 > [!NOTE]
-> All metrics are powered by CDEvents. If the required event types are not emitted, panels show no data — not zero values.
+> All metrics are powered by CDEvents. If the required event types are not emitted, panels show no data, not zero values.
 
 ![DORA summary stat row](/screenshots/grafana_dora_summary-20260222.png)
 
 ## Dashboard Variables
 
-- **`environment`** — filter by deployment environment (populated from `service.deployed` / `service.upgraded` events)
-- **`service`** — filter by service ID, scoped to the selected environment
+- **`environment`**: filter by deployment environment (populated from `service.deployed` / `service.upgraded` events)
+- **`service`**: filter by service ID, scoped to the selected environment
 
 ## Metrics
 
@@ -80,7 +80,7 @@ CDviz computes them from the CDEvents that your CI/CD pipelines, deployment tool
 
 **Formula**: `COUNT(deployments) / observed_span_days`
 
-The denominator is the span between the **first and last deployment event** in the selected time window — not the full dashboard time range. This avoids artificially low rates when deployments are sparse at the edges of the window.
+The denominator is the span between the **first and last deployment event** in the selected time window, not the full dashboard time range. This avoids artificially low rates when deployments are sparse at the edges of the window.
 
 **Known limitations**:
 
@@ -126,7 +126,7 @@ The dashboard uses a `LATERAL JOIN` to match each deployment with the most recen
 **Known limitations**:
 
 - Requires both `pipelinerun.queued` and `pipelinerun.finished` events
-- Does not filter by environment or service — covers all pipelines in the selected time range
+- Does not filter by environment or service: covers all pipelines in the selected time range
 
 ### Time to Restore (All Incidents)
 
@@ -193,7 +193,7 @@ Grouped weekly in the time series view to smooth out noise.
 
 ### DORA 2023: MTTR → FDRT
 
-In the 2023 DORA report, "Mean Time to Restore" (MTTR) was renamed to **Failed Deployment Recovery Time** (FDRT), scoping it to incidents caused by a specific deployment. This dashboard tracks **all incidents** as a proxy — values may differ from a strict FDRT calculation if your incident data includes non-deployment-caused outages.
+In the 2023 DORA report, "Mean Time to Restore" (MTTR) was renamed to **Failed Deployment Recovery Time** (FDRT), scoping it to incidents caused by a specific deployment. This dashboard tracks **all incidents** as a proxy. Values may differ from a strict FDRT calculation if your incident data includes non-deployment-caused outages.
 
 ### Deployment Frequency Denominator
 
@@ -224,9 +224,8 @@ are either approximated or missing. Specifically:
   failures (hotfixes without a rollback event) are invisible.
 - **Time to Restore** covers all incidents, not only deployment-induced ones.
 
-Emitting richer CDEvents — particularly `artifactId` in `service.deployed` payloads and
-linking pipeline runs to their source commits — directly improves measurement accuracy
-without any dashboard changes.
+Richer CDEvents improve measurement accuracy without any dashboard change. The most useful are
+`artifactId` in `service.deployed` payloads and links from pipeline runs to their source commits.
 
 ## Source Code References
 
