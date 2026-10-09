@@ -1,11 +1,11 @@
 ---
 title: CDviz Use Cases
-description: Real-world use cases for CDviz across the whole platform and each component — for CTOs, DevOps, platform engineers and developers.
+description: Real-world use cases for CDviz across the whole platform and each component, for CTOs, DevOps, platform engineers and developers.
 keywords: "CDviz use cases,engineering analytics platform,improve software delivery,DORA metrics use cases,deployment tracking use cases,CI/CD observability for platform teams"
 layout: home
 markdownStyles: false
 
-# Use cases db. Markdown is allowed in `goal` and `solution` — rendered to HTML at
+# Use cases db. Markdown is allowed in `goal` and `solution`, rendered to HTML at
 # build time by use-cases.data.ts (no runtime JS rendering, SEO/GEO friendly).
 #   component: platform | collector | db | grafana
 #   audiences: any of cto | devops | platform | developer
@@ -17,8 +17,8 @@ cases:
     audiences: [cto, devops]
     goal: |
       Leadership wants DORA numbers, but today they are stitched together by hand from
-      several dashboards every sprint. Get the four indicators — deployment frequency, lead
-      time for changes, change failure rate and time to restore — as a **live dashboard**
+      several dashboards every sprint. Get the four indicators (deployment frequency, lead
+      time for changes, change failure rate and time to restore) as a **live dashboard**
       instead of a hand-maintained spreadsheet.
     solution: |
       CDviz captures [CDEvents](https://cdevents.dev) from your CI/CD and deployment tools into
@@ -47,13 +47,13 @@ cases:
     component: platform
     audiences: [cto, platform]
     goal: |
-      Audit and compliance reviews ask who deployed what, when, and to which environment —
-      answering means digging across CI logs, ticketing systems and chat history. Keep a
+      Audit and compliance reviews ask who deployed what, when, and to which environment.
+      Answering means digging across CI logs, ticketing systems and chat history. Keep a
       **tamper-evident, queryable history** for compliance and post-mortems instead.
     solution: |
       Every delivery event is stored as a standardized CDEvent in the CDviz event lake with its
       metadata extracted, giving you a durable, SQL-queryable audit trail with automatic
-      long-term retention — no custom logging pipeline to build.
+      long-term retention. You build no custom logging pipeline.
 
   - id: unify-cicd-tools
     title: One event stream from many CI/CD tools
@@ -82,8 +82,8 @@ cases:
       workload is **deployed, upgraded or rolled back**, reflecting real state not intent.
     solution: |
       Point the collector at cluster events (e.g. via Kubewatch) and transform them into
-      `service.deployed` / `service.upgraded` / `service.rolledback` CDEvents — observed from
-      the cluster, so the timeline reflects what truly happened.
+      `service.deployed` / `service.upgraded` / `service.rolledback` CDEvents. They come from
+      the cluster, so the timeline shows what really happened.
 
   - id: event-driven-automation
     title: Trigger automation from delivery events
@@ -91,12 +91,12 @@ cases:
     audiences: [developer, devops]
     goal: |
       You want a Slack ping on production deploys or a smoke-test job when a service upgrades,
-      but wiring that per-tool is repetitive and brittle. React to delivery events — **notify,
-      gate, or kick off a follow-up workflow** — without polling or bespoke webhook plumbing.
+      but wiring that per-tool is repetitive and brittle. React to delivery events (**notify,
+      gate, or kick off a follow-up workflow**) without polling or bespoke webhook plumbing.
     solution: |
       The collector's sinks let you fan delivery events out to HTTP endpoints, files or a
-      database. Because everything is a standard CDEvent, one rule works across every source —
-      observe first, then act.
+      database. Because everything is a standard CDEvent, one rule works across every source.
+      Observe first, then act.
 
   - id: queryable-event-lake
     title: A queryable history of your delivery lifecycle
@@ -104,13 +104,13 @@ cases:
     audiences: [developer, platform]
     goal: |
       Delivery data is scattered and ephemeral across tool UIs and logs, so simple historical
-      questions are surprisingly hard. Run **ad-hoc SQL** over your full delivery history —
-      "how many times did service X deploy to prod last month?" — via JSONB access to the
+      questions are surprisingly hard. Run **ad-hoc SQL** over your full delivery history,
+      for example "how many times did service X deploy to prod last month?". JSONB gives access to the
       CDEvents payload.
     solution: |
       CDviz stores every CDEvent in the `cdviz.cdevents_lake` table on PostgreSQL with extracted
-      metadata plus the raw JSONB payload. Query it directly — full SQL and JSONB operators, no
-      API layer in the way.
+      metadata plus the raw JSONB payload. Query it directly with full SQL and JSONB operators. No
+      API layer is in the way.
 
   - id: timescale-retention
     title: Long-term analytics that stay fast
@@ -148,7 +148,7 @@ cases:
       service and environment**, then drill down to the individual events behind a number.
     solution: |
       CDviz Grafana dashboards let you filter by service and environment and drill from a metric
-      down to the underlying CDEvents — version, target environment and timing included — because
+      down to the underlying CDEvents (version, target environment and timing included), because
       they query the structured event lake directly.
 
   - id: webhook-to-sse-bridge
@@ -162,8 +162,8 @@ cases:
     solution: |
       Run a public **cdviz-collector** on isolated infra (a small VPS, SaaS, DMZ) that receives
       webhooks from the public provider and re-exposes them on an **SSE endpoint**. Your
-      internal collector connects **outbound** to that SSE stream and pulls the events in — no
-      inbound port, no internal endpoint published to the public internet.
+      internal collector connects **outbound** to that SSE stream and pulls the events in. You open no
+      inbound port and publish no internal endpoint to the public internet.
 
   - id: enrich-idp
     title: Enrich your Internal Developer Platform with delivery facts
@@ -184,14 +184,14 @@ cases:
     component: db
     audiences: [platform, developer]
     goal: |
-      You want an **AI agent to answer questions about your SDLC** — what shipped, when, how
-      often, what failed — without handing it credentials to every CI, registry and cluster,
+      You want an **AI agent to answer questions about your SDLC** (what shipped, when, how
+      often, what failed) without handing it credentials to every CI, registry and cluster,
       fanning out calls across all of them, or losing access to historical data the tools age
       out.
     solution: |
       Point the agent at the **CDviz event lake as the single source**: one read-only PostgreSQL
       connection over a standardized CDEvents history. The agent runs plain SQL for both live
-      and historical questions — no per-system integration, no broad credentials, a clear
+      and historical questions. It needs no per-system integration and no broad credentials, and you get a clear
       least-privilege boundary you can audit.
 ---
 
