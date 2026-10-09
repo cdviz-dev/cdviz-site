@@ -4,7 +4,7 @@ description: "CDviz Collector database sink: store CDEvents in PostgreSQL with T
 
 # Database Sink
 
-Stores CDEvents in PostgreSQL. The primary sink for CDviz dashboards and analytics — events stored here power DORA metrics, deployment timelines, and artifact tracking in Grafana.
+Stores CDEvents in PostgreSQL. The primary sink for CDviz dashboards and analytics. Events stored here power DORA metrics, deployment timelines, and artifact tracking in Grafana.
 
 ## Configuration
 
@@ -134,7 +134,7 @@ For production deployments:
 
 ## Related
 
-- [Database Setup (cdviz-db)](../../cdviz-db/) — install the CDviz schema and TimescaleDB
-- [Debug Sink](./debug.md) — log events to stdout before enabling the database sink
-- [ClickHouse Sink](./clickhouse.md) — alternative analytical database for high-throughput use cases
-- [DORA Metrics Dashboard](../../cdviz-grafana/dora_metrics.md) — Grafana dashboard powered by stored CDEvents
+- [Database Setup (cdviz-db)](../../cdviz-db/): install the CDviz schema and TimescaleDB
+- [Debug Sink](./debug.md): log events to stdout before enabling the database sink
+- [ClickHouse Sink](./clickhouse.md): alternative analytical database for high-throughput use cases
+- [DORA Metrics Dashboard](../../cdviz-grafana/dora_metrics.md): Grafana dashboard powered by stored CDEvents
