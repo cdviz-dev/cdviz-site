@@ -2,7 +2,6 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useScrollAnimation } from "../../composables/useScrollAnimation.js";
 import { data as useCases } from "../data/use-cases.data.ts";
-import H2 from "./H2.vue";
 
 // Filter definitions. `all` is the default so every card is visible in the
 // statically rendered HTML (SEO/GEO friendly); chips only hide/show via v-show.
@@ -92,7 +91,12 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
         <p class="text-sm font-semibold uppercase tracking-widest text-primary/70 mb-3">
           Use cases
         </p>
-        <H2 id="use-cases-heading" class="mb-0">What you can do with CDviz</H2>
+        <h1
+          id="use-cases-heading"
+          class="mb-lg text-2xl tracking-tight sm:text-3xl lg:text-4xl relative font-bold text-center mb-0"
+        >
+          What you can do with CDviz
+        </h1>
         <div class="text-sm sm:text-base text-text/70 mt-sm max-w-[40rem] mx-auto">
           Real scenarios across the whole platform and each component — pick your role or the piece
           you care about.
