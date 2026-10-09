@@ -59,7 +59,7 @@ WHERE $__timeFilter(timestamp)
 
 ## Also in CDviz Cloud
 
-The same timeline is built into [CDviz Cloud](/cloud) — managed, nothing to install:
+The same timeline is built into [CDviz Cloud](/cloud), managed, with nothing to install:
 
 ![CDviz Cloud artifact timeline overview](/screenshots/cloud_artifact_timeline_dashboard-20260717.png)
 
