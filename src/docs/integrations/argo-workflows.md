@@ -37,11 +37,11 @@ total_duration_of_retries = "5m"
 "authorization" = { type = "secret", value = "Bearer changeme" }
 ```
 
-The bearer token belongs to a Kubernetes service account allowed to submit workflows — see [Argo Workflows access tokens](https://argo-workflows.readthedocs.io/en/latest/access-token/).
+The bearer token belongs to a Kubernetes service account allowed to submit workflows. See [Argo Workflows access tokens](https://argo-workflows.readthedocs.io/en/latest/access-token/).
 
 ### Argo Workflows: WorkflowEventBinding
 
-A `WorkflowEventBinding` filters incoming events and maps CDEvents fields to workflow parameters — here, launching tests after each deployment of a service:
+A `WorkflowEventBinding` filters incoming events and maps CDEvents fields to workflow parameters. This example launches tests after each deployment of a service:
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -72,14 +72,14 @@ spec:
             event: "payload.subject.content.environment.id"
 ```
 
-The referenced `WorkflowTemplate` receives `artifactId` and `environment` as parameters and runs whatever the reaction requires — a test suite, a promotion job, an HTTP call to another system.
+The referenced `WorkflowTemplate` receives `artifactId` and `environment` as parameters and runs whatever the reaction requires: a test suite, a promotion job, an HTTP call to another system.
 
 ## Live Example
 
-A running version of this setup — collector sink, event bindings, and workflow templates — is part of the [CDviz demo cluster](https://github.com/cdviz-dev/demo-cluster) (see `4-k8s-gitops/manifests/argo-workflows/`).
+A running version of this setup (collector sink, event bindings, and workflow templates) is part of the [CDviz demo cluster](https://github.com/cdviz-dev/demo-cluster) (see `4-k8s-gitops/manifests/argo-workflows/`).
 
 ## Related
 
-- [Event Reaction](../event-reaction.md) — patterns for triggering automation from CDEvents
-- [HTTP Sink reference](../cdviz-collector/sinks/http.md) — all options (retries, headers, transformers)
-- [Transformers](../cdviz-collector/transformers.md) — filter or reshape events before they reach Argo Workflows
+- [Event Reaction](../event-reaction.md): patterns for triggering automation from CDEvents
+- [HTTP Sink reference](../cdviz-collector/sinks/http.md): all options (retries, headers, transformers)
+- [Transformers](../cdviz-collector/transformers.md): filter or reshape events before they reach Argo Workflows
