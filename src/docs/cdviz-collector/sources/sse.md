@@ -4,7 +4,7 @@ description: "CDviz Collector SSE source: consume real-time events from Server-S
 
 # SSE Extractor
 
-Connects to HTTP endpoints that stream events via Server-Sent Events (SSE) protocol — ideal for consuming live event streams from services that support push-based streaming.
+Connects to HTTP endpoints that stream events via the Server-Sent Events (SSE) protocol. Use it to consume live event streams from services that support push-based streaming.
 
 ## Configuration
 
@@ -43,14 +43,14 @@ max_retries = 10
 
 ### API key (secret value)
 
-Keep the secret out of the config file — use the `_file` suffix to read it from a mounted file:
+Keep the secret out of the config file. Use the `_file` suffix to read it from a mounted file:
 
 ```toml
 [sources.api_events.extractor.headers]
 "x-api-key" = { type = "secret", value_file = "/run/secrets/api_key" }
 ```
 
-Or set via environment variable (see [Configuration — Environment Variables](../configuration.md#environment-variables)).
+Or set via environment variable (see [Configuration: Environment Variables](../configuration.md#environment-variables)).
 
 **[→ Complete Header Authentication Guide](../header-authentication.md)**
 
@@ -116,7 +116,7 @@ The SSE extractor implements automatic reconnection with exponential backoff:
 
 ## Related
 
-- [Webhook Source](./webhook.md) — receive events via HTTP POST (push-based)
-- [HTTP Polling Source](./http_polling.md) — poll HTTP endpoints on a fixed interval
-- [SSE Sink](../sinks/sse.md) — expose an SSE stream from CDviz Collector
-- [Header Authentication](../header-authentication.md) — authenticate to SSE endpoints
+- [Webhook Source](./webhook.md): receive events via HTTP POST (push-based)
+- [HTTP Polling Source](./http_polling.md): poll HTTP endpoints on a fixed interval
+- [SSE Sink](../sinks/sse.md): expose an SSE stream from CDviz Collector
+- [Header Authentication](../header-authentication.md): authenticate to SSE endpoints
