@@ -85,7 +85,7 @@ onMounted(() => {
         href="https://demo.cdviz.dev/grafana/"
         target="_blank"
         rel="noopener"
-        class="group relative block"
+        class="group relative block w-full"
         aria-label="Open live CDviz Grafana demo"
       >
         <picture>
@@ -123,8 +123,8 @@ onMounted(() => {
 
           <img
             id="hero-image-img"
-            width="666"
-            height="596"
+            width="954"
+            height="799"
             class="w-full h-auto max-h-[500px] md:max-h-[600px] lg:max-h-none rounded-xl object-contain"
             src="/illustrations/hero-dashboard-01-q60.webp"
             alt="CDviz dashboard showing software delivery pipeline monitoring with deployment tracking and analytics"
