@@ -169,6 +169,7 @@ Never use `ease-in` for UI — starts slow, feels unresponsive.
 - **Style:** hand-written. Use Excalifont for all text. Prefer hand-drawn shapes (rough edges, slight imprecision) over clean geometric shapes. Exception: logos and icons keep their original form — do not distort them.
 - **No additional colors.** If you need to de-emphasize: lower opacity. If you need to emphasize: full-opacity orange.
 - **Tool:** Excalidraw. Export SVG with fonts embedded or reference `fonts/Excalifont-Regular.woff2`.
+- **Mermaid** (flowcharts, sequences written as text): allowed on cdviz.dev as a plain `` ```mermaid `` fence. The shared theme (`.vitepress/mermaid.config.json`: hand-drawn, Excalifont, orange on transparent) applies these rules. Never add per-diagram config or colors.
 
 ---
 

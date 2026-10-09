@@ -16,7 +16,7 @@ Keep this file current when a change adds or retires a directory, a task, a skil
 - Code and config samples MUST come from real, runnable files (`<<<` imports, generated help). They MUST NOT be invented.
 - Numbers, customers, quotes and benchmarks MUST be real. When one is missing, leave a `TODO` for a human.
 - Internal links MUST NOT point to a URL that redirects (`.html`, `/index` suffix, or a source in `assets/_redirects`). `mise run build` enforces it (`check:urls`).
-- Files under `snippets/` and `src/docs/cdviz-collector/*-help.txt` and `transformers-rules.md` are generated. They MUST NOT be edited by hand: run `mise run build:markdown` or `mise run build:help`.
+- Files under `snippets/` and `assets/diagrams/`, and `src/docs/cdviz-collector/*-help.txt` and `transformers-rules.md` are generated. They MUST NOT be edited by hand: run `mise run build:markdown`, `mise run build:diagrams` or `mise run build:help`.
 - Upstream skills under `.claude/skills/` (listed in `skills-lock.json`) MUST NOT be edited: tune CDviz behavior in the `cdviz` plugin instead.
 
 ## Working here
@@ -25,6 +25,7 @@ Keep this file current when a change adds or retires a directory, a task, a skil
 - Before you finish a change, run `mise run build` (site build, URL check). It MUST pass.
 - Format only the files you changed (`dprint fmt <files>`). Running `dprint fmt` on the whole tree SHOULD be avoided: it rewrites unrelated files.
 - A new page MUST get a sidebar entry in `.vitepress/config.mts`, and every directory with pages MUST have an `index.md`. Blog posts are the exception: the blog index and sidebar are generated from `src/blog/`.
+- A diagram written in Mermaid MUST be a plain `` ```mermaid `` fence with an `accTitle:` line (alt text) and no per-diagram config: the theme lives in `.vitepress/mermaid.config.json`. Run `mise run build:diagrams` and commit its output; the build fails on a fence without it.
 - Moving or renaming a page MUST add a 301 in `assets/_redirects` and update internal links in the same change.
 - Commits MUST follow [Conventional Commits](https://www.conventionalcommits.org/) and MUST be signed off (`git commit -s`, DCO). Dependency updates use `build(deps)`.
 
@@ -38,6 +39,8 @@ Keep this file current when a change adds or retires a directory, a task, a skil
 | Preview the build                                          | `mise run preview`                                     |
 | Regenerate collector help / imported markdown and snippets | `mise run build:help` / `mise run build:markdown`      |
 | Rebuild optimized images (needs ImageMagick)               | `mise run build:images`                                |
+| Render mermaid fences + PNG of all diagrams (chromium)     | `mise run build:diagrams`                              |
+| Export a page as plain Markdown for cross-posting          | `mise run crosspost <file.md>`                         |
 | Format                                                     | `mise run format` (whole tree) or `dprint fmt <files>` |
 | Scan agent skills / update upstream skills                 | `mise run skills:scan` / `mise run skills:update`      |
 
@@ -50,7 +53,8 @@ Keep this file current when a change adds or retires a directory, a task, a skil
 | `.vitepress/`                         | `config.mts` (nav, sidebar, head), `theme/` (layout, CSS), `blog-utils.ts`                                    |
 | `assets/`                             | Static files served at the site root (`publicDir`), including `_redirects`                                    |
 | `snippets/`                           | Copies of cdviz files imported by docs (generated)                                                            |
-| `scripts/`                            | Build guards (`check-urls.ts`) and `skills-scan.ts`                                                           |
+| `assets/diagrams/`                    | Rendered mermaid fences, PNG copies of every diagram for cross-posting (generated)                            |
+| `scripts/`                            | Build guards (`check-urls.ts`), `build-diagrams.ts`, `crosspost.ts`, `skills-scan.ts`                         |
 | `plugins/cdviz/`, `.claude-plugin/`   | The `cdviz` Claude Code plugin and its marketplace                                                            |
 | `.claude/skills/`, `skills-lock.json` | Upstream skills, installed by the `skills` CLI                                                                |
 
