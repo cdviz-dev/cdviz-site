@@ -13,7 +13,7 @@ Looking for an open-source Apache DevLake alternative? This page compares CDviz 
 
 Both are open-source platforms for engineering metrics and SDLC visibility. They take different approaches.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-apache-devlake.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-apache-devlake.md)._
 
 ## At a glance
 

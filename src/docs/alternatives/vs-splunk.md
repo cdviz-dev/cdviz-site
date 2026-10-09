@@ -14,7 +14,7 @@ Looking for a Splunk alternative for CI/CD observability? This page compares CDv
 
 CDviz is built specifically for SDLC observability using the CDEvents standard. Splunk is a general-purpose data platform used for log aggregation, SIEM, and operational monitoring that can be configured for CI/CD pipeline visibility. They are different tools solving different primary problems.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-splunk.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-splunk.md)._
 
 ## At a glance
 

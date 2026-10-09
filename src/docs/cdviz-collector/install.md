@@ -61,7 +61,7 @@ helm install cdviz-collector oci://ghcr.io/cdviz-dev/charts/cdviz-collector
 
 Look at the default values.yaml file in the [GitHub repository](https://github.com/cdviz-dev/cdviz/blob/main/charts/cdviz-collector/values.yaml).
 
-<<< ../../../../charts/cdviz-collector/values.yaml
+<<< ../../../snippets/cdviz-collector-values.yaml
 
 ### Example with Helmwave
 

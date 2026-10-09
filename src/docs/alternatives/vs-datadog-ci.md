@@ -14,7 +14,7 @@ Looking for a self-hosted or open-source Datadog CI Visibility alternative? This
 
 CDviz is an open-source platform with self-hosted and SaaS options. Datadog CI Visibility is a fully-managed commercial service. They target different constraints.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-datadog-ci.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-datadog-ci.md)._
 
 ## At a glance
 

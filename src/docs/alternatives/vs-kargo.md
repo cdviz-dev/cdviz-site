@@ -13,7 +13,7 @@ Comparing CDviz and Kargo for environment promotion and delivery visibility? The
 
 Full disclosure: Kargo was one of the inspirations for CDviz's [event reaction](/docs/event-reaction) and artifact-lifecycle observability. The difference is the approach: Kargo is a **promotion control plane** you adopt as part of your delivery machinery; CDviz **observes the tools you already run** and can trigger automation from their events — without replacing anything.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-kargo.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-kargo.md)._
 
 ## At a glance
 

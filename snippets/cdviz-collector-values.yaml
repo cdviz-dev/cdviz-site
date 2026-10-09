@@ -1,0 +1,289 @@
+# Default values for my.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/cdviz-dev/cdviz-collector
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 0.53.0
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+deploymentAnnotations: {}
+# reloader.stakater.com/auto: "true"
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+  # fsGroup: 2000
+
+# Additional arguments to pass to the collector
+podExtraArgs: []
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+  runAsUser: 65532
+  runAsGroup: 65532
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: cdviz-collector.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# List of config files to provide as a configMap mounted on the /mnt/config folder.
+# cdviz-collector is launched with `--direcory /mnt/config`.
+# The container of cdviz-collector includes some configuration files in the /etc/cdviz-collector folder.
+#
+# Adding & overriding files provided as part of the chart is allowed
+# Content could set by override of the values
+# or via `helm ... --set-file 'configFiles.config\.toml'=custom-config.toml`
+configFiles:
+  "cdviz-collector.toml": |
+    [pipeline]
+    transformer_refs = ["cdevents_v0_3_to_v0_4", "cdevents_v0_4_to_v0_5"]
+
+    [sinks.debug]
+    enabled = true
+
+    [sinks.database]
+    enabled = false
+
+    [sources.cdevents_webhook]
+    enabled = false
+
+    [sources.cdevents_webhook.extractor]
+    type = "webhook"
+    id = "000-cdevents"
+
+    [sources.github_webhook]
+    enabled = false
+    transformer_refs = [ "github_events" ]
+
+    [sources.github_webhook.extractor]
+    type = "webhook"
+    id = "000-github"
+    headers_to_keep = []
+
+    [sources.github_webhook.extractor.headers]
+    "x-hub-signature-256" = { type = "signature", signature_encoding = "hex", signature_on = "body", signature_prefix = "sha256=", token = "changeme" }
+
+    [sources.kubewatch_webhook]
+    enabled = {{ $.Values.kubewatch.enabled }}
+    # transformer_refs = [ "log", "kubewatch_cloudevents" ]
+    transformer_refs = [ "kubewatch_cloudevents" ]
+
+    [sources.kubewatch_webhook.extractor]
+    type = "webhook"
+    id = "000-kubewatch"
+    metadata.environment_id = "/cluster/A-dev"
+
+    [sources.argocd_webhook]
+    enabled = true
+    transformer_refs = [ "argocd_notifications" ]
+
+    [sources.argocd_webhook.extractor]
+    type = "webhook"
+    id = "000-argocd"
+    metadata.environment_id = "/cluster/A-dev"
+
+    [remote.transformers-community]
+    type = "github://cdviz-dev/transformers-community"
+    # token = "gh...."  # Optional: github token
+
+    # [remote.transformers-pro]
+    # type = "github://cdviz-dev/transformers-pro"
+    # # token = "xxx"  # set by env 'CDVIZ_COLLECTOR__REMOTE__TRANSFORMERS-PRO__TOKEN'
+
+    [transformers]
+    github_events = { type = "vrl", template_rfile = "transformers-community:///github_events/to_v0_5.vrl" }
+    kubewatch_cloudevents = { type = "vrl", template_rfile = "transformers-community:///kubewatch_cloudevents/to_v0_5.vrl" }
+    argocd_notifications = { type = "vrl", template_rfile = "transformers-community:///argocd_notifications/to_v0_5.vrl" }
+    cdevents_v0_3_to_v0_4 = { type = "vrl", template_rfile = "transformers-community:///cdevents/cdevents_v0_3/to_v0_4.vrl" }
+    cdevents_v0_4_to_v0_5 = { type = "vrl", template_rfile = "transformers-community:///cdevents/cdevents_v0_4/to_v0_5.vrl" }
+    # gitlab_events = { type = "vrl", template_rfile = "transformers-pro:///gitlab_events/to_v0_5.vrl" }
+    # jira_events = { type = "vrl", template_rfile = "transformers-pro:///jira_events/to_v0_5.vrl" }
+
+log:
+  level: info # debug, info, warn, error
+
+env:
+  CDVIZ_COLLECTOR__HTTP__PORT:
+    value: "{{ .Values.service.port }}"
+  # Enable sinks (uncomment and configure as needed)
+  # CDVIZ_COLLECTOR__SINKS__DEBUG__ENABLED:
+  #   value: "true"
+  # CDVIZ_COLLECTOR__SINKS__DATABASE__ENABLED:
+  #   value: "true"
+  # CDVIZ_COLLECTOR__SINKS__DATABASE__URL:
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: "cdviz-collector-secret"
+  #       key: CDVIZ_COLLECTOR__SINKS__DATABASE__URL
+  # GitHub webhook signature token (for validating GitHub webhooks)
+  # CDVIZ_COLLECTOR__SOURCES__GITHUB_WEBHOOK__EXTRACTOR__HEADERS__X-HUB-SIGNATURE-256__TOKEN:
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: "cdviz-collector-secret"
+  #       key: CDVIZ_COLLECTOR__SOURCES__GITHUB_WEBHOOK__EXTRACTOR__HEADERS__X-HUB-SIGNATURE-256__TOKEN
+
+# Additional kubernetes resources to create. Helm template could be used.
+# you could use it to create secrets, external secrets,
+# configmaps, gateways (http-route, filter, ...), volumes, keda, ...
+# - the name/key of the resource is used just to access the definition more easily than an arrays's index
+# - the 'enabled' field is used to enable/disable the resource (removed when the resource is templated)
+# - user can add any other resource definition as child node of extraObjects
+# The manifests can be defined as a string or as a dictionary. But the string doesn't use the 'enabled' field.
+extraObjects: {}
+# extrernalSecrets:
+#   enabled: true
+#   apiVersion: "kubernetes-client.io/v1"
+#   kind: ExternalSecret
+#   metadata:
+#     name: cdviz-collector-secrets
+#   spec:
+#     backendType: gcpSecretsManager
+#     data:
+#       - key: api-token
+#         name: api-token
+# http-route:
+#   enabled: true
+#   apiVersion: gateway.networking.k8s.io/v1
+#   kind: HTTPRoute
+#   metadata:
+#     name: cdviz-collector
+#     labels:
+#       app.kubernetes.io/instance: cdviz-collector
+#       app.kubernetes.io/name: cdviz-collector
+#   spec:
+#     parentRefs:
+#       - group: gateway.networking.k8s.io
+#         kind: Gateway
+#         name: traefik-gateway
+#         namespace: traefik
+#     rules:
+#       - backendRefs:
+#           - group: ""
+#             kind: Service
+#             name: cdviz-collector
+#             port: port: 8080 # see service.port
+#             weight: 1
+#         matches:
+#           # no strip, bind the gateway's `/webhook/*` to cdviz-collector's some `/webhook/...` (and hide other endpoints)
+#           # Before allow wildcard (eg. with just `/webhook/`), check that every endpoint has
+#           # some kind of authentication/security (before (or via) the gateway or via the collector)
+#           - path:
+#               type: PathPrefix
+#               value: /webhook/000-github
+
+kubewatch:
+  enabled: true
+  rbac:
+    create: true
+  resourcesToWatch:
+    deployment: true
+    daemonset: true
+    statefulset: true
+    replicationcontroller: false
+    replicaset: false
+    services: false
+    pod: false
+    job: false
+    node: false
+    clusterrole: false
+    clusterrolebinding: false
+    serviceaccount: false
+    persistentvolume: false
+    namespace: false
+    secret: false
+    configmap: false
+    ingress: false
+    coreevent: false
+    event: false
+
+  ## Seems like only one handler could be enabled at a time
+
+  slack:
+    enabled: false # true by default
+
+  # cloudevent include the webhook's data + manifest of the resource + ... use by the template
+  cloudevent:
+    enabled: true
+    # update the name to match the name of the service (if not cdviz-collector)
+    url: "http://cdviz-collector:8080/webhook/000-kubewatch"
+
+  podSecurityContext:
+    enabled: true
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+    fsGroup: 1000
+  containerSecurityContext:
+    enabled: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL
+    runAsUser: 1000
+    runAsGroup: 1000
+    runAsNonRoot: true

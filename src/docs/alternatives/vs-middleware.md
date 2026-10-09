@@ -11,7 +11,7 @@ head:
 
 Both CDviz and Middleware are open-source, Apache 2.0 platforms targeting SDLC observability and DORA metrics. The core difference is the data model: Middleware polls your tools (GitHub, GitLab, Jira) on a schedule; CDviz ingests a real-time event stream from your pipeline using the CDEvents standard.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-middleware.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-middleware.md)._
 
 ## At a glance
 

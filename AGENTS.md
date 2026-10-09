@@ -4,7 +4,7 @@ AI agent instructions for working with the CDviz documentation site built with V
 
 ## Project Overview
 
-This is the `cdviz-site` component - the documentation website for CDviz (Software Delivery Lifecycle observability platform). The site uses VitePress for static site generation, Bun for package management, and TailwindCSS for styling.
+This is the `cdviz-site` repository (extracted from the [cdviz](https://github.com/cdviz-dev/cdviz) monorepo, with history) - the documentation website for CDviz (Software Delivery Lifecycle observability platform). The site uses VitePress for static site generation, Bun for package management, and TailwindCSS for styling.
 
 **Target Audience**: DevOps engineers, tech leads, platform engineers, and developers implementing SDLC observability.
 
@@ -29,7 +29,6 @@ All development uses `mise` task runner for consistent environments and command 
 ### Quick Start
 
 ```bash
-cd cdviz-site
 mise install          # Install bun and other dependencies
 mise run dev           # Start development server on http://localhost:5173
 ```
@@ -143,6 +142,7 @@ mise run perf:report    # Check performance (optional)
 - **Spell Check**: Review for typos and grammar
 - **Link Validation**: Ensure internal/external links work
 - **Code Examples**: Test all code samples work as documented
+- **Snippets from cdviz**: `snippets/` holds files copied from `cdviz-dev/cdviz` (compose, db baseline, chart values) for `<<<` imports; refresh with `mise run build:markdown`, never edit by hand
 - **Accessibility**: Use semantic HTML, alt text for images
 
 ### Performance Standards

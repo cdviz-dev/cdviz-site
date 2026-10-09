@@ -494,7 +494,7 @@ export default defineConfig({
     },
     socialLinks: [{ icon: "github", link: "https://github.com/cdviz-dev" }],
     editLink: {
-      pattern: "https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/docs/src/:path",
+      pattern: "https://github.com/cdviz-dev/cdviz-site/edit/main/src/:path",
     },
     footer: {
       message:

@@ -23,7 +23,7 @@ Comparing DevStats alternatives for SDLC observability? This page covers how CDv
 
 CDviz is an open-source, event-driven SDLC observability platform. DevStats is a commercial SaaS product that pulls metrics from git hosting services for engineering leadership dashboards. They address related but distinct problems.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-devstats.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-devstats.md)._
 
 ## At a glance
 

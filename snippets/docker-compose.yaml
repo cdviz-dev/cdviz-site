@@ -1,0 +1,126 @@
+# version: "3.9"
+services:
+  #region database
+  postgres:
+    image: timescale/timescaledb-ha:pg18
+    # restart: always
+    # platform: linux/amd64
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: cdviz
+      POSTGRES_PASSWORD: postgres-password
+      POSTGRES_DB: cdviz
+    healthcheck:
+      test: pg_isready -U cdviz -d cdviz
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # network_mode: host
+    ports:
+      - "5432:5432"
+    # user: "${MY_UID:-1000}:${MY_GID:-1000}"
+    # volumes:
+    # # In this example, we share the folder `db-data` in our root repository, with the default PostgreSQL data path
+    # # It means that every time the repository is modifying the data inside
+    # # of `/var/lib/postgresql/data/`, automatically the change will appear in `db-data`
+    # # You don't need to create the `db-data` folder. Docker Compose will do it for you
+    # - ./tmp/postgres/data:/var/lib/postgresql/data
+    # # In this example, we share an init.sql script with the container
+    # # The init script will be executed when the database is first run
+    # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  cdviz-db-migrate:
+    image: ghcr.io/cdviz-dev/cdviz-db-migration:latest
+    command:
+      - -database
+      - postgres://cdviz:postgres-password@postgres:5432/cdviz?sslmode=disable&options=-c%20search_path%3Dpublic
+      - -path
+      - /migrations/
+      - up
+    # network_mode: host
+    depends_on:
+      postgres:
+        condition: service_healthy
+  #endregion database
+  #region grafana
+  grafana:
+    image: docker.io/grafana/grafana-oss:13.0.2
+    # container_name: grafana
+    # restart: unless-stopped
+    environment:
+      # see https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#override-configuration-with-environment-variables
+      # To override an option, use a predefined pattern GF_<SectionName>_<KeyName>.
+      # - GF_SERVER_ROOT_URL=http://my.grafana.server/
+      # - GF_SERVER_ROOT_URL=http://my.grafana.server/
+      # NOTE: Volkovlabs plugins discontinued (Sept 2025), but still distributed by Grafana Labs
+      # cdviz-executiontable-panel is mounted as local plugin (see volumes below)
+      # GF_PLUGINS_INSTALL (Deprecated since v12.1.0)
+      # Format: <plugin ID>@[<plugin version>]@<url to plugin zip>
+      - GF_PLUGINS_PREINSTALL_SYNC=volkovlabs-echarts-panel,volkovlabs-form-panel,volkovlabs-table-panel,cdviz-executiontable-panel@1.2.4@https://github.com/cdviz-dev/cdviz-executiontable-panel/releases/download/v1.2.4/cdviz-executiontable-panel-1.2.4.zip
+      # Allow loading unsigned plugins (required for custom plugins not in Grafana plugin registry)
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=cdviz-executiontable-panel
+      # - GF_SECURITY_ADMIN_USER=admin
+      # - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin #Viewer
+      - GF_AUTH_BASIC_ENABLED=false
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_DISABLE_SIGNOUT_MENU=true
+      # - GF_SECURITY_ALLOW_EMBEDDING=true #Allow IFRAME Calls
+      # - GF_PANELS_DISABLE_SANITIZE_HTML no longer needed: all panels migrated from marcusolsson-dynamictext-panel to volkovlabs-echarts-panel
+      - GF_ENABLE_GZIP=true
+      - GF_LOG_LEVEL=warn # https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#log
+      - CDVIZ_RO_POSTGRES_HOST=postgres
+      - CDVIZ_RO_POSTGRES_PORT_NUMBER=5432
+      - CDVIZ_RO_POSTGRES_USER=cdviz
+      - CDVIZ_RO_POSTGRES_PASSWORD=postgres-password
+      - CDVIZ_RO_POSTGRES_DB=cdviz
+    # network_mode: host
+    ports:
+      - "3000:3000"
+    # user: "${MY_UID:-1000}:${MY_GID:-1000}"
+    volumes:
+      # - ./tmp/grafana/data/:/var/lib/grafana/:rw
+      - ../../cdviz-grafana/datasources:/etc/grafana/provisioning/datasources:ro
+      - ../../cdviz-grafana/dashboards:/var/provisioning/dashboards:rw
+      - ./dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
+      # CDviz custom plugin (execution table with bar chart history)
+      # - ../../cdviz-grafana-plugins/cdviz-executiontable-panel/dist:/var/lib/grafana/plugins/cdviz-executiontable-panel:ro
+      # - ./tmp/grafana.ini:/etc/grafana/grafana.ini
+    depends_on:
+      postgres:
+        condition: service_healthy
+  # endregion grafana
+
+  # region cdviz-collector
+  cdviz-collector:
+    image: ghcr.io/cdviz-dev/cdviz-collector:latest
+    command:
+      - connect
+      - -vv
+      - --directory
+      - /var/use_cases
+      - --config
+      - ./cdviz-collector.toml
+    restart: "no" # Do not restart on failure - stack should fail if collector stops
+    environment:
+      - CDVIZ_COLLECTOR__HTTP__PORT=8080
+      - CDVIZ_COLLECTOR__SINKS__DEBUG__ENABLED=false
+      - CDVIZ_COLLECTOR__SINKS__DATABASE__ENABLED=true
+      - CDVIZ_COLLECTOR__SINKS__DATABASE__URL=postgres://cdviz:postgres-password@postgres:5432/cdviz?sslmode=disable
+      - CDVIZ_COLLECTOR__SOURCES__CDEVENTS_WEBHOOK__ENABLED=true
+      - CDVIZ_COLLECTOR__SOURCES__CDEVENTS_WEBHOOK__EXTRACTOR__ID=000-cdevents
+      - CDVIZ_COLLECTOR__SOURCES__CDEVENTS_LOCAL_JSON__ENABLED=false
+    # network_mode: host
+    ports:
+      - "8080:8080"
+    # user: "${MY_UID:-1000}:${MY_GID:-1000}"
+    volumes:
+      # - ./tmp/cdviz-collector:/var/cdviz-collector:ro
+      - ../use_cases:/var/use_cases:rw
+    depends_on:
+      postgres:
+        condition: service_healthy
+      cdviz-db-migrate:
+        condition: service_completed_successfully
+
+  # endregion cdviz-collector

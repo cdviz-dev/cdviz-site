@@ -14,7 +14,7 @@ Evaluating LinearB alternatives for engineering metrics? This page compares CDvi
 
 Both platforms surface engineering metrics for software delivery teams. They solve different problems with fundamentally different approaches.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-linearb.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-linearb.md)._
 
 ## At a glance
 

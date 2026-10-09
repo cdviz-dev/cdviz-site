@@ -14,7 +14,7 @@ Looking for a self-hosted or open-source Swarmia alternative? This page compares
 
 CDviz is an open-source platform with self-hosted and SaaS options. Swarmia is a fully-managed commercial SaaS focused on engineering effectiveness. They target overlapping use cases but differ on data model, extensibility, and deployment.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-swarmia.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-swarmia.md)._
 
 ## At a glance
 

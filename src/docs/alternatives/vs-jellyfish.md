@@ -14,7 +14,7 @@ Looking for a self-hosted or open-source Jellyfish alternative? This page compar
 
 CDviz is an open-source platform with self-hosted and SaaS options. Jellyfish is a fully-managed commercial SaaS focused on engineering management intelligence. They target different buyers and different constraints.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-jellyfish.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-jellyfish.md)._
 
 ## At a glance
 

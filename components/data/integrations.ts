@@ -428,7 +428,7 @@ export const integrations: Integration[] = [
     ],
   },
   {
-    // Predicates come from the `cdevents-spec/` submodule, re-extract on bump with:
+    // Predicates come from the `cdevents-spec/` submodule of cdviz-dev/cdviz, re-extract (from there) on bump with:
     // rg -o '"dev\.cdevents\.[a-z]+\.[a-z]+\.[0-9.]+"' cdevents-spec/schemas/*.json
     id: "cdevents",
     group: "cdevents",

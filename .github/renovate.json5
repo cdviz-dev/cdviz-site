@@ -1,0 +1,74 @@
+// https://docs.renovatebot.com/configuration-options/
+// Run by .github/workflows/renovate.yml (weekly on Wednesday + manual trigger).
+// Commit type `build(deps)`: the site has no release, so no `fix(deps)` split (unlike cdviz-dev/cdviz).
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
+  ],
+  // config is a global configurationFile: presets apply after packageRules, so drop the fix/chore one
+  ignorePresets: [":semanticPrefixFixDepsChoreOthers"],
+  labels: ["dependencies"],
+  rebaseWhen: "conflicted",
+  // GitHub merges once required checks pass, so one renovate run per week is enough
+  platformAutomerge: true,
+  packageRules: [
+    {
+      description: "Commit type for every update",
+      matchFileNames: ["**/*"],
+      semanticCommitType: "build",
+    },
+    {
+      description: "Automerge non-major updates of tooling (CI actions, mise tools, npm)",
+      matchManagers: ["github-actions", "mise", "npm", "bun"],
+      matchUpdateTypes: ["minor", "patch", "digest", "pin", "pinDigest"],
+      automerge: true,
+    },
+    {
+      description: "The renovate action holds the app token: review its updates (SHA pin is pointless if auto-updated)",
+      matchPackageNames: ["renovatebot/github-action"],
+      automerge: false,
+    },
+    {
+      description: "Group mise tools in one PR",
+      matchManagers: ["mise"],
+      matchUpdateTypes: ["minor", "patch"],
+      groupName: "mise tools",
+    },
+    {
+      description: "Group GitHub Actions in one PR",
+      matchManagers: ["github-actions"],
+      groupName: "github actions",
+    },
+    {
+      description: "Group non-major npm/bun updates in one PR",
+      matchManagers: ["npm", "bun"],
+      matchUpdateTypes: ["minor", "patch"],
+      groupName: "npm packages",
+    },
+    {
+      description: "vitepress: follow the 2.0.0-alpha track until 2.x is stable",
+      matchPackageNames: ["vitepress"],
+      ignoreUnstable: false,
+    },
+    {
+      description: "cdviz-collector: one PR for docs version and mise (help snippets), reviewed manually (docs may need updates)",
+      matchPackageNames: ["cdviz-dev/cdviz-collector", "github:cdviz-dev/cdviz-collector"],
+      groupName: "cdviz-collector",
+      automerge: false,
+    },
+  ],
+  customManagers: [
+    {
+      description: "cdviz-collector version shown in docs",
+      customType: "regex",
+      managerFilePatterns: ["/^\\.vitepress/config\\.mts$/"],
+      matchStrings: ['const COLLECTOR_VERSION = "(?<currentValue>[^"]+)";'],
+      datasourceTemplate: "github-releases",
+      depNameTemplate: "cdviz-dev/cdviz-collector",
+      extractVersionTemplate: "^v?(?<version>.+)$",
+    },
+  ],
+}

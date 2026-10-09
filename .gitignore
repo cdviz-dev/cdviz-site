@@ -154,3 +154,7 @@ dist
 
 # local folder use to store local performance analysis
 perf/
+
+# inherited from the cdviz monorepo root
+*.off
+.claude/settings.local.json

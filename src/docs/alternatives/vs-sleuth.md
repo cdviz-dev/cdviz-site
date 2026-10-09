@@ -13,7 +13,7 @@ Looking for a self-hosted or open-source Sleuth alternative? This page compares 
 
 CDviz is an open-source platform with self-hosted and SaaS options. Sleuth is a fully-managed commercial SaaS. They target different constraints.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-sleuth.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-sleuth.md)._
 
 ## At a glance
 

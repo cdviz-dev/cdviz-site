@@ -41,5 +41,5 @@ For development, testing, and demonstration purposes, the CDviz database can be 
 A reference docker-compose configuration is available in the repository:
 
 ::: details Docker Compose Configuration
-<<< ../../../../demos/stack-compose/docker-compose.yaml#database{yaml:line-numbers}
+<<< ../../../snippets/docker-compose.yaml#database{yaml:line-numbers}
 :::

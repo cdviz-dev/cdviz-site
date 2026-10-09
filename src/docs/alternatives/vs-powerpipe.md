@@ -13,7 +13,7 @@ Looking for Powerpipe alternatives for pipeline observability? This page compare
 
 Both are open-source, self-hosted tools for engineering visibility — but they solve different problems with different data models.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-powerpipe.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-powerpipe.md)._
 
 ## At a glance
 

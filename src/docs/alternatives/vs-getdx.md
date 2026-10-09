@@ -14,7 +14,7 @@ Looking for a self-hosted or open-source GetDX alternative? This page compares C
 
 CDviz is an open-source platform with self-hosted and SaaS options. GetDX is a fully-managed commercial SaaS that combines quantitative engineering metrics with developer experience surveys. They target overlapping goals but serve different needs.
 
-> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz/edit/main/cdviz-site/src/docs/alternatives/vs-getdx.md)._
+> _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-getdx.md)._
 
 ## At a glance
 

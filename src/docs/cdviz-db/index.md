@@ -74,7 +74,7 @@ The database schema is defined in the following resources:
 - [Migration files](https://github.com/cdviz-dev/cdviz/tree/main/cdviz-db/migrations)
 
 ::: details Database Schema Definition (base)
-<<< ../../../../cdviz-db/migrations/202601010000_baseline.up.sql
+<<< ../../../snippets/cdviz-db-baseline.up.sql
 :::
 
 ### Available Packages

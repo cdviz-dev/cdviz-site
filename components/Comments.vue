@@ -11,10 +11,10 @@ const { frontmatter, title } = useData();
     <component
       :is='"script"'
       src="https://giscus.app/client.js"
-      data-repo="cdviz-dev/cdviz"
-      data-repo-id="R_kgDOK_GPig"
+      data-repo="cdviz-dev/cdviz-site"
+      data-repo-id="R_kgDOVCDSKQ"
       data-category="Announcements"
-      data-category-id="DIC_kwDOK_GPis4CdIir"
+      data-category-id="DIC_kwDOVCDSKc4DHZNS"
       data-mapping="pathname"
       data-strict="0"
       data-reactions-enabled="1"
