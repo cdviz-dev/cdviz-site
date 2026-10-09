@@ -36,21 +36,21 @@ CDviz is an open-source platform with self-hosted and SaaS options. Sleuth is a 
 
 ## Key differences
 
-- **Deployment model**: Sleuth tracks deployments via explicit "deploy sources" tied to VCS branches or PR merges — each environment is tracked separately. CDviz ingests the full SDLC event stream across all systems (CI, CD, artifact registries, incident managers) using the CDEvents standard, not just deployments.
-- **DORA calculation**: Sleuth derives DORA metrics from deployment annotations on your PR commit history. CDviz derives DORA metrics from events emitted by your pipeline toolchain in real time as they happen — push-first, with [polling](/docs/cdviz-collector/sources/http_polling) available for backfill or webhook-less systems.
+- **Deployment model**: Sleuth tracks deployments via explicit "deploy sources" tied to VCS branches or PR merges. Each environment is tracked separately. CDviz ingests the full SDLC event stream across all systems (CI, CD, artifact registries, incident managers) using the CDEvents standard, not only deployments.
+- **DORA calculation**: Sleuth derives DORA metrics from deployment annotations on your PR commit history. CDviz derives DORA metrics from events emitted by your pipeline toolchain in real time. It is push-first, with [polling](/docs/cdviz-collector/sources/http_polling) available for backfill or webhook-less systems.
 - **Data sovereignty**: With CDviz, your SDLC event data stays in your infrastructure. Sleuth stores all data on Sleuth servers.
-- **Observe and act**: CDviz events can trigger downstream workflows — the same event stream drives both observability and automation. Sleuth is monitoring-only.
+- **Observe and act**: The same CDviz event stream drives both observability and automation (downstream workflows). Sleuth is monitoring-only.
 - **Cost model**: CDviz self-hosted is free (infra costs only), with optional commercial support. Sleuth's per-user SaaS pricing scales linearly with team size.
-- **Operational burden**: Sleuth requires near-zero ops. CDviz self-hosted requires operating PostgreSQL, Grafana, and the collector — offset by the [Pro plan](/pricing) support or the hosted [Cloud plan](/pricing).
+- **Operational burden**: Sleuth requires near-zero ops. CDviz self-hosted requires operating PostgreSQL, Grafana, and the collector. The [Pro plan](/pricing) adds support, and the [Cloud plan](/pricing) removes the operations work.
 
 ## When to choose CDviz
 
 - Data ownership or privacy regulations make vendor-hosted SaaS unacceptable.
-- You want events to trigger workflows — not just observe them.
+- You want events to trigger workflows, not only to observe them.
 - Your organization is adopting the CDEvents open standard.
 - You need flexible storage or reporting (BI, AI agents, MCP, IDP integrations).
 - You want to avoid per-seat vendor pricing.
-- You want commercial support without vendor lock-in — the [Pro plan](/pricing) includes it (€200/month per organization).
+- You want commercial support without vendor lock-in. The [Pro plan](/pricing) includes it (€200/month per organization).
 
 ## When to choose Sleuth
 
@@ -61,7 +61,7 @@ CDviz is an open-source platform with self-hosted and SaaS options. Sleuth is a 
 
 ## Summary
 
-Sleuth is a fast, polished SaaS for teams that want DORA metrics with minimal setup and tight Git/issue tracker integrations. CDviz is the right choice when data ownership, open standards, event-driven automation, and cost control matter — with commercial support available to reduce operational risk.
+Sleuth is a fast, polished SaaS for teams that want DORA metrics with minimal setup and tight Git/issue tracker integrations. CDviz is the right choice when data ownership, open standards, event-driven automation, and cost control matter. Commercial support is available to reduce operational risk.
 
 <!--@include: ./parts/get-started-cta.md-->
 
@@ -71,11 +71,11 @@ Sleuth is a fast, polished SaaS for teams that want DORA metrics with minimal se
 
 **Does Sleuth support CDEvents?** No. Sleuth uses a proprietary deployment signal model tied to its own integrations.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs LinearB](./vs-linearb.md) — engineering metrics with PR analytics
-- [CDviz vs Swarmia](./vs-swarmia.md) — engineering effectiveness platform
-- [CDviz vs DevStats](./vs-devstats.md) — git-centric engineering metrics
+- [CDviz vs LinearB](./vs-linearb.md): engineering metrics with PR analytics
+- [CDviz vs Swarmia](./vs-swarmia.md): engineering effectiveness platform
+- [CDviz vs DevStats](./vs-devstats.md): git-centric engineering metrics
 - [All alternatives](./)
