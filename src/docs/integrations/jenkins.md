@@ -5,7 +5,7 @@ description: |
   Instrument Jenkins pipelines with CDEvents using cdviz-collector send --run.
   <ul>
   <li>Wrap sh/bat steps in Declarative or Scripted pipelines to emit testSuiteRun CDEvents with JUnit XML results.</li>
-  <li>Wrap non-test stages (build, deploy) with taskRun events — no changes to your existing scripts.</li>
+  <li>Wrap non-test stages (build, deploy) with taskRun events, without changes to your existing scripts.</li>
   </ul>
 references:
   - title: cdviz-collector send --run reference
@@ -28,9 +28,9 @@ import IntegrationCard from '../../../components/IntegrationCard.vue'
 
 ## Overview
 
-Use `cdviz-collector send --run` inside Jenkins `sh` steps to wrap existing build, test, or deploy commands. For test stages, use `--run testsuiterun_junit` — the collector parses JUnit XML output and emits `testSuiteRun.started` / `testSuiteRun.finished` events with structured test results. For non-test stages (build, deploy), use `--run taskrun` for exit-code observability.
+Use `cdviz-collector send --run` inside Jenkins `sh` steps to wrap existing build, test, or deploy commands. For test stages, use `--run testsuiterun_junit`. The collector parses JUnit XML output and emits `testSuiteRun.started` / `testSuiteRun.finished` events with structured test results. For non-test stages (build, deploy), use `--run taskrun` for exit-code observability.
 
-Jenkins-specific environment variables (`JENKINS_URL`, `JOB_BASE_NAME`, `BUILD_NUMBER`) are read automatically by `ci_env_detection` — **no `--metadata` needed for those**. Use `--metadata` to cross-reference the artifact or environment under test.
+Jenkins-specific environment variables (`JENKINS_URL`, `JOB_BASE_NAME`, `BUILD_NUMBER`) are read automatically by `ci_env_detection`. **You need no `--metadata` for them**. Use `--metadata` to cross-reference the artifact or environment under test.
 
 ## Quick Start
 
@@ -140,7 +140,7 @@ pipeline {
 ```
 
 > [!TIP]
-> `$JENKINS_URL`, `$JOB_BASE_NAME`, and `$BUILD_NUMBER` are detected automatically by `ci_env_detection`. `$GIT_BRANCH` and `$GIT_COMMIT` are also read automatically — omit `--metadata branch=...` and `--metadata commit=...`.
+> `$JENKINS_URL`, `$JOB_BASE_NAME`, and `$BUILD_NUMBER` are detected automatically by `ci_env_detection`. `$GIT_BRANCH` and `$GIT_COMMIT` are also read automatically. Omit `--metadata branch=...` and `--metadata commit=...`.
 
 ## Options Reference
 
@@ -165,7 +165,7 @@ See the [send --run reference](../cdviz-collector/send-run.md) and [send command
 `send --run` is a **push** integration: you add it inside your pipeline scripts. As an
 alternative, the collector can **pull** build data directly from the
 [Jenkins Remote API](https://www.jenkins.io/doc/book/using/remote-access-api/) using the
-[`http_polling`](../cdviz-collector/sources/http_polling.md) source — **no Jenkins plugin to install and no
+[`http_polling`](../cdviz-collector/sources/http_polling.md) source. **You install no Jenkins plugin and make no
 changes to your pipelines**. The collector just needs network access and a read-only
 credential.
 
