@@ -98,7 +98,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
           What you can do with CDviz
         </h1>
         <div class="text-sm sm:text-base text-text/70 mt-sm max-w-[40rem] mx-auto">
-          Real scenarios across the whole platform and each component — pick your role or the piece
+          Real scenarios across the whole platform and each component. Pick your role or the piece
           you care about.
         </div>
       </div>
