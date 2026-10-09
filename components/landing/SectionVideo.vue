@@ -44,7 +44,7 @@ function play() {
       >
         <img
           src="/screenshots/cloud_launch_video_poster.jpg"
-          alt=""
+          alt="CDviz Cloud pipeline dashboard: average runtime, queue time, failure rate, and success, cancel and fail runs per day and per week"
           width="1280"
           height="720"
           loading="lazy"
