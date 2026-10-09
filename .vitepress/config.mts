@@ -8,6 +8,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getBlogPosts, Status } from "./blog-utils.ts";
+import { MERMAID_DIR, mermaidHash, validateMermaid } from "./mermaid.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const blogDir = join(__dirname, "../src/blog");
@@ -71,37 +72,6 @@ export default defineConfig({
 
     // Font preloading will be handled by VitePress build process
     // The hashed font files are automatically optimized during build
-    //   [
-    //     // alternative using vitepress-plugin-diagrams (and generate diagrams at build time, but duplicate configuration in every diagrams)
-    //     // FIXME the mermaid renderer is not run on page change (only on first load or refresh)
-    //     // I also tried by copying the script into each markdown file
-    //     'script',
-    //     { type: 'module' },
-    //     `
-    //       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    //       mermaid.initialize({
-    //         startOnLoad: false,
-    //         theme: 'base',
-    //         look: 'handDrawn',
-    //         'themeVariables': {
-    //           'darkMode': true,
-    //           'mainBkg': '#00000000',
-    //           'background': '#00000000',
-    //           'primaryColor': '#00000000',
-    //           'primaryTextColor': '#f08c00',
-    //           'secondaryTextColor': '#f08c00',
-    //           'tertiaryTextColor': '#f08c00',
-    //           'primaryBorderColor': '#f08c00',
-    //           'secondaryBorderColor': '#f08c00',
-    //           'tertiaryBorderColor': '#f08c00',
-    //           'noteTextColor': '#f08c00',
-    //           'noteBorderColor': '#f08c00',
-    //           'lineColor': '#f08c00',
-    //           'lineWidth': 2
-    //         }
-    //       });
-    //     `
-    //   ],
   ],
   // base: "/docs/",
   srcDir: "./src",
@@ -124,6 +94,28 @@ export default defineConfig({
           token.attrSet("height", String(height));
         }
         return renderImage(tokens, idx, options, env, self);
+      };
+      // ```mermaid fences are pre-rendered with the shared theme by `mise run build:diagrams`
+      const renderFence = md.renderer.rules.fence!;
+      md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx];
+        if (token.info.trim() !== "mermaid") return renderFence(tokens, idx, options, env, self);
+        const where = `src/${env.relativePath}:${token.map![0] + 1}`;
+        let alt: string;
+        try {
+          alt = validateMermaid(token.content);
+        } catch (e) {
+          throw new Error(`${where}: ${(e as Error).message}`);
+        }
+        const src = `/${MERMAID_DIR}/${mermaidHash(token.content)}.svg`;
+        let file: Buffer;
+        try {
+          file = readFileSync(join(__dirname, "../assets", src));
+        } catch {
+          throw new Error(`${where}: ${src} is missing, run \`mise run build:diagrams\``);
+        }
+        const { width, height } = imageSize(file);
+        return `<p><img src="${src}" alt="${md.utils.escapeHtml(alt)}" width="${width}" height="${height}" loading="lazy"></p>\n`;
       };
     },
     languages: [

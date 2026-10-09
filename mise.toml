@@ -112,6 +112,15 @@ outputs = [
 description = "rebuild all optimized images (favicon + hero images)"
 depends = ["build:favicon", "build:hero-images"]
 
+[tasks."build:diagrams"]
+description = "pre-render ```mermaid fences with the shared CDviz theme (SVG), and every diagram SVG to PNG for cross-posting (needs chromium)"
+run = "bun run scripts/build-diagrams.ts"
+
+[tasks.crosspost]
+description = "export a page as plain Markdown with absolute links and PNG diagrams, for cross-posting (dev.to, Medium...)"
+usage = 'arg "<file>"'
+run = "bun run scripts/crosspost.ts {{arg(name='file')}}"
+
 [tasks."build:markdown"]
 description = "generate, import some markdown and code snippets (from cdviz-dev/cdviz)"
 run = [
