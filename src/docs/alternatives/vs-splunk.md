@@ -38,7 +38,7 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 
 ## Key differences
 
-- **Purpose-built vs general platform**: CDviz is designed from the ground up for SDLC observability — every concept (sources, transformers, sinks, dashboards) maps to the software delivery lifecycle. Splunk is a powerful general-purpose platform that can ingest CI/CD logs and metrics, but SDLC dashboards must be built and maintained from scratch.
+- **Purpose-built vs general platform**: CDviz is designed from the ground up for SDLC observability. Every concept (sources, transformers, sinks, dashboards) maps to the software delivery lifecycle. Splunk is a powerful general-purpose platform that can ingest CI/CD logs and metrics, but SDLC dashboards must be built and maintained from scratch.
 - **Open standard**: CDviz is built on [CDEvents](https://cdevents.dev/), an open CD foundation specification for software delivery events. Your data is portable and vendor-neutral. Splunk stores events in its proprietary index format and query language (SPL).
 - **Time to value**: CDviz ships DORA metrics, deployment tracking, artifact timeline, and incident dashboards ready to use. Getting equivalent dashboards from Splunk requires significant SPL query development, data normalization, and dashboard authoring.
 - **Cost model**: Splunk pricing scales with data volume (GB/day ingested), which can become expensive as CI/CD pipelines generate high log volumes. CDviz is infrastructure-cost based, not volume-based.
@@ -49,16 +49,16 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 
 - You want purpose-built SDLC observability without building dashboards from scratch.
 - You are adopting or building on the CDEvents open standard.
-- Your primary concern is software delivery metrics — deployments, DORA, incidents, artifact tracking.
+- Your primary concern is software delivery metrics: deployments, DORA, incidents, artifact tracking.
 - You want real-time event routing to trigger downstream workflows, not just monitoring.
-- Cost efficiency matters — CDviz self-hosted does not charge by data volume.
+- Cost efficiency matters. CDviz self-hosted does not charge by data volume.
 - You already run Grafana and want SDLC visibility alongside your existing infrastructure dashboards.
 - You need flexible storage (PostgreSQL, ClickHouse) without vendor lock-in.
 
 ## When to choose Splunk
 
 - Your organization already runs Splunk for SIEM, security, or operational monitoring and wants to add CI/CD log analysis to an existing platform investment.
-- You have complex, multi-source log correlation requirements spanning infra, security, and DevOps — a single platform reduces operational overhead.
+- You have complex, multi-source log correlation requirements spanning infra, security, and DevOps. A single platform reduces operational overhead.
 - You need Splunk's advanced SPL query capabilities for custom correlation across heterogeneous data sources.
 - Your team has existing Splunk expertise and dashboards that would be costly to migrate.
 - Compliance or audit requirements mandate Splunk's certified log management capabilities.
@@ -75,10 +75,10 @@ Splunk is the right choice when you already run it for security or operations an
 
 **Does Splunk support CDEvents?** No. Splunk uses a proprietary index and query language (SPL).
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only), with no volume-based pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support — billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no volume-based pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs Datadog CI Visibility](./vs-datadog-ci.md) — commercial SaaS pipeline monitoring
-- [CDviz vs Apache DevLake](./vs-apache-devlake.md) — open-source engineering metrics
+- [CDviz vs Datadog CI Visibility](./vs-datadog-ci.md): commercial SaaS pipeline monitoring
+- [CDviz vs Apache DevLake](./vs-apache-devlake.md): open-source engineering metrics
 - [All alternatives](./)
