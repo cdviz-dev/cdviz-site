@@ -23,15 +23,15 @@ import EditionTabs from '../../../components/EditionTabs.vue'
 
 ## Who Can Send
 
-Any producer able to POST JSON to an HTTP endpoint — no transformer is involved, the payload is
-already a CDEvent:
+Any producer able to POST JSON to an HTTP endpoint. No transformer is involved: the payload is
+already a CDEvent.
 
-- **A tool that natively emits CDEvents** — either built-in, or configured to render CDEvents from
+- **A tool that natively emits CDEvents**: either built-in, or configured to render CDEvents from
   its own templating (see the [native CDEvents templates](./argocd.md#alternative-approach-native-cdevents-templates)
   of ArgoCD notifications), or built with one of the [CDEvents SDKs](https://cdevents.dev/docs/sdks/).
-- **An agent or a proxy** — another `cdviz-collector` forwarding its stream with the
+- **An agent or a proxy**: another `cdviz-collector` forwarding its stream with the
   [HTTP sink](../cdviz-collector/sinks/http.md), or any gateway that already speaks CDEvents.
-- **A CI job** — [`cdviz-collector send`](../cdviz-collector/send.md) for a hand-crafted event, or
+- **A CI job**: [`cdviz-collector send`](../cdviz-collector/send.md) for a hand-crafted event, or
   [`send --run`](../cdviz-collector/send-run.md) to wrap a command as a `taskRun`.
 
 For a tool that does **not** emit CDEvents, transform its payload instead: see the existing
@@ -56,8 +56,8 @@ id = "000-cdevents"
 The endpoint is then `https://your-cdviz-collector.example.com/webhook/000-cdevents`.
 
 > [!WARNING]
-> An open endpoint accepts events from anyone. Protect it with an API key or an HMAC signature —
-> see [Header Validation](../cdviz-collector/header-validation.md); on the producer side, see
+> An open endpoint accepts events from anyone. Protect it with an API key or an HMAC signature
+> (see [Header Validation](../cdviz-collector/header-validation.md)). On the producer side, see
 > [Header Authentication](../cdviz-collector/header-authentication.md).
 
 </template>
@@ -68,9 +68,9 @@ self-hosted component to run.
 
 1. Open [app.cdviz.dev](https://app.cdviz.dev) → **Settings** → **Collector**.
 2. Enable **CDEvents Webhook**.
-3. Copy the **Endpoint** — `https://app.cdviz.dev/collect/<your-tenant>/webhook/cdevents`.
+3. Copy the **Endpoint**: `https://app.cdviz.dev/collect/<your-tenant>/webhook/cdevents`.
 4. Choose the **Authentication Mode**: a **Token** on a custom header, or an **HMAC Signature** on
-   the `x-signature` header. Then reveal (or regenerate) the secret — you are free to change it, as
+   the `x-signature` header. Then reveal (or regenerate) the secret. You can change it, as
    long as the producer and CDviz hold the same value.
 
 ![CDviz Cloud CDEvents Webhook settings](/screenshots/cloud_settings_cdevents_webhook-20260727.png)
@@ -90,7 +90,7 @@ side of the token or signature.
 
 Producers rarely agree on a version: an integration built before CDEvents v0.5 emits v0.3 or v0.4.
 All of them are accepted, and normalized at ingestion so that the database holds a single version.
-On CDviz Cloud this normalization is already in place — nothing to configure.
+On CDviz Cloud this normalization is already in place. You configure nothing.
 
 ::: tip Self-hosted only
 Normalization is done by the global pipeline chain:
@@ -100,7 +100,7 @@ Normalization is done by the global pipeline chain:
 transformer_refs = ["cdevents_v0_3_to_v0_4", "cdevents_v0_4_to_v0_5"]
 ```
 
-Both transformers are idempotent — an already-current event passes through unchanged. See
+Both transformers are idempotent: an already-current event passes through unchanged. See
 [CDEvents Version Conversion](../cdviz-collector/cdevents-version-conversion.md) for the full
 configuration and the CLI conversion of existing files.
 :::
