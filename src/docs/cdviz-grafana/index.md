@@ -1,6 +1,6 @@
 ---
-title: "CDviz Grafana Dashboards for DORA Metrics"
-description: "Pre-built Grafana dashboards for DORA metrics, deployment frequency and CI/CD pipeline observability, provisioned with a PostgreSQL datasource."
+title: "CDviz Grafana Dashboards"
+description: "Pre-built Grafana dashboards for CDEvents data: DORA metrics, pipeline runs, test results, incidents, changes and artifact timelines."
 plans:
   - community
   - pro

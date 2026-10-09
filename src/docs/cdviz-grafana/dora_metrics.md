@@ -1,5 +1,5 @@
 ---
-title: "DORA Metrics Dashboard | CDviz Grafana"
+title: "DORA Metrics Dashboard for Grafana"
 description: "DORA metrics dashboard built on CDEvents: deployment frequency, lead time for changes, change failure rate, and time to restore — visualized in Grafana."
 faq:
   - q: What is a DORA metrics dashboard?
