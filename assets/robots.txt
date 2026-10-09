@@ -1,20 +1,32 @@
 User-agent: GPTBot
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /*?
+Disallow: /cdn-cgi/
 
 User-agent: *
 Allow: /
