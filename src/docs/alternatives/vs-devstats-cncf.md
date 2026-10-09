@@ -19,40 +19,40 @@ CNCF DevStats is a read-only, batch-based analytics platform (hourly sync from G
 **CNCF DevStats** (`devstats.cncf.io`, `github.com/cncf/devstats`) is a CNCF-maintained open-source tool for tracking contributor activity on public GitHub repositories. It is unrelated to [DevStats.com](./vs-devstats.md), the commercial SaaS product for enterprise engineering metrics. This page compares CDviz with the CNCF version.
 :::
 
-CDviz and CNCF DevStats share a similar technical stack — both use PostgreSQL and Grafana — but they solve entirely different problems for entirely different audiences. CDviz is built for enterprise software delivery observability and event-driven CI/CD automation. CNCF DevStats is built for tracking community health and contributor activity in public open-source projects.
+CDviz and CNCF DevStats share a similar technical stack (both use PostgreSQL and Grafana), but they solve different problems for different audiences. CDviz is built for enterprise software delivery observability and event-driven CI/CD automation. CNCF DevStats is built for tracking community health and contributor activity in public open-source projects.
 
 > _Last updated July 2026. [Corrections welcome](https://github.com/cdviz-dev/cdviz-site/edit/main/src/docs/alternatives/vs-devstats-cncf.md)._
 
 ## At a glance
 
-|                                           |                     **CDviz**                      |              **CNCF DevStats**               |
-| ----------------------------------------- | :------------------------------------------------: | :------------------------------------------: |
-| License                                   |                     Apache 2.0                     |                  Apache 2.0                  |
-| Self-hosted                               |                      <Yes />                       |             <Yes /> (Helm chart)             |
-| Hosted public instance                    | <Yes>[Cloud](/pricing) — private to your org</Yes> | <Yes>free at devstats.cncf.io (public)</Yes> |
-| Commercial support                        |                      <Yes />                       |                    <No />                    |
-| Data sources                              |  Webhooks, Kafka, NATS, SSE, files, HTTP polling   |       GitHub Archive + GitHub API only       |
-| Private repositories                      |                      <Yes />                       |      <No>public GitHub repos only</No>       |
-| [CDEvents](https://cdevents.dev) standard |                      <Yes />                       |                    <No />                    |
-| Data model                                |                Event-driven (push)                 |         Pull-based (hourly polling)          |
-| CI/CD pipeline events                     |                      <Yes />                       |                    <No />                    |
-| Deployment tracking                       |                      <Yes />                       |                    <No />                    |
-| Incident / DORA metrics                   |                      <Yes />                       |                    <No />                    |
-| Contributor / community analytics         |                       <No />                       |                   <Yes />                    |
-| Company attribution for contributors      |                       <No />                       |                   <Yes />                    |
-| Trigger downstream workflows              |                      <Yes />                       |                    <No />                    |
-| Stack                                     |        Rust collector, PostgreSQL, Grafana         |     Go, PostgreSQL (Patroni HA), Grafana     |
-| Update latency                            |                Real-time (seconds)                 |               ~1 hour (batch)                |
+|                                           |                     **CDviz**                     |              **CNCF DevStats**               |
+| ----------------------------------------- | :-----------------------------------------------: | :------------------------------------------: |
+| License                                   |                    Apache 2.0                     |                  Apache 2.0                  |
+| Self-hosted                               |                      <Yes />                      |             <Yes /> (Helm chart)             |
+| Hosted public instance                    | <Yes>[Cloud](/pricing), private to your org</Yes> | <Yes>free at devstats.cncf.io (public)</Yes> |
+| Commercial support                        |                      <Yes />                      |                    <No />                    |
+| Data sources                              |  Webhooks, Kafka, NATS, SSE, files, HTTP polling  |       GitHub Archive + GitHub API only       |
+| Private repositories                      |                      <Yes />                      |      <No>public GitHub repos only</No>       |
+| [CDEvents](https://cdevents.dev) standard |                      <Yes />                      |                    <No />                    |
+| Data model                                |                Event-driven (push)                |         Pull-based (hourly polling)          |
+| CI/CD pipeline events                     |                      <Yes />                      |                    <No />                    |
+| Deployment tracking                       |                      <Yes />                      |                    <No />                    |
+| Incident / DORA metrics                   |                      <Yes />                      |                    <No />                    |
+| Contributor / community analytics         |                      <No />                       |                   <Yes />                    |
+| Company attribution for contributors      |                      <No />                       |                   <Yes />                    |
+| Trigger downstream workflows              |                      <Yes />                      |                    <No />                    |
+| Stack                                     |        Rust collector, PostgreSQL, Grafana        |     Go, PostgreSQL (Patroni HA), Grafana     |
+| Update latency                            |                Real-time (seconds)                |               ~1 hour (batch)                |
 
 ## Key differences
 
-- **Purpose**: CNCF DevStats was created to help CNCF project maintainers and the CNCF TOC track open-source community health — who is contributing, which companies are active, how quickly PRs are reviewed. CDviz was built for software engineering teams to observe and automate their internal delivery pipelines.
+- **Purpose**: CNCF DevStats was created to help CNCF project maintainers and the CNCF TOC track open-source community health: who is contributing, which companies are active, how quickly PRs are reviewed. CDviz was built for software engineering teams to observe and automate their internal delivery pipelines.
 
-- **Data sources**: CNCF DevStats ingests GitHub Archive (hourly gzip dumps of all public GitHub events) plus the GitHub API for current state. It cannot ingest GitLab, Bitbucket, or any private repository. CDviz accepts events from any source via webhooks, Kafka, NATS, SSE, and file-based inputs — including private CI/CD systems.
+- **Data sources**: CNCF DevStats ingests GitHub Archive (hourly gzip dumps of all public GitHub events) plus the GitHub API for current state. It cannot ingest GitLab, Bitbucket, or any private repository. CDviz accepts events from any source via webhooks, Kafka, NATS, SSE, and file-based inputs, including private CI/CD systems.
 
 - **What gets measured**: CNCF DevStats measures contributor metrics (commits, PRs, reviews, comment activity, company affiliation, SIG workload). CDviz measures software delivery metrics: deployment frequency, lead time, change failure rate, time to restore, artifact timelines, test outcomes.
 
-- **Event-driven vs analytics-only**: CDviz's event stream is actionable — the same events that feed dashboards can trigger downstream workflows via HTTP, Kafka, or NATS sinks. CNCF DevStats is a read-only analytics tool; it has no mechanism to trigger external actions.
+- **Event-driven vs analytics-only**: CDviz's event stream is actionable: the same events that feed dashboards can trigger downstream workflows via HTTP, Kafka, or NATS sinks. CNCF DevStats is a read-only analytics tool; it has no mechanism to trigger external actions.
 
 - **Latency**: CNCF DevStats syncs on an hourly cron from GitHub Archive, so data is always ~1 hour behind. CDviz receives events in real time as they happen.
 
@@ -60,7 +60,7 @@ CDviz and CNCF DevStats share a similar technical stack — both use PostgreSQL 
 
 ## When to choose CDviz
 
-- You need visibility into **private CI/CD pipelines** — builds, tests, deployments, incidents.
+- You need visibility into **private CI/CD pipelines**: builds, tests, deployments, incidents.
 - You want to calculate **DORA metrics** from actual delivery events, not derived from git history.
 - You need events from **non-GitHub sources**: GitLab, ArgoCD, Kubernetes, Kafka, custom webhooks.
 - You want the **same event stream** to power both dashboards and automated workflows.
@@ -71,13 +71,13 @@ CDviz and CNCF DevStats share a similar technical stack — both use PostgreSQL 
 
 - You maintain or operate a **public open-source project on GitHub** and want to track community health.
 - You are a **CNCF project** and want a free hosted instance at `devstats.cncf.io`.
-- You need **company attribution** — mapping GitHub contributor logins to their employer organizations.
+- You need **company attribution**: mapping GitHub contributor logins to their employer organizations.
 - Your focus is on **contributor engagement metrics**: new contributors, PR review times by SIG, company participation.
 - You want a pre-built, no-cost analytics layer for an open-source community (not enterprise delivery pipelines).
 
 ## Summary
 
-CNCF DevStats and CDviz overlap only in their technology choices (PostgreSQL + Grafana). Their scope, audience, and purpose are completely different. If you run a public open-source project and want to understand who is contributing and how the community is growing, CNCF DevStats is purpose-built for that. If you need to observe and automate a software delivery pipeline — tracking deployments, incidents, CI outcomes, and artifact lifecycles — CDviz is the right tool.
+CNCF DevStats and CDviz overlap only in their technology choices (PostgreSQL + Grafana). Their scope, audience, and purpose are completely different. If you run a public open-source project and want to understand who is contributing and how the community is growing, CNCF DevStats is purpose-built for that. If you need to observe and automate a software delivery pipeline (deployments, incidents, CI outcomes, and artifact lifecycles), CDviz is the right tool.
 
 <!--@include: ./parts/get-started-cta.md-->
 
@@ -93,7 +93,7 @@ CNCF DevStats and CDviz overlap only in their technology choices (PostgreSQL + G
 
 ## Related comparisons
 
-- [CDviz vs DevStats (commercial)](./vs-devstats.md) — the enterprise SaaS product with the same name
-- [CDviz vs Apache DevLake](./vs-apache-devlake.md) — another open-source SDLC analytics tool
-- [CDviz vs Powerpipe](./vs-powerpipe.md) — open-source dashboards for cloud and DevOps data
+- [CDviz vs DevStats (commercial)](./vs-devstats.md): the enterprise SaaS product with the same name
+- [CDviz vs Apache DevLake](./vs-apache-devlake.md): another open-source SDLC analytics tool
+- [CDviz vs Powerpipe](./vs-powerpipe.md): open-source dashboards for cloud and DevOps data
 - [All alternatives](./)
