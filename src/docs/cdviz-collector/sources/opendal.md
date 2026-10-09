@@ -36,7 +36,7 @@ parameters = { root = "/path/to/events" }
 
 | Parser                               | Format      | Output     | Notes                               |
 | ------------------------------------ | ----------- | ---------- | ----------------------------------- |
-| [`auto`](../parsers/#auto)           | Auto-detect | Varies     | Default — detects by extension      |
+| [`auto`](../parsers/#auto)           | Auto-detect | Varies     | Default: detects by extension       |
 | [`json`](../parsers/#json)           | JSON        | 1 message  | Single JSON object                  |
 | [`jsonl`](../parsers/#jsonl)         | JSON Lines  | N messages | One per line                        |
 | [`csv_row`](../parsers/#csv_row)     | CSV         | N messages | One per row                         |
