@@ -12,23 +12,23 @@ The **Pipeline: Executions** and **Task: Executions** dashboards answer these qu
 
 ## What's on the dashboard
 
-**Overview stats** — the health of your CI at a glance:
+**Overview stats**: the health of your CI at a glance:
 
 - **Total Duration** - Aggregate time spent across all runs (your CI bill, roughly)
 - **Average Runtime** - Mean run time
-- **Average Queue Time** - Mean time waiting to start — high values point at runner/agent capacity problems
+- **Average Queue Time** - Mean time waiting to start. High values point at runner/agent capacity problems
 - **Failure Rate** - Percentage of failed runs (fail, failure, error) with color-coded thresholds
 
-**Daily trends** — spot regressions and creeping slowness:
+**Daily trends**: spot regressions and creeping slowness:
 
 - Total duration per day
 - Number of runs per day, split by outcome (success, fail, error, skip, cancelled)
 
-**Per-pipeline table** — find the culprit:
+**Per-pipeline table**: find the culprit:
 
 - **History** - Sparkline of recent run outcomes: flakiness is visible at a glance
 - **Last Outcome / Duration / Queue** - Most recent run details
-- **P80 Duration** - 80th percentile run time — a stable "how slow is it really" number, robust to outliers
+- **P80 Duration** - 80th percentile run time. A stable "how slow is it really" number that ignores outliers
 - **Total Runs, Passed, Failed, Skipped** - Counts over the selected time range
 
 ![Execution table detail](/screenshots/grafana_execution_table_detail-20260213.png)
@@ -41,7 +41,7 @@ The **Task: Executions** dashboard offers the same views at the individual task 
 
 ## Also in CDviz Cloud
 
-The same insights are built into [CDviz Cloud](/cloud) — managed, nothing to install:
+The same insights are built into [CDviz Cloud](/cloud), managed, with nothing to install:
 
 ![CDviz Cloud pipelines overview](/screenshots/cloud_pipelines_dashboard_top-20260717.png)
 
