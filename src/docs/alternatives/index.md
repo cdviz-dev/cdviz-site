@@ -9,7 +9,7 @@ head:
 
 # SDLC Observability Tools: CDviz vs Swarmia, LinearB, DevLake & More
 
-CDviz is an open-source, self-hosted alternative to commercial SDLC observability tools. Where platforms such as Apache DevLake or proprietary tools like Datadog CI Visibility are built on a polling-only, proprietary data model, CDviz is built on the open CDEvents standard — every input is normalized to CDEvents, whether **pushed** in real time (webhooks, Kafka, NATS, SSE) or **pulled** when push isn't available (HTTP polling, file inputs). This gives teams both observability and the foundation for event-driven automation — observe your pipelines before acting on them.
+CDviz is an open-source, self-hosted alternative to commercial SDLC observability tools. Platforms such as Apache DevLake or Datadog CI Visibility store data in their own proprietary model. CDviz is built on the open CDEvents standard. Every input is normalized to CDEvents, whether it is **pushed** in real time (webhooks, Kafka, NATS, SSE) or **pulled** when push is not available (HTTP polling, file inputs). The same events give you observability and a base for event-driven automation: observe your pipelines first, then act on them.
 
 The comparisons below cover architecture, integrations, data ownership, and when to choose each tool.
 
@@ -32,11 +32,11 @@ The comparisons below cover architecture, integrations, data ownership, and when
 | [Splunk](#splunk)                 | Proprietary | <Yes /> (and SaaS) | <No />            | <Yes /> (included)   | Log/metric ingestion       |
 | [Swarmia](#swarmia)               | Proprietary | <No />             | <No />            | <Yes /> (included)   | Pull-based (polling)       |
 
-_CDviz is free and open-source (Apache 2.0) — the Community plan is free forever. [Cloud](/pricing) (€20/month) adds managed hosting with a 14-day free trial; [Pro](/pricing) (€200/month) adds extra integrations and commercial support. Both are billed per organization, not per seat._
+_CDviz is free and open-source (Apache 2.0). The Community plan is free forever. [Cloud](/pricing) (€20/month) adds managed hosting with a 14-day free trial; [Pro](/pricing) (€200/month) adds extra integrations and commercial support. Both are billed per organization, not per seat._
 
-The "data model" column reflects how each tool **stores** data, not just how it collects it: CDviz normalizes both pushed and pulled inputs to CDEvents — [HTTP polling](/docs/cdviz-collector/sources/http_polling) covers historical backfill and webhook-less systems (Jenkins Remote API, legacy CI) — while the polling-only tools below are tied to a proprietary domain model.
+The "data model" column reflects how each tool **stores** data, not just how it collects it: CDviz normalizes both pushed and pulled inputs to CDEvents. [HTTP polling](/docs/cdviz-collector/sources/http_polling) covers historical backfill and webhook-less systems (Jenkins Remote API, legacy CI). The polling-only tools below are tied to a proprietary domain model.
 
-CDviz ships with fewer ready-made integrations than the larger SaaS platforms, but it is a **toolkit** rather than a closed product: the collector, database, and dashboards each work standalone and are customizable and extensible. You add the integrations you need — custom sources, transformers, and storage backends — instead of depending on a fixed catalog.
+CDviz ships with fewer ready-made integrations than the larger SaaS platforms, but it is a **toolkit** rather than a closed product: the collector, database, and dashboards each work standalone and you can extend them. You add the integrations you need (custom sources, transformers, and storage backends) instead of depending on a fixed catalog.
 
 ## Detailed comparisons
 
@@ -73,8 +73,8 @@ Not designed for private pipelines or SDLC observability. Unrelated to the comme
 
 ### LinearB {#linearb}
 
-Commercial SaaS platform for engineering metrics. Focuses on git and PR-centric metrics —
-cycle time, PR review depth, merge frequency, DORA — by polling GitHub, GitLab, and Jira.
+Commercial SaaS platform for engineering metrics. Focuses on git and PR-centric metrics
+(cycle time, PR review depth, merge frequency, DORA) by polling GitHub, GitLab, and Jira.
 Offers AI-powered PR review routing and automation. No self-hosted option.
 
 → [CDviz vs LinearB](./vs-linearb.md)
@@ -142,7 +142,7 @@ Open-source (Apache 2.0) continuous-promotion control plane from Akuity, the cre
 Orchestrates multi-stage promotion of container images, Git commits, and Helm charts across
 environments for Kubernetes / GitOps (Argo CD) delivery. A different, largely complementary
 category: Kargo executes promotions inside its own model, CDviz observes your whole toolchain
-and can trigger promotions via [event reaction](/docs/event-reaction) — without replacing any tool.
+and can trigger promotions via [event reaction](/docs/event-reaction), without replacing any tool.
 
 → [CDviz vs Kargo](./vs-kargo.md)
 
@@ -152,7 +152,7 @@ and can trigger promotions via [event reaction](/docs/event-reaction) — withou
 
 CDviz focuses on SDLC event observability. For adjacent DevOps needs, the Turbot open-source suite covers complementary ground:
 
-- [steampipe](https://steampipe.io/) — query cloud APIs with SQL
-- [flowpipe](https://flowpipe.io) — workflow automation for DevOps
-- [tailpipe](https://tailpipe.io) — open-source SIEM for log insights (DuckDB-powered)
-- [powerpipe](https://powerpipe.io) — dashboards over current cloud state ([see comparison](./vs-powerpipe.md))
+- [steampipe](https://steampipe.io/): query cloud APIs with SQL
+- [flowpipe](https://flowpipe.io): workflow automation for DevOps
+- [tailpipe](https://tailpipe.io): open-source SIEM for log insights (DuckDB-powered)
+- [powerpipe](https://powerpipe.io): dashboards over current cloud state ([see comparison](./vs-powerpipe.md))
