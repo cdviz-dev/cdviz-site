@@ -39,9 +39,9 @@ CDviz is an open-source platform with self-hosted and SaaS options. Swarmia is a
 ## Key differences
 
 - **Data sovereignty**: With CDviz, your SDLC event data stays in your infrastructure. Swarmia pulls data from GitHub, Jira, and Slack into its own servers.
-- **Pipeline-first vs. team-first**: CDviz centers on CI/CD pipeline events and delivery workflow observability. Swarmia centers on developer and team effectiveness — PR cycle times, code review depth, investment distribution across initiatives.
+- **Pipeline-first vs. team-first**: CDviz centers on CI/CD pipeline events and delivery workflow observability. Swarmia centers on developer and team effectiveness: PR cycle times, code review depth, investment distribution across initiatives.
 - **Open standard**: CDviz is built on [CDEvents](https://cdevents.dev/), making your event data portable across vendors. Swarmia uses a proprietary pull-based data model.
-- **Observe and act**: CDviz events can trigger downstream workflows — the same event stream drives both observability and automation. Swarmia is analytics-only.
+- **Observe and act**: The same CDviz event stream drives both observability and automation (downstream workflows). Swarmia is analytics-only.
 - **Working agreements**: Swarmia lets teams define and track working agreements (e.g., PR size limits, response time targets). CDviz does not have this concept natively, but events can be used to build custom alerting.
 - **Customization**: CDviz lets you enrich events at ingestion, choose your storage backend, and connect Grafana, BI platforms, AI agents, and MCP-connected tools. Swarmia is a closed analytics product.
 - **Cost model**: CDviz self-hosted is free (infra costs only). Swarmia uses per-developer SaaS pricing.
@@ -50,10 +50,10 @@ CDviz is an open-source platform with self-hosted and SaaS options. Swarmia is a
 
 - Data ownership or privacy regulations make vendor-hosted SaaS unacceptable.
 - Your primary need is CI/CD pipeline visibility and DORA metrics from a push-based event model.
-- You want events to trigger workflows — not just observe them.
+- You want events to trigger workflows, not only to observe them.
 - Your organization is adopting the CDEvents open standard.
 - You need flexible storage or reporting (BI, AI agents, MCP, IDP integrations).
-- You want commercial support without vendor lock-in — the [Pro plan](/pricing) includes it (€200/month per organization).
+- You want commercial support without vendor lock-in. The [Pro plan](/pricing) includes it (€200/month per organization).
 
 ## When to choose Swarmia
 
@@ -65,7 +65,7 @@ CDviz is an open-source platform with self-hosted and SaaS options. Swarmia is a
 
 ## Summary
 
-Swarmia is a polished fit for engineering teams focused on developer effectiveness, PR analytics, and working agreements without operational overhead. CDviz is the right choice when data ownership, open standards, CI/CD pipeline observability, event-driven automation, and cost control matter — with commercial support available to reduce operational risk.
+Swarmia is a polished fit for engineering teams focused on developer effectiveness, PR analytics, and working agreements without operational overhead. CDviz is the right choice when data ownership, open standards, CI/CD pipeline observability, event-driven automation, and cost control matter. Commercial support is available to reduce operational risk.
 
 <!--@include: ./parts/get-started-cta.md-->
 
@@ -75,11 +75,11 @@ Swarmia is a polished fit for engineering teams focused on developer effectivene
 
 **Can I self-host Swarmia?** No. Swarmia is a SaaS-only product.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-developer pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support — billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-developer pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs LinearB](./vs-linearb.md) — PR-centric engineering metrics
-- [CDviz vs Sleuth](./vs-sleuth.md) — DORA-focused SaaS
-- [CDviz vs GetDX](./vs-getdx.md) — developer experience platform
+- [CDviz vs LinearB](./vs-linearb.md): PR-centric engineering metrics
+- [CDviz vs Sleuth](./vs-sleuth.md): DORA-focused SaaS
+- [CDviz vs GetDX](./vs-getdx.md): developer experience platform
 - [All alternatives](./)
