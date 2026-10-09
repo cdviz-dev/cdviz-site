@@ -8,7 +8,7 @@ Common scenarios and complete configurations for real-world deployments.
 
 > [!NOTE] About the VRL snippets
 > The configurations on this page are validated patterns you can adapt. The inline VRL
-> snippets, however, are illustrative excerpts focused on the option being shown — they are
+> snippets, however, are illustrative excerpts focused on the option being shown. They are
 > not always complete, production-ready transformers. For production use, prefer the
 > maintained transformers from [transformers-community](https://github.com/cdviz-dev/transformers-community)
 > (GitHub, ArgoCD, Kubewatch, …) and validate event shapes against the
