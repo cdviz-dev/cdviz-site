@@ -37,24 +37,24 @@ Both CDviz and Middleware are open-source, Apache 2.0 platforms targeting SDLC o
 | Cost (SaaS)                                      |                 Cloud €20/month per org                  |          $39/user/month (Standard)           |
 
 _¹ Jira issue/version webhooks are mapped to CDEvents by a beta transformer, open source and free to self-host on any plan (see [Jira integration](/docs/integrations/jira)), or via a [custom webhook mapping](/docs/integrations/custom)._\
-_² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks/http) plus a workflow tool (n8n, Make, Zapier…) or a custom webhook — there is no ready-made Slack app._
+_² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks/http) plus a workflow tool (n8n, Make, Zapier…) or a custom webhook. There is no ready-made Slack app._
 
 ## Key differences
 
-- **Data model**: Middleware polls GitHub, GitLab, and Jira APIs on a schedule into a proprietary model. CDviz receives events pushed from your pipeline tools in real time using the CDEvents open standard — avoiding polling delays for live data — and can still [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems, normalizing everything to CDEvents.
+- **Data model**: Middleware polls GitHub, GitLab, and Jira APIs on a schedule into a proprietary model. CDviz receives events pushed from your pipeline tools in real time using the CDEvents open standard, so live data has no polling delay. It can still [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems, and normalizes everything to CDEvents.
 - **DORA calculation**: Middleware derives DORA metrics from PR merge history and deployment annotations pulled from your VCS. CDviz derives DORA metrics from CDEvents emitted directly by your CI/CD toolchain at the moment they happen.
-- **Scope**: Middleware extends beyond CI/CD into sprint health — blocked work, spilled stories, Jira flow metrics, and AI-generated sprint summaries. CDviz focuses on the full SDLC event stream (build, test, artifact, deploy, incident) with less emphasis on issue-tracker analytics.
-- **Event standard**: CDviz is built on the [CDEvents](https://cdevents.dev) specification — a [CD Foundation](https://cd.foundation) project for interoperable CI/CD events. Middleware uses a proprietary data model tied to its own integrations.
-- **Observe and act**: CDviz events can trigger downstream workflows — the same event stream that drives observability can also drive automation. Middleware is monitoring and reporting only.
+- **Scope**: Middleware extends beyond CI/CD into sprint health: blocked work, spilled stories, Jira flow metrics, and AI-generated sprint summaries. CDviz focuses on the full SDLC event stream (build, test, artifact, deploy, incident) with less emphasis on issue-tracker analytics.
+- **Event standard**: CDviz is built on the [CDEvents](https://cdevents.dev) specification, a [CD Foundation](https://cd.foundation) project for interoperable CI/CD events. Middleware uses a proprietary data model tied to its own integrations.
+- **Observe and act**: The CDviz event stream that drives observability can also trigger downstream workflows. Middleware is monitoring and reporting only.
 - **Visualization**: CDviz integrates with Grafana, BI tools, AI agents, and IDP frameworks, giving teams full flexibility. Middleware ships its own built-in dashboard UI, optimised for DORA and sprint metrics.
-- **Cost model**: CDviz commercial support is priced per organization per month — not per seat — so cost does not scale with team size. Middleware's Standard SaaS tier is $39 per user per month, which grows linearly with headcount.
+- **Cost model**: CDviz commercial support is priced per organization per month, not per seat, so cost does not scale with team size. Middleware's Standard SaaS tier is $39 per user per month, which grows linearly with headcount.
 
 ## When to choose CDviz
 
 - You want real-time metrics from a push-first event stream, not schedule-bound polling.
 - Data ownership or privacy regulations make vendor-hosted SaaS unacceptable.
 - You are adopting the CDEvents open standard for interoperability across your toolchain.
-- You need events to trigger downstream workflows — not just observe them.
+- You need events to trigger downstream workflows, not only to observe them.
 - You want flexible storage, reporting, or integration with BI tools, AI agents, or IDPs.
 - Team size makes per-seat pricing expensive; you prefer a flat per-org cost ([Cloud €20/mo, Pro €200/mo](/pricing)).
 
@@ -67,24 +67,24 @@ _² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks
 
 ## Summary
 
-Middleware and CDviz are both open-source Apache 2.0 tools, but they solve adjacent problems. Middleware is a strong choice for engineering managers who want sprint health, Jira flow, and AI-assisted reporting alongside DORA metrics — with a polished built-in UI and a free self-hosted tier. CDviz is the right choice when you need a real-time event-push model, CDEvents interoperability, event-driven automation, and flexible visualization — with flat per-org commercial support available to reduce operational risk.
+Middleware and CDviz are both open-source Apache 2.0 tools, but they solve adjacent problems. Middleware is a strong choice for engineering managers who want sprint health, Jira flow, and AI-assisted reporting alongside DORA metrics. It has a polished built-in UI and a free self-hosted tier. CDviz is the right choice when you need a real-time event-push model, CDEvents interoperability, event-driven automation, and flexible visualization. Flat per-organization commercial support is available to reduce operational risk.
 
 <!--@include: ./parts/get-started-cta.md-->
 
 ## FAQ
 
-**Is Middleware open-source?** Yes — Middleware is Apache 2.0 licensed and available at [github.com/middlewarehq/middleware](https://github.com/middlewarehq/middleware).
+**Is Middleware open-source?** Yes. Middleware is Apache 2.0 licensed and available at [github.com/middlewarehq/middleware](https://github.com/middlewarehq/middleware).
 
 **Does Middleware support CDEvents?** No. Middleware uses a proprietary data model based on polling GitHub/GitLab/Jira APIs. CDEvents integration is not supported.
 
-**Does CDviz support Jira?** Yes — a Jira webhook transformer (beta) maps issue and version events to CDEvents (`ticket.*`, `artifact.published`); it's open source and free to self-host on any plan, or you can ingest Jira webhooks via a [custom mapping](/docs/integrations/custom). Sprint-level flow metrics are not a current focus.
+**Does CDviz support Jira?** Yes. A Jira webhook transformer (beta) maps issue and version events to CDEvents (`ticket.*`, `artifact.published`). It is open source and free to self-host on any plan, or you can ingest Jira webhooks via a [custom mapping](/docs/integrations/custom). Sprint-level flow metrics are not a current focus.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs Apache DevLake](./vs-apache-devlake.md) — open-source engineering metrics with 50+ integrations
-- [CDviz vs LinearB](./vs-linearb.md) — engineering metrics with PR analytics
-- [CDviz vs Sleuth](./vs-sleuth.md) — DORA metrics SaaS platform
-- [CDviz vs Swarmia](./vs-swarmia.md) — engineering effectiveness platform
+- [CDviz vs Apache DevLake](./vs-apache-devlake.md): open-source engineering metrics with 50+ integrations
+- [CDviz vs LinearB](./vs-linearb.md): engineering metrics with PR analytics
+- [CDviz vs Sleuth](./vs-sleuth.md): DORA metrics SaaS platform
+- [CDviz vs Swarmia](./vs-swarmia.md): engineering effectiveness platform
 - [All alternatives](./)
