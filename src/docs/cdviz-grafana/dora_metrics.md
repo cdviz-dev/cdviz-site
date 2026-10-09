@@ -14,6 +14,9 @@ faq:
 
 # DORA Metrics Dashboard
 
+This pre-built Grafana dashboard shows the four DORA metrics: deployment frequency, lead time for changes, change failure rate and time to restore.
+CDviz computes them from the CDEvents that your CI/CD pipelines, deployment tools and incident tools send.
+
 ![DORA Metrics dashboard overview](/screenshots/grafana_dashboard_dora_metrics-20260222.png)
 
 > [!TIP] Online Demo
