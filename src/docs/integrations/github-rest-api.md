@@ -5,7 +5,7 @@ description: |
   <ul>
   <li>Backfill historical data (workflow runs, pull requests, releases, ...) before switching to webhooks.</li>
   <li>Ingest GitHub activity in environments where webhooks are not available (no inbound endpoint, GitHub Enterprise behind a firewall).</li>
-  <li>Multi-pass discovery: list an org's repositories/packages, then fan out to fetch each one's resources — no per-repo configuration.</li>
+  <li>Multi-pass discovery: list an org's repositories/packages, then fan out to fetch each one's resources. No per-repo configuration.</li>
   </ul>
 references:
   - title: HTTP Polling Source reference
@@ -31,15 +31,15 @@ import IntegrationCard from '../../../components/IntegrationCard.vue'
 
 Use REST API polling when **push (webhooks) is not enough or not possible**:
 
-- **Historical backfill** — ingest months of past activity before switching to the
+- **Historical backfill**: ingest months of past activity before switching to the
   [GitHub Webhook integration](./github.md) going forward. Set `ts_after` to a past
   date and `ts_before_limit` to "now", run once, then stop.
-- **No inbound endpoint** — GitHub Enterprise behind a firewall, or a collector with
+- **No inbound endpoint**: GitHub Enterprise behind a firewall, or a collector with
   no public URL to receive webhooks.
-- **Backfilling missed events** — re-pull a window after webhook downtime; downstream
+- **Backfilling missed events**: re-pull a window after webhook downtime; downstream
   deduplication by content-based `context.id` makes overlapping ranges safe.
 
-For real-time ingestion, prefer [webhooks](./github.md) — they are lower-latency and
+For real-time ingestion, prefer [webhooks](./github.md). They are lower-latency and
 do not consume API rate limit. The two can run side by side: backfill with polling,
 then track live activity with webhooks.
 
@@ -49,14 +49,14 @@ Each source uses the [`http_polling`](../cdviz-collector/sources/http_polling.md
 single inline `driver_vrl` script that builds a worklist of requests. Responses are
 **routed**:
 
-- `feedback` — handed back to the driver to compute more requests (discovery,
+- `feedback`: handed back to the driver to compute more requests (discovery,
   pagination); **not** emitted downstream.
-- `pipeline` — body is parsed and forwarded to the transformer.
-- `both` — emit **and** feed back (resource pages that must be transformed _and_
+- `pipeline`: body is parsed and forwarded to the transformer.
+- `both`: emit **and** feed back (resource pages that must be transformed _and_
   paginated).
 
 This enables **discovery**: list an org's repositories once (routed `feedback`), then
-fan out one request per repo to fetch its resources (routed `both`) — no need to
+fan out one request per repo to fetch its resources (routed `both`). You do not
 hardcode every repository. Pagination is manual: read the `Link` header and re-issue
 the `rel="next"` URL until it is absent. Responses are distinguished by their
 originating URL (`.request.url`).
@@ -84,8 +84,8 @@ This keeps lead time, cycle time and run duration computable from CDEvents alone
 whose whole history is imported after the fact.
 
 `customData` of the earlier phases deliberately omits volatile fields (`state`, `conclusion`,
-`merged_at`, …), so re-polling the same item later produces the same content-based `context.id` — an
-overlapping window updates nothing and duplicates nothing.
+`merged_at`, …), so re-polling the same item later produces the same content-based `context.id`. An
+overlapping window changes nothing and adds no duplicates.
 
 ## Configuration
 
@@ -155,8 +155,8 @@ authorization          = { type = "secret", value_file = "/secrets/github_pat_to
 "x-github-api-version" = { type = "static", value = "2022-11-28" }
 ```
 
-The same discovery → per-repo pattern applies to every repository-scoped resource —
-only the endpoint suffix and `transformer_refs` change:
+The same discovery → per-repo pattern applies to every repository-scoped resource.
+Only the endpoint suffix and `transformer_refs` change:
 
 | Transformer                 | Per-repo endpoint suffix             |
 | --------------------------- | ------------------------------------ |
@@ -168,7 +168,7 @@ only the endpoint suffix and `transformer_refs` change:
 | `github_rest_environments`  | `/environments`                      |
 | `github_rest_branches`      | `/branches`                          |
 
-`github_rest_repositories` is simpler — the repos list _is_ the event, so route it
+`github_rest_repositories` is simpler: the repos list _is_ the event, so route it
 `pipeline` directly (no fan-out). `github_rest_package_versions` discovers packages per
 type, then fans out to each package's versions endpoint.
 
@@ -197,7 +197,7 @@ Use a GitHub token (PAT or App) with the read scopes for the resources you poll:
 ## Backfill Pattern
 
 A historical backfill is a one-shot `connect` run with `ts_after` and `ts_before_limit`
-set — the source exits when it reaches the limit:
+set. The source exits when it reaches the limit:
 
 ```sh
 cdviz-collector connect --config github_backfill.toml
@@ -208,6 +208,6 @@ Re-running is safe: state checkpoints are saved after each successful window (se
 are deduplicated downstream by content-based `context.id`. Once the backfill completes,
 switch to the [GitHub Webhook integration](./github.md) for live tracking.
 
-> **Branch timestamps are approximate** — GitHub's branches API does not expose branch
+> **Branch timestamps are approximate.** GitHub's branches API does not expose branch
 > creation time, so the transformer uses the polling window start (`ts_after`) as a
 > proxy.
