@@ -61,7 +61,7 @@ Compare against a secret value. Keep the secret out of the config file using the
 "x-api-key" = { type = "secret", value_file = "/run/secrets/expected_api_key" }
 ```
 
-See [Configuration — Environment Variables](./configuration.md#environment-variables) for the naming convention.
+See [Configuration: Environment Variables](./configuration.md#environment-variables) for the naming convention.
 
 ### HMAC Signature Verification
 
