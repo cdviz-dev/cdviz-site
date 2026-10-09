@@ -529,6 +529,8 @@ export default defineConfig({
         .replace(/\s+/g, " ")
         .trim();
     }
+    // No " - CDviz" suffix when the title already names CDviz
+    if (pageData.title.includes("CDviz")) pageData.titleTemplate = false;
   },
 
   transformHead({ pageData, content }) {
