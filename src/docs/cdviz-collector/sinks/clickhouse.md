@@ -37,7 +37,7 @@ query = """
 | `type`                      | string   | yes          | Must be `"clickhouse"`                                               |
 | `url`                       | string   | yes          | ClickHouse HTTP endpoint (e.g. `http://host:8123`)                   |
 | `database`                  | string   | yes          | Target database                                                      |
-| `query`                     | string   | yes          | INSERT query template — see [Placeholders](#placeholders)            |
+| `query`                     | string   | yes          | INSERT query template (see [Placeholders](#placeholders))            |
 | `user`                      | string   | no           | ClickHouse username                                                  |
 | `password`                  | string   | no           | ClickHouse password                                                  |
 | `enabled`                   | boolean  | yes          | Enable/disable this sink                                             |
@@ -61,7 +61,7 @@ The `query` template supports the following `{field}` placeholders, replaced at 
 | `{predicate}`   | Predicate segment extracted from type (4th dot-segment) | `deployed`                            |
 | `{specversion}` | CDEvents spec version                                   | `0.4.1`                               |
 
-Each placeholder is replaced with a bound parameter (`?`) — values are never interpolated as raw strings.
+Each placeholder is replaced with a bound parameter (`?`). Values are never interpolated as raw strings.
 
 ## Table Schema
 
@@ -127,5 +127,5 @@ export CDVIZ_COLLECTOR__SINKS__CLICKHOUSE__PASSWORD="secret"
 
 ## See Also
 
-- [Database Sink (PostgreSQL)](./db.md) — the default storage sink
-- [CDviz Database](../../cdviz-db/) — PostgreSQL + TimescaleDB schema and hosting options
+- [Database Sink (PostgreSQL)](./db.md): the default storage sink
+- [CDviz Database](../../cdviz-db/): PostgreSQL + TimescaleDB schema and hosting options
