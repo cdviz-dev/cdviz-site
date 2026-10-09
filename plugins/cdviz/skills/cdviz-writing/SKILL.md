@@ -18,6 +18,33 @@ For visual rules (callouts, code blocks, tables, badges) see the `cdviz-design` 
 DevOps engineers, platform engineers and tech leads. They know CI/CD, Kubernetes and Git hosting; they may not know CDEvents.
 Two paths must stay visible: self-hosters (open source, Community plan) and CDviz Cloud buyers. Never serve one by hiding the other.
 
+Write for three readers at once:
+
+- **Non-native English speakers**: simple words, one meaning per term, no idioms or puns.
+- **Crawlers and AI agents**: every fact in plain text in the HTML, one topic per page, descriptive headings they can quote.
+- **Busy humans**: the answer in the first two lines, the page scannable from headings, lists and tables alone.
+
+## Formats
+
+Prefer the most compact format that carries the fact. Pick by content:
+
+| Content                                        | Format                                                    |
+| ---------------------------------------------- | --------------------------------------------------------- |
+| How to do it                                   | Code or config block first, one sentence of context after |
+| Parallel items (steps, options, prerequisites) | Numbered or bulleted list                                 |
+| Comparison, mapping, options vs criteria       | Table                                                     |
+| System, flow, architecture                     | Diagram                                                   |
+| Numbers, trends, distributions                 | Chart (or a table when there are few values)              |
+| Change over time, a sequence of states         | Animation (optional)                                      |
+| Reasoning, trade-off, opinion                  | Short paragraphs                                          |
+
+- Sentences: about 15 words or fewer, one idea each. Paragraphs: 3 sentences or fewer. Close to ASD-STE100, but keep product names, code and domain terms exact.
+- Define a term once, at first use, then always use the same word (no synonyms for variety).
+- A diagram, chart or animation MUST NOT be the only carrier of a fact: say the key point in the text or a caption, and give images an `alt` text. Crawlers and screen readers do not see pictures.
+- Diagrams: Excalidraw SVG in `components/diagrams/`, wrapped in a Vue component (see `CdvizArchitecture.vue`); style per the `cdviz-design` skill.
+- Animations: gsap (already a dependency), in the diagram's Vue wrapper. The static SVG MUST show the final state (no JS, `prefers-reduced-motion`, crawlers).
+- Charts: no chart library is installed. Use a table or a static SVG; ask before adding a library.
+
 ## Voice
 
 - Address the reader as "you". When the company speaks, write "the CDviz team" (third person), not "we".
