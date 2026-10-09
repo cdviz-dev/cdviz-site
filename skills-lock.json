@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-seo": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/ai-seo/SKILL.md",
+      "computedHash": "d15d6b1ee35dee306ec904f198e46d5ad7f0ae65e594671c7a1472578c185f0e"
+    },
+    "assessing-heatmaps": {
+      "source": "PostHog/skills",
+      "sourceType": "github",
+      "skillPath": "skills/omnibus/assessing-heatmaps/SKILL.md",
+      "computedHash": "92479ec21d70f85620e4aa1f6e95cd62b7b00074f4f54cc74ba6c065a50333bd"
+    },
+    "competitors": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/competitors/SKILL.md",
+      "computedHash": "38efdc0ec5c612ca82c392c026038834da6da078a79e92dd89cd8d3d08f0519b"
+    },
+    "copy-editing": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/copy-editing/SKILL.md",
+      "computedHash": "d755d5546c8ccd2b6a77695230a1d54869635cbd52e53545b0ce5bd367850432"
+    },
+    "copywriting": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting/SKILL.md",
+      "computedHash": "34095dc1ba236967c7515c62568591008f8ec795e1a5fd4b018f2b127a36b32c"
+    },
+    "cro": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/cro/SKILL.md",
+      "computedHash": "f1974581536c4c860a0f7da4b663e2520dfc79a065327b576b12013dd62ad45e"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "51f2537e04d15911b41d78e2de24c36a0e26d41beae15e82a954fe5496a5eda9"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "computedHash": "de7de6829490819b3c18cfdad2c93d002bd428c4b738d29b971ef3dc8f911d08"
+    },
+    "instrument-product-analytics": {
+      "source": "PostHog/skills",
+      "sourceType": "github",
+      "skillPath": "skills/omnibus/instrument-product-analytics/SKILL.md",
+      "computedHash": "cd16d176c8b7bbf6cc300086ba7ce8d0616c2fd2a2748e3a3d478bc01c449e91"
+    },
+    "querying-posthog-data": {
+      "source": "PostHog/skills",
+      "sourceType": "github",
+      "skillPath": "skills/omnibus/querying-posthog-data/SKILL.md",
+      "computedHash": "e7a6c3bfdaf0119b1680d85e53cc7db634df9e4938fe127a0da1a01494d1d8cc"
+    },
+    "schema": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/schema/SKILL.md",
+      "computedHash": "6809d198493d08931ea1c35ab40d2fca27c6ae63a07a4bc183b75df51243a374"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "computedHash": "6cc692cab02f5a7ae863fee10ffa9d93d8a63cbe7762b7f6c50e04b7283a1d43"
+    },
+    "seo-technical": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-technical/SKILL.md",
+      "computedHash": "d1cad84990b841cbca480e9395e03bc9688a3f4d2f7db11de592fec52ec6f29f"
+    },
+    "site-architecture": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/site-architecture/SKILL.md",
+      "computedHash": "20ea864cae2d3261fd233dd5175d8aa0b806857447083c175ed9250066efff90"
+    },
+    "vitepress": {
+      "source": "antfu/skills",
+      "sourceType": "github",
+      "skillPath": "skills/vitepress/SKILL.md",
+      "computedHash": "b7fd97083e6b963b478b430552861cf1514f39b8e3e7fdf0a348e86d76ecf418"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}

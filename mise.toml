@@ -3,6 +3,15 @@
 "dprint" = "0.60.1"
 # "magick" = "latest" # imagemagick
 "github:cdviz-dev/cdviz-collector" = "0.53.0"
+"uv" = "0.12.21"                              # uvx runs SkillSpector (skills:scan)
+
+[tasks."skills:scan"]
+description = "scan agent skills (.claude/skills, plugins/cdviz/skills) with NVIDIA SkillSpector, report only"
+run = "bun run scripts/skills-scan.ts"
+
+[tasks."skills:update"]
+description = "update upstream agent skills listed in skills-lock.json, then scan them; review the diff before committing"
+run = ["bunx skills update --project --yes", "bun run scripts/skills-scan.ts"]
 
 [tasks]
 install = "bun install"
