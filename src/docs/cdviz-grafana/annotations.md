@@ -5,9 +5,9 @@ description: "How to overlay CDEvents (service deployments, incidents) as Grafan
 # Annotate Runtime Metrics with Events
 
 > [!TIP] Try It Live
-> Send events with the [Getting Started demo stack](../getting-started.md) and watch annotations appear on a metrics timeline in real time — no code required.
+> Send events with the [Getting Started demo stack](../getting-started.md) and watch annotations appear on a metrics timeline in real time. No code required.
 
-CDEvents stored in [the event store](../cdviz-db/index.md) aren't limited to CDviz's own dashboards. Any Grafana time series panel — CPU, latency, error rate, whatever your Prometheus/Datadog/CloudWatch datasource already renders — can show the same deployment and incident markers, so a spike is explained by "yes, we deployed at 14:02" instead of a guessing game.
+CDEvents stored in [the event store](../cdviz-db/index.md) aren't limited to CDviz's own dashboards. Any Grafana time series panel can show the same deployment and incident markers: CPU, latency, error rate, or whatever your Prometheus/Datadog/CloudWatch datasource already renders. A spike is then explained by "yes, we deployed at 14:02" instead of a guess.
 
 ![Metrics timeline annotated with a service deployment](/quickstart/metrics_with_deployment.png)
 
@@ -15,7 +15,7 @@ CDEvents stored in [the event store](../cdviz-db/index.md) aren't limited to CDv
 
 ## How It Works
 
-Grafana [annotation queries](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/annotate-visualizations/) run a query that returns rows with a time, title, text, and tags, then plot each row as a vertical marker on every time series panel in the dashboard. Point one at your `cdviz-db` PostgreSQL datasource and query `cdviz.cdevents_lake` directly — no extra service, no polling job.
+Grafana [annotation queries](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/annotate-visualizations/) run a query that returns rows with a time, title, text, and tags, then plot each row as a vertical marker on every time series panel in the dashboard. Point one at your `cdviz-db` PostgreSQL datasource and query `cdviz.cdevents_lake` directly. You need no extra service and no polling job.
 
 ## Example: Annotate with Service Deployments
 
@@ -67,4 +67,4 @@ WHERE $__timeFilter(timestamp)
 
 ## Source Code Reference
 
-- Reference implementation: [demo_service_deployed.json](https://github.com/cdviz-dev/cdviz/blob/main/cdviz-grafana/dashboards/demo_service_deployed.json) — a playground dashboard with both annotation queries wired up, plus forms to send test events.
+- Reference implementation: [demo_service_deployed.json](https://github.com/cdviz-dev/cdviz/blob/main/cdviz-grafana/dashboards/demo_service_deployed.json): a playground dashboard with both annotation queries wired up, plus forms to send test events.
