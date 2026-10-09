@@ -159,7 +159,7 @@ port = 8081
 
 ## Common Mistakes and Solutions
 
-### ❌ Wrong: Mixing Inline and Section Syntax
+### Wrong: Mixing Inline and Section Syntax
 
 ```toml
 # Don't mix these approaches
@@ -171,7 +171,7 @@ database = { host = "localhost", port = 5432 }
 username = "admin"
 ```
 
-### ✅ Correct: Choose One Approach
+### Correct: Choose One Approach
 
 ```toml
 # Option 1: All inline
@@ -189,7 +189,7 @@ port = 5432
 username = "admin"
 ```
 
-### ❌ Wrong: Forgetting Double Brackets for Arrays
+### Wrong: Forgetting Double Brackets for Arrays
 
 ```toml
 # Wrong - creates separate tables instead of array
@@ -200,7 +200,7 @@ name = "web-server"
 name = "api-server"
 ```
 
-### ✅ Correct: Use Double Brackets for Array of Tables
+### Correct: Use Double Brackets for Array of Tables
 
 ```toml
 # Correct - creates array of server configurations
@@ -211,7 +211,7 @@ name = "web-server"
 name = "api-server"
 ```
 
-### ❌ Wrong: Incorrect String Escaping
+### Wrong: Incorrect String Escaping
 
 ```toml
 # Wrong - unescaped backslashes
@@ -221,7 +221,7 @@ pattern = "^Bearer [A-Za-z0-9\-_]+"
 value = "He said "hello""
 ```
 
-### ✅ Correct: Proper String Escaping
+### Correct: Proper String Escaping
 
 ```toml
 # Correct - escaped backslashes

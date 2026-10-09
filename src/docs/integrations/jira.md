@@ -98,8 +98,8 @@ pkg:generic/<projectKey>@<version_name>?repository_url=<base_url>
 
 **Supported Events**:
 
-- ✅ Issue created, updated, deleted (as `ticket.*`)
-- ✅ Version released (as `artifact.published`)
+- Issue created, updated, deleted (as `ticket.*`)
+- Version released (as `artifact.published`)
 
 **Not Yet Supported**:
 

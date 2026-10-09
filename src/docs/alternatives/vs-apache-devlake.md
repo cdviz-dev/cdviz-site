@@ -17,20 +17,20 @@ Both are open-source platforms for engineering metrics and SDLC visibility. They
 
 ## At a glance
 
-|                                                  |                    **CDviz**                     |             **Apache DevLake**             |
-| ------------------------------------------------ | :----------------------------------------------: | :----------------------------------------: |
-| License                                          |                    Apache 2.0                    |                 Apache 2.0                 |
-| Self-hosted                                      |                        ✅                        |                     ✅                     |
-| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |                     ❌                     |
-| Commercial support                               |                        ✅                        |                     ❌                     |
-| [CDEvents](https://cdevents.dev) standard        |                    ✅ native                     |                     ❌                     |
-| Data model                                       |               Event-driven (push)                |            Pull-based (polling)            |
-| Beyond monitoring: trigger workflows             |                        ✅                        |                     ❌                     |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |                     ✅                     |
-| Built-in integrations                            |   GitHub, GitLab, Jenkins, ArgoCD, Kubernetes…   | 50+ (Jira, Jenkins, PagerDuty, SonarQube…) |
-| Customizable storage backends                    |           ✅ (PostgreSQL, ClickHouse…)           |                     ❌                     |
-| Visualization                                    |      Grafana, any analytics / AI / IDP tool      |        built-in Grafana dashboards         |
-| Maturity                                         |                   Early stage                    |            Incubating @ Apache             |
+|                                                  |                        **CDviz**                         |             **Apache DevLake**             |
+| ------------------------------------------------ | :------------------------------------------------------: | :----------------------------------------: |
+| License                                          |                        Apache 2.0                        |                 Apache 2.0                 |
+| Self-hosted                                      |                         <Yes />                          |                  <Yes />                   |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |                   <No />                   |
+| Commercial support                               |                         <Yes />                          |                   <No />                   |
+| [CDEvents](https://cdevents.dev) standard        |                    <Yes>native</Yes>                     |                   <No />                   |
+| Data model                                       |                   Event-driven (push)                    |            Pull-based (polling)            |
+| Beyond monitoring: trigger workflows             |                         <Yes />                          |                   <No />                   |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                         <Yes />                          |                  <Yes />                   |
+| Built-in integrations                            |       GitHub, GitLab, Jenkins, ArgoCD, Kubernetes…       | 50+ (Jira, Jenkins, PagerDuty, SonarQube…) |
+| Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |                   <No />                   |
+| Visualization                                    |          Grafana, any analytics / AI / IDP tool          |        built-in Grafana dashboards         |
+| Maturity                                         |                       Early stage                        |            Incubating @ Apache             |
 
 ## Key differences
 

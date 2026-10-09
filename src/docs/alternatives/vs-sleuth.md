@@ -17,22 +17,22 @@ CDviz is an open-source platform with self-hosted and SaaS options. Sleuth is a 
 
 ## At a glance
 
-|                                                  |                    **CDviz**                     |     **Sleuth**      |
-| ------------------------------------------------ | :----------------------------------------------: | :-----------------: |
-| License                                          |                    Apache 2.0                    |     Proprietary     |
-| Self-hosted                                      |                        ✅                        |         ❌          |
-| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |         ✅          |
-| Commercial support                               |                        ✅                        |    ✅ (included)    |
-| Data ownership                                   |                     ✅ full                      |  ❌ vendor-hosted   |
-| [CDEvents](https://cdevents.dev) standard        |                        ✅                        |         ❌          |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |         ✅          |
-| Deployment tracking                              |                        ✅                        |         ✅          |
-| Change failure rate                              |                        ✅                        |         ✅          |
-| Beyond monitoring: trigger workflows             |                        ✅                        |         ❌          |
-| Slack / PR tool integrations                     |                        ✅                        |         ✅          |
-| Customizable storage backends                    |           ✅ (PostgreSQL, ClickHouse…)           |         ❌          |
-| Visualization                                    |         Grafana, BI, AI agents, MCP, IDP         | built-in dashboards |
-| Cost                                             |   Free self-host · Cloud €20/mo · Pro €200/mo    |  Per-user pricing   |
+|                                                  |                        **CDviz**                         |       **Sleuth**       |
+| ------------------------------------------------ | :------------------------------------------------------: | :--------------------: |
+| License                                          |                        Apache 2.0                        |      Proprietary       |
+| Self-hosted                                      |                         <Yes />                          |         <No />         |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |        <Yes />         |
+| Commercial support                               |                         <Yes />                          |   <Yes /> (included)   |
+| Data ownership                                   |                     <Yes>full</Yes>                      | <No>vendor-hosted</No> |
+| [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |         <No />         |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                         <Yes />                          |        <Yes />         |
+| Deployment tracking                              |                         <Yes />                          |        <Yes />         |
+| Change failure rate                              |                         <Yes />                          |        <Yes />         |
+| Beyond monitoring: trigger workflows             |                         <Yes />                          |         <No />         |
+| Slack / PR tool integrations                     |                         <Yes />                          |        <Yes />         |
+| Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |         <No />         |
+| Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |  built-in dashboards   |
+| Cost                                             |       Free self-host · Cloud €20/mo · Pro €200/mo        |    Per-user pricing    |
 
 ## Key differences
 

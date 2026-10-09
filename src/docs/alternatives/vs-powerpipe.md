@@ -17,20 +17,20 @@ Both are open-source, self-hosted tools for engineering visibility — but they 
 
 ## At a glance
 
-|                                                  |                    **CDviz**                     |           **Powerpipe**           |
-| ------------------------------------------------ | :----------------------------------------------: | :-------------------------------: |
-| License                                          |                    Apache 2.0                    |              AGPL v3              |
-| Self-hosted                                      |                        ✅                        |                ✅                 |
-| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |                ❌                 |
-| Commercial support                               |                        ✅                        |                ❌                 |
-| [CDEvents](https://cdevents.dev) standard        |                        ✅                        |                ❌                 |
-| Data model                                       |         Event-driven (push, historical)          | Query-driven (SQL, current state) |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |          community mods           |
-| SDLC pipeline visibility                         |                        ✅                        |      ❌ (not primary focus)       |
-| Beyond monitoring: trigger workflows             |                        ✅                        |                ❌                 |
-| Cloud config / security posture                  |                        ❌                        |                ✅                 |
-| Visualization                                    |         Grafana, BI, AI agents, MCP, IDP         |     built-in (HCL dashboards)     |
-| Storage                                          |     PostgreSQL + TimescaleDB (+ ClickHouse…)     |   Steampipe (in-memory + cache)   |
+|                                                  |                        **CDviz**                         |           **Powerpipe**           |
+| ------------------------------------------------ | :------------------------------------------------------: | :-------------------------------: |
+| License                                          |                        Apache 2.0                        |              AGPL v3              |
+| Self-hosted                                      |                         <Yes />                          |              <Yes />              |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |              <No />               |
+| Commercial support                               |                         <Yes />                          |              <No />               |
+| [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |              <No />               |
+| Data model                                       |             Event-driven (push, historical)              | Query-driven (SQL, current state) |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                         <Yes />                          |          community mods           |
+| SDLC pipeline visibility                         |                         <Yes />                          |    <No /> (not primary focus)     |
+| Beyond monitoring: trigger workflows             |                         <Yes />                          |              <No />               |
+| Cloud config / security posture                  |                          <No />                          |              <Yes />              |
+| Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |     built-in (HCL dashboards)     |
+| Storage                                          |         PostgreSQL + TimescaleDB (+ ClickHouse…)         |   Steampipe (in-memory + cache)   |
 
 ## Key differences
 

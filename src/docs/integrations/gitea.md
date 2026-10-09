@@ -62,12 +62,12 @@ The `template_rfile` references the VRL transformation logic from the [transform
 3. **HTTP Method**: `POST`, **POST Content Type**: `application/json`
 4. **Secret**: the same value as `token` of the `x-gitea-signature` header in the collector configuration
 5. **Trigger On**: select the events you want, or "All events" (unmapped events are silently ignored) — at minimum:
-   - ✅ Repository events (branch/tag creation & deletion)
-   - ✅ Pull request events
-   - ✅ Issue events
-   - ✅ Release events
-   - ✅ Package events
-   - ✅ Actions events (workflow run / workflow job, for CI pipeline results)
+   - Repository events (branch/tag creation & deletion)
+   - Pull request events
+   - Issue events
+   - Release events
+   - Package events
+   - Actions events (workflow run / workflow job, for CI pipeline results)
 6. Ensure **Active** is checked, then save
 
 ### Testing the Integration
@@ -128,12 +128,12 @@ pkg:oci/<name>@<tag>?repository_url=<url>&tag=<tag>
 
 **Supported Events**:
 
-- ✅ Branch creation / deletion
-- ✅ Pull requests (created, updated, merged, abandoned, reviewed)
-- ✅ Issues (created, updated, closed)
-- ✅ Releases and packages (artifact published / deleted)
-- ✅ Repository created/deleted, forks
-- ✅ Full CI pipeline lifecycle via Gitea Actions (`pipelineRun` queued/started/finished, `taskRun` started/finished)
+- Branch creation / deletion
+- Pull requests (created, updated, merged, abandoned, reviewed)
+- Issues (created, updated, closed)
+- Releases and packages (artifact published / deleted)
+- Repository created/deleted, forks
+- Full CI pipeline lifecycle via Gitea Actions (`pipelineRun` queued/started/finished, `taskRun` started/finished)
 
 **Not Yet Supported**:
 

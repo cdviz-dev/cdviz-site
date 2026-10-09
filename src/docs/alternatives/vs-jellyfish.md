@@ -18,23 +18,23 @@ CDviz is an open-source platform with self-hosted and SaaS options. Jellyfish is
 
 ## At a glance
 
-|                                                  |                    **CDviz**                     |        **Jellyfish**         |
-| ------------------------------------------------ | :----------------------------------------------: | :--------------------------: |
-| License                                          |                    Apache 2.0                    |         Proprietary          |
-| Self-hosted                                      |                        ✅                        |              ❌              |
-| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |              ✅              |
-| Commercial support                               |                        ✅                        |        ✅ (included)         |
-| Data ownership                                   |                     ✅ full                      |       ❌ vendor-hosted       |
-| [CDEvents](https://cdevents.dev) standard        |                        ✅                        |              ❌              |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |              ✅              |
-| Engineering investment reporting                 |                        ⏳                        |          ✅ (core)           |
-| Jira / sprint allocation tracking                |                        ❌                        |              ✅              |
-| Pipeline / CI-CD observability                   |                        ✅                        |           limited            |
-| Beyond monitoring: trigger workflows             |                        ✅                        |              ❌              |
-| Customizable storage backends                    |           ✅ (PostgreSQL, ClickHouse…)           |              ❌              |
-| Visualization                                    |         Grafana, BI, AI agents, MCP, IDP         |     built-in dashboards      |
-| Primary buyer                                    |             Platform / DevOps teams              | Engineering leadership / VPs |
-| Cost                                             |   Free self-host · Cloud €20/mo · Pro €200/mo    |   Enterprise SaaS contract   |
+|                                                  |                        **CDviz**                         |        **Jellyfish**         |
+| ------------------------------------------------ | :------------------------------------------------------: | :--------------------------: |
+| License                                          |                        Apache 2.0                        |         Proprietary          |
+| Self-hosted                                      |                         <Yes />                          |            <No />            |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |           <Yes />            |
+| Commercial support                               |                         <Yes />                          |      <Yes /> (included)      |
+| Data ownership                                   |                     <Yes>full</Yes>                      |    <No>vendor-hosted</No>    |
+| [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |            <No />            |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                         <Yes />                          |           <Yes />            |
+| Engineering investment reporting                 |                            ⏳                            |        <Yes /> (core)        |
+| Jira / sprint allocation tracking                |                          <No />                          |           <Yes />            |
+| Pipeline / CI-CD observability                   |                         <Yes />                          |           limited            |
+| Beyond monitoring: trigger workflows             |                         <Yes />                          |            <No />            |
+| Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |            <No />            |
+| Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |     built-in dashboards      |
+| Primary buyer                                    |                 Platform / DevOps teams                  | Engineering leadership / VPs |
+| Cost                                             |       Free self-host · Cloud €20/mo · Pro €200/mo        |   Enterprise SaaS contract   |
 
 ## Key differences
 

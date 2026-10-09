@@ -15,26 +15,26 @@ Both CDviz and Middleware are open-source, Apache 2.0 platforms targeting SDLC o
 
 ## At a glance
 
-|                                                  |                    **CDviz**                     |         **Middleware**         |
-| ------------------------------------------------ | :----------------------------------------------: | :----------------------------: |
-| License                                          |                    Apache 2.0                    |           Apache 2.0           |
-| Self-hosted                                      |                        ✅                        |               ✅               |
-| SaaS option                                      | ✅ [Cloud](/pricing) (€20/mo, 14-day free trial) |               ✅               |
-| Commercial support                               |                        ✅                        |      ✅ (paid tiers only)      |
-| Data ownership                                   |                     ✅ full                      | ✅ self-hosted / ❌ SaaS cloud |
-| [CDEvents](https://cdevents.dev) standard        |                        ✅                        |               ❌               |
-| Data model                                       |          Event-driven (push, real-time)          |      Pull-based (polling)      |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                        ✅                        |               ✅               |
-| Sprint / project flow insights                   |                        ❌                        |               ✅               |
-| PR review analytics                              |                    ⏳ planned                    |               ✅               |
-| AI-powered reports                               |                        ❌                        |         ✅ (Standard+)         |
-| Beyond monitoring: trigger workflows             |                        ✅                        |               ❌               |
-| Jira integration                                 |                       ✅ ¹                       |               ✅               |
-| Slack integration                                |                       ✅ ²                       |         ✅ (Standard+)         |
-| Customizable storage backends                    |           ✅ (PostgreSQL, ClickHouse…)           |               ❌               |
-| Visualization                                    |         Grafana, BI, AI agents, MCP, IDP         |      built-in dashboards       |
-| Cost (self-hosted)                               |      Free (Community) · Pro €200/mo per org      |         Free community         |
-| Cost (SaaS)                                      |             Cloud €20/month per org              |   $39/user/month (Standard)    |
+|                                                  |                        **CDviz**                         |                **Middleware**                |
+| ------------------------------------------------ | :------------------------------------------------------: | :------------------------------------------: |
+| License                                          |                        Apache 2.0                        |                  Apache 2.0                  |
+| Self-hosted                                      |                         <Yes />                          |                   <Yes />                    |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |                   <Yes />                    |
+| Commercial support                               |                         <Yes />                          |          <Yes /> (paid tiers only)           |
+| Data ownership                                   |                     <Yes>full</Yes>                      | <Yes>self-hosted</Yes> / <No>SaaS cloud</No> |
+| [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |                    <No />                    |
+| Data model                                       |              Event-driven (push, real-time)              |             Pull-based (polling)             |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                         <Yes />                          |                   <Yes />                    |
+| Sprint / project flow insights                   |                          <No />                          |                   <Yes />                    |
+| PR review analytics                              |                        ⏳ planned                        |                   <Yes />                    |
+| AI-powered reports                               |                          <No />                          |             <Yes /> (Standard+)              |
+| Beyond monitoring: trigger workflows             |                         <Yes />                          |                    <No />                    |
+| Jira integration                                 |                       <Yes>¹</Yes>                       |                   <Yes />                    |
+| Slack integration                                |                       <Yes>²</Yes>                       |             <Yes /> (Standard+)              |
+| Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |                    <No />                    |
+| Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |             built-in dashboards              |
+| Cost (self-hosted)                               |          Free (Community) · Pro €200/mo per org          |                Free community                |
+| Cost (SaaS)                                      |                 Cloud €20/month per org                  |          $39/user/month (Standard)           |
 
 _¹ Jira issue/version webhooks are mapped to CDEvents by a beta transformer, open source and free to self-host on any plan (see [Jira integration](/docs/integrations/jira)), or via a [custom webhook mapping](/docs/integrations/custom)._\
 _² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks/http) plus a workflow tool (n8n, Make, Zapier…) or a custom webhook — there is no ready-made Slack app._

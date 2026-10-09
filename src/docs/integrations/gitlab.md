@@ -114,16 +114,16 @@ Configure a webhook in your GitLab project or group:
 3. **URL**: <EditionTabs inline><template v-slot:selfhosted>`http://your-collector-url/webhook/000-gitlab`</template><template v-slot:cloud>the endpoint copied above, `https://app.cdviz.dev/collect/<your-tenant>/webhook/gitlab`</template></EditionTabs>
 4. **Secret token**: Enter the token from the [CDviz Side](#cdviz-side) section above (the value of the `x-gitlab-token` header)
 5. Select **Trigger** events:
-   - ✅ Push events
-   - ✅ Tag push events
-   - ✅ Issues events
-   - ✅ Confidential issues events
-   - ✅ Merge request events
-   - ✅ Job events
-   - ✅ Pipeline events
-   - ✅ Deployment events
-   - ✅ Release events
-   - ✅ Vulnerability events
+   - Push events
+   - Tag push events
+   - Issues events
+   - Confidential issues events
+   - Merge request events
+   - Job events
+   - Pipeline events
+   - Deployment events
+   - Release events
+   - Vulnerability events
 6. Enable **SSL verification** (recommended for production)
 7. Ensure **Enable webhook** is checked
 8. Click **Add webhook**
@@ -189,12 +189,12 @@ For `artifact.published` events, the `subject.id` is a PURL (Package URL):
 
 **Supported Events**:
 
-- ✅ Pipeline lifecycle (queued, started, finished)
-- ✅ Job lifecycle (started, finished)
-- ✅ Issues (created, updated, closed)
-- ✅ Merge requests (created, updated, merged, abandoned, reviewed)
-- ✅ Releases and tags (artifact published)
-- ✅ Branch operations (created, deleted)
+- Pipeline lifecycle (queued, started, finished)
+- Job lifecycle (started, finished)
+- Issues (created, updated, closed)
+- Merge requests (created, updated, merged, abandoned, reviewed)
+- Releases and tags (artifact published)
+- Branch operations (created, deleted)
 
 **Not Yet Supported**:
 

@@ -12,9 +12,9 @@ Get CDviz Collector running in 5 minutes with a working example.
 Webhook Endpoint → Transform to CDEvent → Save to Files
 ```
 
-- ✅ Webhook endpoint receiving events
-- ✅ Events transformed to CDEvents format
-- ✅ Events saved as JSON files
+- Webhook endpoint receiving events
+- Events transformed to CDEvents format
+- Events saved as JSON files
 
 ## Install & Start
 
@@ -93,9 +93,9 @@ cat events/*.json
 
 You should see:
 
-- ✅ HTTP 200 response
-- ✅ Debug logs in terminal
-- ✅ JSON file created in `./events/`
+- HTTP 200 response
+- Debug logs in terminal
+- JSON file created in `./events/`
 
 ## What You've Learned
 

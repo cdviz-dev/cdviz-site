@@ -76,7 +76,7 @@ cdviz-collector connect --config config.toml --dry-run
 
 ### Common Configuration Mistakes
 
-#### ❌ Wrong: Mixed inline and section syntax
+#### Wrong: Mixed inline and section syntax
 
 ```toml
 [sources.example.extractor]
@@ -87,7 +87,7 @@ parameters = { id = "test" }
 additional_param = "value"
 ```
 
-#### ✅ Correct: Choose one approach
+#### Correct: Choose one approach
 
 ```toml
 # Option 1: All inline
@@ -104,7 +104,7 @@ id = "test"
 additional_param = "value"
 ```
 
-#### ❌ Wrong: Old array-of-tables syntax
+#### Wrong: Old array-of-tables syntax
 
 ```toml
 [[sources.webhook.extractor.headers]]
@@ -114,7 +114,7 @@ type = "static"
 value = "Bearer your-api-token"
 ```
 
-#### ✅ Correct: Table with lowercase header key and inline value
+#### Correct: Table with lowercase header key and inline value
 
 ```toml
 [sources.webhook.extractor.headers]
@@ -475,11 +475,11 @@ Mount the Kubernetes Secret as a volume — secret values stay out of `kubectl d
 
 **Summary:**
 
-| Approach    | Env var key                        | TOML key                             | Match?                               |
-| ----------- | ---------------------------------- | ------------------------------------ | ------------------------------------ |
-| ❌ Wrong    | `X_HUB_SIGNATURE_256` (underscore) | `x-hub-signature-256` (hyphen)       | No → two map entries, missing `type` |
-| ✅ Option A | `X-HUB-SIGNATURE-256` (hyphen)     | `x-hub-signature-256` (hyphen)       | Yes                                  |
-| ✅ Option B | _(no env var)_                     | `x-hub-signature-256` + `token_file` | Yes (file-based)                     |
+| Approach            | Env var key                        | TOML key                             | Match?                               |
+| ------------------- | ---------------------------------- | ------------------------------------ | ------------------------------------ |
+| <No>Wrong</No>      | `X_HUB_SIGNATURE_256` (underscore) | `x-hub-signature-256` (hyphen)       | No → two map entries, missing `type` |
+| <Yes>Option A</Yes> | `X-HUB-SIGNATURE-256` (hyphen)     | `x-hub-signature-256` (hyphen)       | Yes                                  |
+| <Yes>Option B</Yes> | _(no env var)_                     | `x-hub-signature-256` + `token_file` | Yes (file-based)                     |
 
 ## Performance Troubleshooting
 

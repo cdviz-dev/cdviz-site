@@ -25,24 +25,24 @@ CDviz and CNCF DevStats share a similar technical stack — both use PostgreSQL 
 
 ## At a glance
 
-|                                           |                    **CDviz**                    |          **CNCF DevStats**           |
-| ----------------------------------------- | :---------------------------------------------: | :----------------------------------: |
-| License                                   |                   Apache 2.0                    |              Apache 2.0              |
-| Self-hosted                               |                       ✅                        |           ✅ (Helm chart)            |
-| Hosted public instance                    |   ✅ [Cloud](/pricing) — private to your org    | ✅ free at devstats.cncf.io (public) |
-| Commercial support                        |                       ✅                        |                  ❌                  |
-| Data sources                              | Webhooks, Kafka, NATS, SSE, files, HTTP polling |   GitHub Archive + GitHub API only   |
-| Private repositories                      |                       ✅                        |     ❌ public GitHub repos only      |
-| [CDEvents](https://cdevents.dev) standard |                       ✅                        |                  ❌                  |
-| Data model                                |               Event-driven (push)               |     Pull-based (hourly polling)      |
-| CI/CD pipeline events                     |                       ✅                        |                  ❌                  |
-| Deployment tracking                       |                       ✅                        |                  ❌                  |
-| Incident / DORA metrics                   |                       ✅                        |                  ❌                  |
-| Contributor / community analytics         |                       ❌                        |                  ✅                  |
-| Company attribution for contributors      |                       ❌                        |                  ✅                  |
-| Trigger downstream workflows              |                       ✅                        |                  ❌                  |
-| Stack                                     |       Rust collector, PostgreSQL, Grafana       | Go, PostgreSQL (Patroni HA), Grafana |
-| Update latency                            |               Real-time (seconds)               |           ~1 hour (batch)            |
+|                                           |                     **CDviz**                      |              **CNCF DevStats**               |
+| ----------------------------------------- | :------------------------------------------------: | :------------------------------------------: |
+| License                                   |                     Apache 2.0                     |                  Apache 2.0                  |
+| Self-hosted                               |                      <Yes />                       |             <Yes /> (Helm chart)             |
+| Hosted public instance                    | <Yes>[Cloud](/pricing) — private to your org</Yes> | <Yes>free at devstats.cncf.io (public)</Yes> |
+| Commercial support                        |                      <Yes />                       |                    <No />                    |
+| Data sources                              |  Webhooks, Kafka, NATS, SSE, files, HTTP polling   |       GitHub Archive + GitHub API only       |
+| Private repositories                      |                      <Yes />                       |      <No>public GitHub repos only</No>       |
+| [CDEvents](https://cdevents.dev) standard |                      <Yes />                       |                    <No />                    |
+| Data model                                |                Event-driven (push)                 |         Pull-based (hourly polling)          |
+| CI/CD pipeline events                     |                      <Yes />                       |                    <No />                    |
+| Deployment tracking                       |                      <Yes />                       |                    <No />                    |
+| Incident / DORA metrics                   |                      <Yes />                       |                    <No />                    |
+| Contributor / community analytics         |                       <No />                       |                   <Yes />                    |
+| Company attribution for contributors      |                       <No />                       |                   <Yes />                    |
+| Trigger downstream workflows              |                      <Yes />                       |                    <No />                    |
+| Stack                                     |        Rust collector, PostgreSQL, Grafana         |     Go, PostgreSQL (Patroni HA), Grafana     |
+| Update latency                            |                Real-time (seconds)                 |               ~1 hour (batch)                |
 
 ## Key differences
 

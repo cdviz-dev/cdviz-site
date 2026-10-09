@@ -17,20 +17,20 @@ Full disclosure: Kargo was one of the inspirations for CDviz's [event reaction](
 
 ## At a glance
 
-|                                                                    |                                        **CDviz**                                        |                  **Kargo**                  |
-| ------------------------------------------------------------------ | :-------------------------------------------------------------------------------------: | :-----------------------------------------: |
-| License                                                            |                                       Apache 2.0                                        |                 Apache 2.0                  |
-| Category                                                           |                           SDLC observability + event reaction                           |     Continuous-promotion control plane      |
-| Made by                                                            |                                          CDviz                                          |          Akuity (creators of Argo)          |
-| Self-hosted                                                        |                                           ✅                                            |                     ✅                      |
-| Commercial offering                                                |                  ✅ [Cloud](/pricing) €20/mo · [Pro](/pricing) €200/mo                  |        ✅ Kargo Enterprise (Akuity)         |
-| [CDEvents](https://cdevents.dev) standard                          |                                        ✅ native                                        |                     ❌                      |
-| Scope                                                              |            Any SDLC tool (CI, CD, registries, incidents…), Kubernetes or not            |  Kubernetes delivery with GitOps (Argo CD)  |
-| Promotion execution                                                |     ⚠️ delegates to your workflow engine via [event reaction](/docs/event-reaction)      |  ✅ native (Warehouses → Freight → Stages)  |
-| Requires adopting a new delivery model                             |                            ❌ listens to your existing tools                            |    ✅ model your pipelines as Kargo CRDs    |
-| Artifact lifecycle visibility                                      | ✅ cross-tool, from events ([Artifact Timeline](/docs/cdviz-grafana/artifact_timeline)) |      ✅ within Kargo-managed pipelines      |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) & SDLC dashboards |                                           ✅                                            |                     ❌                      |
-| Verification gates before promotion                                |   via your workflow engine (e.g. [Argo Workflows](/docs/integrations/argo-workflows))   | ✅ built-in (analysis / verification steps) |
+|                                                                    |                                            **CDviz**                                            |                      **Kargo**                      |
+| ------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------: | :-------------------------------------------------: |
+| License                                                            |                                           Apache 2.0                                            |                     Apache 2.0                      |
+| Category                                                           |                               SDLC observability + event reaction                               |         Continuous-promotion control plane          |
+| Made by                                                            |                                              CDviz                                              |              Akuity (creators of Argo)              |
+| Self-hosted                                                        |                                             <Yes />                                             |                       <Yes />                       |
+| Commercial offering                                                |                  <Yes>[Cloud](/pricing) €20/mo · [Pro](/pricing) €200/mo</Yes>                  |        <Yes>Kargo Enterprise (Akuity)</Yes>         |
+| [CDEvents](https://cdevents.dev) standard                          |                                        <Yes>native</Yes>                                        |                       <No />                        |
+| Scope                                                              |                Any SDLC tool (CI, CD, registries, incidents…), Kubernetes or not                |      Kubernetes delivery with GitOps (Argo CD)      |
+| Promotion execution                                                | <Partial>delegates to your workflow engine via [event reaction](/docs/event-reaction)</Partial> |  <Yes>native (Warehouses → Freight → Stages)</Yes>  |
+| Requires adopting a new delivery model                             |                             <No>listens to your existing tools</No>                             |    <Yes>model your pipelines as Kargo CRDs</Yes>    |
+| Artifact lifecycle visibility                                      | <Yes>cross-tool, from events ([Artifact Timeline](/docs/cdviz-grafana/artifact_timeline))</Yes> |      <Yes>within Kargo-managed pipelines</Yes>      |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) & SDLC dashboards |                                             <Yes />                                             |                       <No />                        |
+| Verification gates before promotion                                |       via your workflow engine (e.g. [Argo Workflows](/docs/integrations/argo-workflows))       | <Yes>built-in (analysis / verification steps)</Yes> |
 
 ## Key differences
 

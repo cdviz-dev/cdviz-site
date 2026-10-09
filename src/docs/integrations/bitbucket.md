@@ -67,10 +67,10 @@ Bitbucket signs the raw body with HMAC-SHA256 and sends it as `X-Hub-Signature: 
 2. **URL**: `http://your-collector-url/webhook/000-bitbucket`
 3. **Secret**: the same value as `token` of the `x-hub-signature` header in the collector configuration
 4. Select the **Triggers**:
-   - ✅ Repository: Push
-   - ✅ Repository: Build status created / updated
-   - ✅ Pull request: Created, Updated, Approved, Merged, Declined
-   - ✅ Issue: Created, Updated
+   - Repository: Push
+   - Repository: Build status created / updated
+   - Pull request: Created, Updated, Approved, Merged, Declined
+   - Issue: Created, Updated
 5. Ensure **Active** is checked, then save
 
 ### Testing the Integration
@@ -141,11 +141,11 @@ Bitbucket tags may reference any kind of artifact (container images, packages, b
 
 **Supported Events**:
 
-- ✅ Branch creation / deletion
-- ✅ Tag push (artifact published)
-- ✅ Pull requests (created, updated, merged, declined, approved)
-- ✅ Issues (created, updated, closed)
-- ✅ CI status via commit statuses (started, finished)
+- Branch creation / deletion
+- Tag push (artifact published)
+- Pull requests (created, updated, merged, declined, approved)
+- Issues (created, updated, closed)
+- CI status via commit statuses (started, finished)
 
 **Not Yet Supported**:
 

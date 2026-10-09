@@ -18,22 +18,22 @@ CDviz is an open-source platform with self-hosted and SaaS options. Datadog CI V
 
 ## At a glance
 
-|                                                  |                            **CDviz**                            |    **Datadog CI Visibility**    |
-| ------------------------------------------------ | :-------------------------------------------------------------: | :-----------------------------: |
-| License                                          |                           Apache 2.0                            |           Proprietary           |
-| Self-hosted                                      |                               ✅                                |               ❌                |
-| SaaS option                                      |        ✅ [Cloud](/pricing) (€20/mo, 14-day free trial)         |               ✅                |
-| Commercial support                               |                               ✅                                |          ✅ (included)          |
-| Data ownership                                   |                             ✅ full                             |        ❌ vendor-hosted         |
-| [CDEvents](https://cdevents.dev) standard        |                               ✅                                |               ❌                |
-| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                               ✅                                |               ✅                |
-| Pipeline visibility                              |                               ✅                                |               ✅                |
-| Beyond monitoring: trigger workflows             |                               ✅                                |               ❌                |
-| Test analytics                                   | ✅ ([Test Results dashboard](/docs/cdviz-grafana/test_results)) |               ✅                |
-| APM / infra correlation                          |                               ❌                                |           ✅ (native)           |
-| Customizable storage backends                    |                  ✅ (PostgreSQL, ClickHouse…)                   |               ❌                |
-| Visualization                                    |                Grafana, BI, AI agents, MCP, IDP                 |       built-in dashboards       |
-| Cost                                             |           Free self-host · Cloud €20/mo · Pro €200/mo           | Per-host / per-pipeline pricing |
+|                                                  |                              **CDviz**                               |    **Datadog CI Visibility**    |
+| ------------------------------------------------ | :------------------------------------------------------------------: | :-----------------------------: |
+| License                                          |                              Apache 2.0                              |           Proprietary           |
+| Self-hosted                                      |                               <Yes />                                |             <No />              |
+| SaaS option                                      |       <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes>       |             <Yes />             |
+| Commercial support                               |                               <Yes />                                |       <Yes /> (included)        |
+| Data ownership                                   |                           <Yes>full</Yes>                            |     <No>vendor-hosted</No>      |
+| [CDEvents](https://cdevents.dev) standard        |                               <Yes />                                |             <No />              |
+| [DORA metrics](../cdviz-grafana/dora_metrics.md) |                               <Yes />                                |             <Yes />             |
+| Pipeline visibility                              |                               <Yes />                                |             <Yes />             |
+| Beyond monitoring: trigger workflows             |                               <Yes />                                |             <No />              |
+| Test analytics                                   | <Yes /> ([Test Results dashboard](/docs/cdviz-grafana/test_results)) |             <Yes />             |
+| APM / infra correlation                          |                                <No />                                |        <Yes /> (native)         |
+| Customizable storage backends                    |                  <Yes /> (PostgreSQL, ClickHouse…)                   |             <No />              |
+| Visualization                                    |                   Grafana, BI, AI agents, MCP, IDP                   |       built-in dashboards       |
+| Cost                                             |             Free self-host · Cloud €20/mo · Pro €200/mo              | Per-host / per-pipeline pricing |
 
 ## Key differences
 
