@@ -78,7 +78,7 @@ token = "secret"
 ```
 
 > [!NOTE]
-> A dotted key path and a `[table]` header for the same path cannot appear in the same TOML file — choose one form per path.
+> A dotted key path and a `[table]` header for the same path cannot appear in the same TOML file. Choose one form per path.
 
 ## Arrays
 
