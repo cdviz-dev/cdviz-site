@@ -59,14 +59,14 @@ An `https` → `http` downgrade is never trusted.
 
 ### API key (secret value)
 
-Keep the secret out of the config file — use the `_file` suffix to read it from a mounted file:
+Keep the secret out of the config file. Use the `_file` suffix to read it from a mounted file:
 
 ```toml
 [sinks.webhook.headers]
 "x-api-key" = { type = "secret", value_file = "/run/secrets/api_key" }
 ```
 
-Or set at runtime — hyphens in header names must be preserved (see [Configuration — Environment Variables](../configuration.md#environment-variables)):
+Or set it at runtime. Keep the hyphens in header names (see [Configuration: Environment Variables](../configuration.md#environment-variables)):
 
 ```bash
 # Preferred: --set flag handles hyphens cleanly
@@ -93,8 +93,8 @@ Kubernetes `env[].name` and GitHub Actions `env:` support hyphens natively.
 
 The HTTP sink accepts `transformer_refs`: a chain of [transformers](../transformers.md) applied to events just before this sink sends them, without affecting other sinks. Two main uses:
 
-- **Filter** which events are sent — a transformer that outputs an empty list (`[]`) drops the event for this sink only
-- **Reshape** the body into the JSON the destination expects — the output does not have to be a CDEvent
+- **Filter** which events are sent: a transformer that outputs an empty list (`[]`) drops the event for this sink only
+- **Reshape** the body into the JSON the destination expects. The output does not have to be a CDEvent
 
 Reshaping lets the destination consume the payload as-is, and can replace an intermediate service whose only job is translating events 1-to-1 into another system's API call. For example, instead of routing through an Argo Workflows template that only converts the event into a GitHub `repository_dispatch` call, a sink transformer can build that payload and the sink posts it to the GitHub API directly:
 
@@ -154,11 +154,11 @@ destination = "https://backup-collector.company.com/webhook/events"
 
 ## Error Handling
 
-Transient failures (network errors, timeouts, 5xx) are retried with exponential backoff for up to `total_duration_of_retries`. Once the budget is exhausted, or on a non-retryable response, the failure is logged and processing continues — the event is not stored for later. For guaranteed delivery, use the [Kafka sink](./kafka.md) or [NATS sink](./nats.md) with a durable consumer.
+Transient failures (network errors, timeouts, 5xx) are retried with exponential backoff for up to `total_duration_of_retries`. Once the budget is exhausted, or on a non-retryable response, the failure is logged and processing continues. The event is not stored for later. For guaranteed delivery, use the [Kafka sink](./kafka.md) or [NATS sink](./nats.md) with a durable consumer.
 
 ## Related
 
-- [Kafka Sink](./kafka.md) — durable, high-throughput event delivery
-- [NATS Sink](./nats.md) — lightweight publish-subscribe delivery
-- [Header Authentication](../header-authentication.md) — configure outgoing request headers
-- [Database Sink](./db.md) — store CDEvents for analytics and dashboards
+- [Kafka Sink](./kafka.md): durable, high-throughput event delivery
+- [NATS Sink](./nats.md): lightweight publish-subscribe delivery
+- [Header Authentication](../header-authentication.md): configure outgoing request headers
+- [Database Sink](./db.md): store CDEvents for analytics and dashboards
