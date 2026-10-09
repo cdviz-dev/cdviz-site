@@ -55,7 +55,7 @@ const processSteps = [
     title: "Event Reaction",
     icon: "icon-[lucide--zap]",
     description:
-      "CDEvents can trigger n8n workflows, ArgoCD deployments, or custom webhooks. Observe and act — in the same pipeline.",
+      "CDEvents can trigger n8n workflows, ArgoCD deployments, or custom webhooks. Observe and act in the same pipeline.",
     tools: [
       { icon: "icon-[simple-icons--n8n]", title: "n8n" },
       { icon: "icon-[simple-icons--make]", title: "Make" },
