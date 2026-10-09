@@ -160,7 +160,7 @@ These can be added following the existing pattern in the [transformer VRL file](
 
 ### No event produced
 
-1. Check that the event key is mapped (see the table above) — unmapped keys are silently ignored.
+1. Check that the event key is mapped (see the table above). Unmapped keys are silently ignored.
 2. Check that `headers_to_keep` contains `x-event-key`; without it no event is emitted.
 3. Check the delivery in **Repository settings > Webhooks > View requests**.
 
