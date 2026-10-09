@@ -25,8 +25,8 @@ const services = [
         <h2 class="cdviz-h2 mb-md">Need something bespoke?</h2>
         <p class="text-text/70 mb-sm">
           The plans above are self-serve and fixed-price. For work that's specific to your stack,
-          that's consulting — billed at a day rate, scoped with you. This is the one place where it
-          makes sense to talk first.
+          that's consulting, billed at a day rate and scoped with you. This is the one place where
+          it makes sense to talk first.
         </p>
         <Btn href="mailto:contact@cdviz.dev" class="mt-sm">Let's talk →</Btn>
       </div>
