@@ -11,7 +11,7 @@ head:
 
 ## What is DevStats?
 
-DevStats (DevStats.com) is a commercial SaaS platform for engineering metrics. It connects to GitHub, GitLab, and Bitbucket via API polling to surface cycle time, PR review analytics, deployment frequency, and DORA metrics for engineering leadership. DevStats is a fully-hosted service — there is no self-hosted option.
+DevStats (DevStats.com) is a commercial SaaS platform for engineering metrics. It connects to GitHub, GitLab, and Bitbucket via API polling to surface cycle time, PR review analytics, deployment frequency, and DORA metrics for engineering leadership. DevStats is a fully-hosted service, with no self-hosted option.
 
 DevStats serves software engineering teams and managers who want git-centric metrics without managing infrastructure. It is distinct from [CNCF DevStats](./vs-devstats-cncf.md), the open-source tool for tracking contributor activity on public open-source projects.
 
@@ -46,9 +46,9 @@ CDviz is an open-source, event-driven SDLC observability platform. DevStats is a
 
 ## Key differences
 
-- **Open source vs SaaS-only**: CDviz is Apache 2.0 — you can run it on your own infrastructure, inspect the code, and contribute. DevStats is a hosted commercial service with no self-hosted option.
-- **Event-driven vs polling**: CDviz collects events in real-time as they happen across your SDLC (and can also [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems, normalizing everything to CDEvents). DevStats is polling-only against git hosting APIs (GitHub, GitLab, Bitbucket) on a schedule, into a proprietary model — simpler to start but introduces latency and does not capture the full event stream.
-- **Scope**: DevStats is focused on git and pull-request-centric metrics — cycle time, PR review time, deployment frequency derived from git tags/releases. CDviz ingests the broader SDLC event stream: repository events, CI pipeline outcomes, artifact publications, deployment events, service lifecycle changes.
+- **Open source vs SaaS-only**: CDviz is Apache 2.0: you can run it on your own infrastructure, inspect the code, and contribute. DevStats is a hosted commercial service with no self-hosted option.
+- **Event-driven vs polling**: CDviz collects events in real-time as they happen across your SDLC (and can also [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems, normalizing everything to CDEvents). DevStats is polling-only against git hosting APIs (GitHub, GitLab, Bitbucket) on a schedule, into a proprietary model. It is simpler to start, but it adds latency and does not capture the full event stream.
+- **Scope**: DevStats is focused on git and pull-request-centric metrics: cycle time, PR review time, deployment frequency derived from git tags/releases. CDviz ingests the broader SDLC event stream: repository events, CI pipeline outcomes, artifact publications, deployment events, service lifecycle changes.
 - **Observe and act**: CDviz events are not read-only. The same event stream used for observability can trigger downstream workflows. DevStats is dashboards and monitoring only.
 - **Data ownership**: With CDviz, your data stays in your infrastructure (or hosted by CDviz on the [Cloud plan](/pricing)). DevStats stores all your engineering data on their servers.
 - **Customization**: CDviz lets you enrich events at ingestion, choose your storage backend, and connect any visualization or analytics tool. DevStats is a closed ecosystem with its own opinionated dashboards.
@@ -56,23 +56,23 @@ CDviz is an open-source, event-driven SDLC observability platform. DevStats is a
 ## When to choose CDviz
 
 - You want real-time SDLC events (push-first), not a polling-only snapshot tool.
-- You need events to trigger downstream workflows — not just observe them.
+- You need events to trigger downstream workflows, not only to observe them.
 - Data ownership or privacy regulations make vendor-hosted SaaS unacceptable.
 - You need visibility beyond git: CI pipelines, artifact registries, deployment systems, service lifecycle.
 - Your organization is adopting the CDEvents open standard.
 - You need flexible storage (PostgreSQL, ClickHouse) or reporting (BI, AI agents, MCP, IDP integrations).
-- You want commercial support without vendor lock-in — the [Pro plan](/pricing) includes it (€200/month per organization).
+- You want commercial support without vendor lock-in. The [Pro plan](/pricing) includes it (€200/month per organization).
 
 ## When to choose DevStats
 
 - You want immediate value with minimal setup: connect a git repo and get dashboards in minutes.
 - Your primary focus is git and PR-centric metrics for engineering leadership (cycle time, review time, deployment frequency).
 - Your team has no interest in self-hosting or managing infrastructure.
-- You only need monitoring and dashboards — workflow automation is out of scope.
+- You only need monitoring and dashboards. Workflow automation is out of scope.
 
 ## Summary
 
-DevStats is a quick-start SaaS tool for git-centric engineering metrics with a polished management interface. CDviz covers a broader scope — the full SDLC event stream — with real-time events, workflow triggers, open standards, and the option to run entirely on your own infrastructure.
+DevStats is a quick-start SaaS tool for git-centric engineering metrics with a polished management interface. CDviz covers a broader scope (the full SDLC event stream) with real-time events, workflow triggers, open standards, and the option to run entirely on your own infrastructure.
 
 <!--@include: ./parts/get-started-cta.md-->
 
@@ -82,11 +82,11 @@ DevStats is a quick-start SaaS tool for git-centric engineering metrics with a p
 
 **Can I self-host DevStats?** No. DevStats is a commercial SaaS product with no self-hosted option.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs LinearB](./vs-linearb.md) — similar git-centric metrics scope
-- [CDviz vs Swarmia](./vs-swarmia.md) — engineering effectiveness platform
-- [CDviz vs Sleuth](./vs-sleuth.md) — DORA metrics SaaS
+- [CDviz vs LinearB](./vs-linearb.md): similar git-centric metrics scope
+- [CDviz vs Swarmia](./vs-swarmia.md): engineering effectiveness platform
+- [CDviz vs Sleuth](./vs-sleuth.md): DORA metrics SaaS
 - [All alternatives](./)
