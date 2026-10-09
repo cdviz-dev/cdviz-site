@@ -11,7 +11,7 @@ import End from "./SectionEnd.vue";
         Stop guessing which pipeline is red.
       </h2>
       <p class="text-base sm:text-lg text-text/80 mb-lg leading-relaxed">
-        Connect GitHub or GitLab and see what fails, what's slow, and what's getting worse — across
+        Connect GitHub or GitLab and see what fails, what's slow, and what's getting worse, across
         every repo you ship. 14-day free trial, no credit card.
       </p>
 
@@ -20,7 +20,7 @@ import End from "./SectionEnd.vue";
       </div>
 
       <p class="text-sm text-text/60 mb-lg">
-        Prefer to run it yourself? The stack is Apache 2.0 —
+        Prefer to run it yourself? The stack is Apache 2.0:
         <a href="/docs" class="text-primary hover:underline">see the docs →</a>
       </p>
     </template>
