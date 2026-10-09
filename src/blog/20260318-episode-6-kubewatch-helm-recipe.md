@@ -1,6 +1,6 @@
 ---
 title: "CDEvents in Action #6: Monitor Kubernetes with kubewatch"
-description: "Install kubewatch alongside CDviz to automatically capture CDEvents for every deployment in your cluster — kubectl, Helm, ArgoCD, or manual changes."
+description: "Install kubewatch alongside CDviz to automatically capture CDEvents for every deployment in your cluster: kubectl, Helm, ArgoCD, or manual changes."
 tags:
   [
     "cdevents",
@@ -26,7 +26,7 @@ publications:
 
 # CDEvents in Action #6: Monitor Every Kubernetes Deployment with One Helm Command
 
-_After this, every Deployment, StatefulSet, and DaemonSet change in your cluster generates a CDEvent automatically — no matter how it was deployed._
+_After this, every Deployment, StatefulSet, and DaemonSet change in your cluster generates a CDEvent automatically, however it was deployed._
 
 [Episode #5](/blog/20260311-episode-5-k8s-blind-spot) explained the gap. This episode closes it.
 
@@ -76,7 +76,7 @@ kubectl create deployment test-nginx --image=nginx:latest
 kubectl logs -n cdviz -l app=cdviz-collector --tail=20 | grep service.deployed
 ```
 
-You should see a `service.deployed` event within a few seconds. Check your Grafana dashboard — the deployment appears there too.
+You should see a `service.deployed` event within a few seconds. Check your Grafana dashboard: the deployment appears there too.
 
 **4. Clean up:**
 
