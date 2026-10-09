@@ -38,24 +38,24 @@ Both platforms surface engineering metrics for software delivery teams. They sol
 
 ## Key differences
 
-- **Event-driven vs poll-based**: CDviz receives events in real-time as they happen (push-first), and can also [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems — all normalized to CDEvents. LinearB is polling-only against your git provider and issue tracker APIs, into a proprietary model — simpler to onboard but introduces latency and heavier API load.
-- **Scope of observability**: LinearB excels at git and PR-centric metrics — cycle time, PR review depth, merge frequency. CDviz covers the full delivery pipeline including deployments, incidents, artifact promotion, and Kubernetes events via CDEvents.
+- **Event-driven vs poll-based**: CDviz receives events in real-time as they happen (push-first), and can also [poll](/docs/cdviz-collector/sources/http_polling) for backfill or webhook-less systems. All inputs are normalized to CDEvents. LinearB is polling-only against your git provider and issue tracker APIs, into a proprietary model. It is simpler to onboard, but it adds latency and API load.
+- **Scope of observability**: LinearB excels at git and PR-centric metrics: cycle time, PR review depth, merge frequency. CDviz covers the full delivery pipeline including deployments, incidents, artifact promotion, and Kubernetes events via CDEvents.
 - **Open standard vs proprietary model**: CDviz stores events using the open [CDEvents specification](https://cdevents.dev/), keeping your data vendor-neutral and portable. LinearB's data model is proprietary and tied to its platform.
 - **Data ownership**: With CDviz, your SDLC data stays in your infrastructure (or hosted by CDviz on the [Cloud plan](/pricing)). LinearB stores all data on its own servers.
-- **Automation scope**: LinearB's workflow automation is focused on PR lifecycle — routing reviews, auto-merging low-risk changes, AI code context. CDviz's event-driven approach lets you trigger any downstream system (Slack, incident tools, deployment pipelines, etc.) based on any SDLC event.
-- **Visualization flexibility**: LinearB provides opinionated built-in dashboards aimed at engineering managers. CDviz connects to any visualization layer — Grafana, BI platforms, AI agents, MCP-connected tools, Internal Developer Platforms.
+- **Automation scope**: LinearB's workflow automation is focused on the PR lifecycle: routing reviews, auto-merging low-risk changes, AI code context. CDviz's event-driven approach lets you trigger any downstream system (Slack, incident tools, deployment pipelines, etc.) based on any SDLC event.
+- **Visualization flexibility**: LinearB provides opinionated built-in dashboards aimed at engineering managers. CDviz connects to any visualization layer: Grafana, BI platforms, AI agents, MCP-connected tools, Internal Developer Platforms.
 - **Cost at scale**: LinearB pricing grows linearly with contributor count ($420–$549/contributor/year). CDviz self-hosted costs scale with infrastructure, not headcount.
 
 ## When to choose CDviz
 
 - You want full ownership of your SDLC data with no vendor lock-in.
 - You are adopting or building on the CDEvents open standard.
-- You need visibility beyond git/PRs — deployments, incidents, Kubernetes, artifact timelines.
+- You need visibility beyond git/PRs: deployments, incidents, Kubernetes, artifact timelines.
 - You need real-time events rather than periodic snapshots.
 - You want events to trigger downstream workflows across your toolchain.
 - Your team already runs Grafana and wants SDLC visibility alongside infra/app dashboards.
 - You need flexible storage (PostgreSQL, ClickHouse) or reporting (BI, AI, MCP, IDP).
-- Cost at scale is a concern — CDviz does not charge per contributor.
+- Cost at scale is a concern. CDviz does not charge per contributor.
 
 ## When to choose LinearB
 
@@ -67,21 +67,21 @@ Both platforms surface engineering metrics for software delivery teams. They sol
 
 ## Summary
 
-LinearB is the fastest path to PR-centric engineering metrics and AI-powered code review workflows for teams already using GitHub/GitLab and Jira. CDviz is the right choice when you need full-pipeline observability beyond git, data ownership, an open event standard, real-time event streaming, or cost efficiency at scale — with commercial support available to reduce operational risk.
+LinearB is the fastest path to PR-centric engineering metrics and AI-powered code review workflows for teams already using GitHub/GitLab and Jira. CDviz is the right choice when you need full-pipeline observability beyond git, data ownership, an open event standard, real-time event streaming, or cost efficiency at scale. Commercial support is available to reduce operational risk.
 
 <!--@include: ./parts/get-started-cta.md-->
 
 ## FAQ
 
-**Does LinearB have a free tier?** Yes — up to 8 contributors. Paid plans start around $420–$549 per contributor/year.
+**Does LinearB have a free tier?** Yes. Up to 8 contributors. Paid plans start around $420–$549 per contributor/year.
 
 **Does LinearB support CDEvents?** No. LinearB uses a proprietary polling-based data model tied to its own platform.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-contributor pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support — billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-contributor pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs DevStats](./vs-devstats.md) — similar git-centric scope
-- [CDviz vs Sleuth](./vs-sleuth.md) — DORA-focused SaaS
-- [CDviz vs Swarmia](./vs-swarmia.md) — engineering effectiveness platform
+- [CDviz vs DevStats](./vs-devstats.md): similar git-centric scope
+- [CDviz vs Sleuth](./vs-sleuth.md): DORA-focused SaaS
+- [CDviz vs Swarmia](./vs-swarmia.md): engineering effectiveness platform
 - [All alternatives](./)
