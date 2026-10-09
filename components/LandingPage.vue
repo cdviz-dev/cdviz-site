@@ -27,7 +27,7 @@ import Why from "./landing/SectionWhy.vue";
     <Hero />
     <Video
       cloud-link
-      subhead="41 seconds of CDviz Cloud. Self-hosted shows the same data in Grafana — same open core."
+      subhead="41 seconds of CDviz Cloud. Self-hosted shows the same data in Grafana, from the same open core."
     />
     <Problem />
     <Stats />
