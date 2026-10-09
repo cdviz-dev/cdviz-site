@@ -47,7 +47,6 @@ export default defineConfig({
   cleanUrls: true, // supported by Cloudflare, and when false google search console warns about page with redirect
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
-    ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:site_name", content: "CDviz" }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
@@ -552,7 +551,10 @@ export default defineConfig({
         : pageData.frontmatter.keywords
       : "CDEvents,SDLC observability,DORA metrics,deployment tracking,pipeline observability,CI/CD visibility,software delivery events,Grafana DORA metrics,DevOps,DevSecOps";
 
+    const isBlogPost = /^blog\/\d{8}-/.test(pageData.relativePath);
+
     const head: ReturnType<typeof defineConfig>["head"] = [
+      ["meta", { property: "og:type", content: isBlogPost ? "article" : "website" }],
       ["meta", { name: "keywords", content: keywords }],
       ["link", { rel: "canonical", href: canonicalUrl }],
       ["meta", { property: "og:url", content: canonicalUrl }],
@@ -671,7 +673,7 @@ export default defineConfig({
       if (datePublished) {
         const articleSchema = {
           "@context": "https://schema.org",
-          "@type": "TechArticle",
+          "@type": "BlogPosting",
           headline: pageData.title,
           description: pageData.description || pageData.frontmatter.description,
           datePublished: datePublished,
