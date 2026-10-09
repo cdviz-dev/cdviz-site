@@ -66,7 +66,7 @@ https://cdviz.example.com/?source=github_webhook
 
 ### VRL Configuration
 
-VRL's `get_env_var()` can only read environment variables matching the `[vrl] allowed_env_vars` glob patterns. The default is **empty** (no variable readable), so a transformer — possibly fetched from a [remote source](./transformers.md#using-remote-transformers) — cannot read the collector's secrets.
+VRL's `get_env_var()` can only read environment variables matching the `[vrl] allowed_env_vars` glob patterns. The default is **empty** (no variable readable), so a transformer cannot read the collector's secrets, even one fetched from a [remote source](./transformers.md#using-remote-transformers).
 
 ```toml
 [vrl]
@@ -81,7 +81,7 @@ Unknown keys are rejected: a typo like `pool_conections_max` fails at startup in
 
 ## Environment Variables
 
-Set or override any config value at runtime using environment variables — the key does **not** need to exist in the TOML file.
+Set or override any config value at runtime using environment variables. The key does **not** need to exist in the TOML file.
 
 **Pattern:** `CDVIZ_COLLECTOR__<PATH_TO_KEY>`
 
@@ -121,7 +121,7 @@ CDVIZ_COLLECTOR__SOURCES__GITHUB__EXTRACTOR__HEADERS__X-HUB-SIGNATURE-256__TOKEN
 > [!NOTE] Bash limitation for hyphenated names
 > Bash does not allow `export` for names containing hyphens. Alternatives:
 >
-> - **Preferred**: use [`--set`](#set-flag) — no quoting tricks needed
+> - **Preferred**: use [`--set`](#set-flag), which needs no quoting tricks
 > - `env` wrapper: `env 'CDVIZ_COLLECTOR__...X-HUB-SIGNATURE-256__TOKEN=secret' cdviz-collector connect --config config.toml`
 > - Kubernetes `env[].name` and GitHub Actions `env:` support hyphens natively
 
@@ -167,7 +167,7 @@ The `connect`, `send`, and `config` [subcommands](./usage.md) accept `--set` to 
 
 **When to prefer `--set` over environment variables:**
 
-- Header names contain hyphens — no bash quoting tricks needed
+- Header names contain hyphens (no bash quoting tricks needed)
 - Setting multiple typed values at once (booleans, integers, arrays)
 - Quick variations without creating extra TOML files
 
