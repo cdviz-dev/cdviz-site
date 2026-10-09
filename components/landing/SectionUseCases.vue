@@ -197,7 +197,7 @@ onUnmounted(() => window.removeEventListener("keydown", onKeydown));
             </span>
           </div>
 
-          <h3 class="font-semibold text-base sm:text-lg text-text mb-xs">{{ c.title }}</h3>
+          <h2 class="font-semibold text-base sm:text-lg text-text mb-xs">{{ c.title }}</h2>
 
           <div class="flex flex-wrap gap-1.5 mb-sm">
             <span
