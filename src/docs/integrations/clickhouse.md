@@ -32,4 +32,4 @@ Connection URL, table layout, and all options are covered in the **[ClickHouse S
 
 - Very high event throughput or long retention where columnar storage pays off
 - Existing ClickHouse-based analytics platform to join delivery events with other data
-- Otherwise, prefer [PostgreSQL](./postgresql.md) — it powers the full CDviz experience out of the box
+- Otherwise, prefer [PostgreSQL](./postgresql.md). It powers the full CDviz experience out of the box
