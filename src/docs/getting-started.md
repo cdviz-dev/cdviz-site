@@ -21,15 +21,15 @@ faq:
       (from service.deployed / service.upgraded events), Lead Time for Changes,
       Change Failure Rate (from service.rolledback events), and Time to Restore
       (from incident.detected / incident.resolved events). These are best-effort
-      approximations, not exact measures — Lead Time is computed as two proxies
-      (Artifact→Deploy and Pipeline Duration) since the full commit→production
+      approximations, not exact measures. Lead Time is computed as two proxies
+      (Artifact→Deploy and Pipeline Duration) because the full commit→production
       chain depends on which events your tools emit, and Time to Restore covers
       all incidents, not only deployment-induced failures. See the
       [DORA Metrics dashboard](/docs/cdviz-grafana/dora_metrics) for the formulas,
       required events, and known limitations of each metric.
   - q: What is the difference between CDviz and CDEvents?
     a: |
-      CDEvents is a Continuous Delivery Foundation specification — a standardized JSON
+      CDEvents is a Continuous Delivery Foundation specification: a standardized JSON
       schema for software delivery events. CDviz is a platform that implements CDEvents:
       it collects events, stores them, visualizes them in dashboards, and can trigger
       automated workflows. CDviz uses CDEvents as its data model.
@@ -37,13 +37,13 @@ faq:
 
 # Getting Started with CDviz
 
-This guide walks you through running CDviz locally using a demo Docker Compose stack with simulated events. In under 5 minutes you'll have a working environment: the CDviz Collector ingesting events, PostgreSQL storing them, and Grafana displaying DORA metrics — a safe sandbox to understand the platform before connecting real pipelines.
+This guide walks you through running CDviz locally using a demo Docker Compose stack with simulated events. In under 5 minutes you'll have a working environment: the CDviz Collector ingesting events, PostgreSQL storing them, and Grafana displaying DORA metrics. Use this safe sandbox to understand the platform before you connect real pipelines.
 
 New to CDviz? Read the [CDviz Platform Overview](/docs/) first for the core concepts and components.
 
 ::: tip Prefer not to run anything?
-[CDviz Cloud](/cloud) connects to GitHub or GitLab in minutes — managed hosting,
-14-day free trial, no credit card. This guide covers the self-hosted open-source stack.
+[CDviz Cloud](/cloud) connects to GitHub or GitLab in minutes, with managed hosting,
+a 14-day free trial, and no credit card. This guide covers the self-hosted open-source stack.
 :::
 
 ## 1. Local Environment Setup
@@ -136,4 +136,4 @@ Congratulations! You've successfully sent your first CDEvents and visualized the
 - **Explore the CDEvents Activity dashboard:** This dashboard provides a more detailed view of all the CDEvents that have been collected. You can access it at [http://localhost:3000/d/cdevents-activity/cdevents-activity](http://localhost:3000/d/cdevents-activity/cdevents-activity).
 - **Submit raw JSON events:** For more advanced use cases, you can use the "Raw JSON" form to submit CDEvents in their raw JSON format.
 - **Explore other dashboards:** and look at `cdviz/demos/uses_cases` to see how data was injected (`csv -> cdviz-collector (transformers) -> database`)
-- **Skip the infrastructure:** try [CDviz Cloud](/cloud) — the managed version with a 14-day free trial.
+- **Skip the infrastructure:** try [CDviz Cloud](/cloud), the managed version with a 14-day free trial.
