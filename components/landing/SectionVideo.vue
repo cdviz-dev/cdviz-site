@@ -17,6 +17,14 @@ defineProps({
 // ponytail: click-to-load facade instead of a lite-youtube-embed dependency —
 // no request to youtube until the visitor actually asks for the video.
 const playing = ref(false);
+
+function play() {
+  playing.value = true;
+  window.posthog?.capture("video_played", {
+    video_id: VIDEO_ID,
+    page_path: window.location.pathname,
+  });
+}
 </script>
 
 <template>
@@ -32,7 +40,7 @@ const playing = ref(false);
         type="button"
         class="group relative block w-full cursor-pointer"
         :aria-label="`Play video: ${VIDEO_TITLE}`"
-        @click="(playing = true)"
+        @click="play"
       >
         <img
           src="/screenshots/cloud_launch_video_poster.jpg"

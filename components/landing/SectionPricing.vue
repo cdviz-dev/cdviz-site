@@ -124,6 +124,15 @@ const getButtonHref = (plan) => {
   return plan.button.href;
 };
 
+const trackPlanClick = (plan) => {
+  window.posthog?.capture("pricing_plan_clicked", {
+    plan_id: plan.id,
+    billing_period: isYearly.value ? "yearly" : "monthly",
+    href: getButtonHref(plan),
+    page_path: window.location.pathname,
+  });
+};
+
 const getCardClasses = (plan) => {
   const baseClasses =
     "flex flex-col justify-between rounded-xl p-6 text-center relative transform-gpu card-hover";
@@ -322,6 +331,7 @@ onMounted(() => {
           :primary="plan.button.primary"
           :disabled="plan.button.disabled"
           :aria-label="plan.button.text"
+          @click="trackPlanClick(plan)"
         >
           {{ plan.button.text }}
         </Btn>

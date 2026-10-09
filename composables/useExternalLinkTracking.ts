@@ -30,6 +30,14 @@ export function useExternalLinkTracking() {
       return;
     }
 
+    if (url.protocol === "mailto:") {
+      window.posthog?.capture("contact_email_clicked", {
+        email: url.pathname,
+        page_path: window.location.pathname,
+      });
+      return;
+    }
+
     // Skip same-site links
     if (url.hostname === window.location.hostname || !url.hostname) return;
 

@@ -16,6 +16,11 @@ onMounted(() => {
     observeMultiple(Array.from(faqItems), "slide-up");
   }
 });
+
+const trackFaqToggle = (event, question) => {
+  if (!event.target.open) return;
+  window.posthog?.capture("faq_opened", { question, page_path: window.location.pathname });
+};
 </script>
 <template>
   <section
@@ -39,6 +44,7 @@ onMounted(() => {
           data-animate-faq
           class="interactive-element cursor-pointer transition-all duration-300 ease-out hover:shadow-lg bg-background/80 border border-secondary/20 my-sm rounded-xl p-lg shadow-sm touch-manipulation transform-gpu group"
           :aria-label="`FAQ: ${aq.q}`"
+          @toggle="trackFaqToggle($event, aq.q)"
         >
           <summary class="text-lg sm:text-xl font-semibold cursor-pointer list-none outline-none focus-ring rounded-lg p-xs -m-xs text-text">
             <span class="flex items-center justify-between">

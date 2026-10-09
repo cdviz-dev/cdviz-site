@@ -21,6 +21,11 @@ const TABS = [
   { id: "selfhosted", label: "Self-hosted" },
   { id: "cloud", label: "CDviz Cloud" },
 ] as const;
+
+function select(id: (typeof TABS)[number]["id"]) {
+  edition.value = id;
+  window.posthog?.capture("edition_selected", { edition: id, page_path: window.location.pathname });
+}
 </script>
 
 <template>
@@ -36,7 +41,7 @@ const TABS = [
           type="radio"
           :name="group"
           :checked="edition === tab.id"
-          @change="(edition = tab.id)"
+          @change="select(tab.id)"
         />
         <label :for="`${group}-${tab.id}`">{{ tab.label }}</label>
       </template>
