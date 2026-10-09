@@ -10,12 +10,12 @@ const headlines = [
     line2: "Then Act On It.",
   },
   {
-    line1: "DORA Metrics. Deployment Timelines. Test Results.",
-    line2: "Open-Source. Self-Hosted. No Lock-In.",
+    line1: "Your DORA Metrics and Deployment Timelines.",
+    line2: "Open Source.",
   },
   {
-    line1: "Observe Your Software Delivery.",
-    line2: "Automate When You're Ready.",
+    line1: "Observe Your Software Delivery Across Every Tool.",
+    line2: "Then Automate.",
   },
 ];
 
@@ -37,9 +37,8 @@ function cycleHeadline() {
     duration: 0.45,
     ease: "power2.in",
     onComplete() {
-      // 2. Snap current to absolute overlay, prep next below viewport
-      gsap.set(current, { position: "absolute", top: 0, left: 0, right: 0 });
-      gsap.set(next, { position: "relative", y: 20, opacity: 0 });
+      // 2. Prep next below its final place
+      gsap.set(next, { y: 20 });
       // 3. Slide + fade in next
       gsap.to(next, {
         opacity: 1,
@@ -149,14 +148,14 @@ onMounted(() => {
     <div class="order-1 md:order-first overflow-hidden rounded-xl p-lg relative z-10">
       <h1
         id="hero-title"
-        class="cdviz-h1-sketch my-md relative"
+        class="cdviz-h1-sketch my-md relative grid"
       >
-        <!-- All variants rendered in DOM for crawlers; inactive ones hidden via inline style from SSR -->
+        <!-- All variants rendered in DOM for crawlers, stacked in one grid cell so the h1 keeps the height of the tallest (no layout shift); inactive ones hidden via inline style from SSR -->
         <span
           v-for="(h, i) in headlines"
           :key="i"
-          class="hero-headline block w-full"
-          :style='i !== 0 ? { position: "absolute", top: 0, left: 0, right: 0, opacity: 0 } : {}'
+          class="hero-headline block w-full col-start-1 row-start-1"
+          :style="i !== 0 ? { opacity: 0 } : {}"
         >
           <span
             class="text-text block"
