@@ -177,7 +177,7 @@ onMounted(() => {
         <a href="https://cdevents.dev">CDEvents</a>, the
         <a href="https://cd.foundation">CD Foundation</a>-backed standard for software delivery.
         Connect GitHub, GitLab, Kubernetes, and more. Get DORA metrics, deployment timelines, and
-        test results in Grafana — then trigger workflows from the same event stream.
+        test results in one place — then trigger workflows from the same event stream.
       </div>
 
       <div
