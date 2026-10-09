@@ -9,7 +9,7 @@ faq:
   - q: How does CDviz help improve software delivery?
     a: |
       CDviz gives you a centralized, normalized view of software delivery across all your
-      repositories and CI/CD tools — GitHub, GitLab, ArgoCD, Kubernetes, and more. See what
+      repositories and CI/CD tools: GitHub, GitLab, ArgoCD, Kubernetes, and more. See what
       version runs where, track DORA metrics and deployment timelines in Grafana, and detect
       issues faster: flaky pipelines and tests, long-pending pull requests, CI/CD cost and
       resource usage to optimize. The same event stream can also trigger downstream automation.
@@ -21,18 +21,18 @@ faq:
       polling proprietary APIs. You own your data: self-hosted, it stays in your own PostgreSQL,
       queryable with plain SQL and Grafana; on Cloud, ownership can be transferred on demand.
       Open-source (Apache 2.0), customizable and extensible for on-premise deployments, with no
-      lock-in — and it doubles as an automation backbone, not just dashboards.
+      lock-in. The same events can also drive automation, beyond dashboards.
       <a href="/docs/alternatives/">Compare with alternatives →</a>
   - q: What services does CDviz offer?
     a: |
       Three options: the <strong>open-source</strong> components (collector, database schema,
-      Grafana dashboards, and all transformers) — free to self-host; <strong>CDviz Cloud</strong>,
+      Grafana dashboards, and all transformers), free to self-host; <strong>CDviz Cloud</strong>,
       a hosted, managed service at €20/month; and <strong>CDviz Pro</strong>, self-hosted with
       professional support at €200/month.
       <a href="/pricing">See pricing →</a>
   - q: What are the key features of CDviz?
     a: |
-      The cdviz-collector — a swiss-army knife for CDEvents — collects events from GitHub,
+      The cdviz-collector collects events from GitHub,
       GitLab, ArgoCD, Kubernetes, custom webhooks, and polling, and normalizes them to CDEvents;
       storage in PostgreSQL + TimescaleDB; Grafana dashboards for DORA metrics, deployments,
       incidents, and artifact timelines; and event-driven automation via HTTP, NATS, or Kafka
@@ -40,16 +40,16 @@ faq:
   - q: Where is CDviz located?
     a: |
       CDviz is built by Alchim312, a French company. CDviz Cloud data is hosted and operated
-      in Europe — see the <a href="/pro/privacy">privacy policy</a>.
+      in Europe. See the <a href="/pro/privacy">privacy policy</a>.
   - q: Is it really free to use?
     a: |
-      Yes. The open-source components — collector, database schemas, and Grafana dashboards —
+      Yes. The open-source components (collector, database schemas, and Grafana dashboards)
       are free forever under Apache 2.0 and free to self-host. Self-hosting involves your own
       infrastructure costs. <a href="/pricing">See all pricing options →</a>
   - q: What's the difference between Cloud and Pro?
     a: |
       <strong>Cloud</strong> is a hosted, managed service for small teams who don't want to run
-      infrastructure — focused on cross-repo pipeline visibility at €20/month.
+      infrastructure. It focuses on cross-repo pipeline visibility, at €20/month.
       <strong>Pro</strong> is for organizations that want to self-host with professional support
       at €200/month.
   - q: What is CDviz's commitment to open source?
@@ -57,7 +57,7 @@ faq:
       The collector (from v0.15+), database schemas, Grafana components, and all transformers
       (GitHub, GitLab, Bitbucket, Jira, Jenkins, and more, in
       <a href="https://github.com/cdviz-dev/transformers-community">transformers-community</a>)
-      are all licensed under Apache 2.0. You can always keep using the open-source components —
+      are all licensed under Apache 2.0. You can always keep using the open-source components,
       even if a commercial subscription ends. No lock-in.
   - q: How does it relate to CDEvents?
     a: |
