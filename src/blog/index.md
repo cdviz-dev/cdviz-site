@@ -1,6 +1,6 @@
 ---
 title: Blog
-description: Tutorials, walkthroughs, and deep dives into CDviz and CDEvents — practical SDLC observability in action.
+description: "Tutorials, walkthroughs, and deep dives into CDviz and CDEvents: practical SDLC observability in action."
 ---
 
 <script setup>
