@@ -1,5 +1,5 @@
 ---
-description: "CDviz Collector HTTP polling source: periodically fetch events from REST APIs, legacy systems, and services without push capabilities. Supports multi-pass driver scripts, pagination, and historical backfill."
+description: "CDviz Collector HTTP polling source: fetch events from REST APIs and services that cannot push. Supports multi-pass driver scripts, pagination and backfill."
 ---
 
 # HTTP Polling Extractor

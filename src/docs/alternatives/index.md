@@ -1,6 +1,6 @@
 ---
-title: "CDviz Alternatives & Comparisons: SDLC Observability Tools"
-description: Compare CDviz with Apache DevLake, Datadog CI Visibility, Sleuth, Jellyfish, Swarmia, GetDX, Kargo, and other SDLC observability tools. Built on the open CDEvents standard.
+title: "CDviz Alternatives: SDLC Observability Tools Compared"
+description: Compare CDviz with Apache DevLake, Datadog CI Visibility, Sleuth, Jellyfish, Swarmia, GetDX, Kargo, and other SDLC observability tools.
 head:
   - - script
     - type: application/ld+json

@@ -1,5 +1,5 @@
 ---
-title: "GitLab, Bitbucket, Jira, and Jenkins transformers are now open source"
+title: "All CDviz transformers are now open source (Apache 2.0)"
 description: "The CDviz team merged transformers-pro into transformers-community: every CDviz transformer is now Apache 2.0 and free to self-host on any plan."
 tags: ["cdevents", "open-source", "announcement", "gitlab", "bitbucket", "jira", "jenkins"]
 author: "David B."

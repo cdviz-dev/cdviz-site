@@ -1,5 +1,5 @@
 ---
-title: "CDEvents in Action #6: Monitor Every Kubernetes Deployment with One Helm Command"
+title: "CDEvents in Action #6: Monitor Kubernetes with kubewatch"
 description: "Install kubewatch alongside CDviz to automatically capture CDEvents for every deployment in your cluster — kubectl, Helm, ArgoCD, or manual changes."
 tags:
   [

@@ -1,6 +1,6 @@
 ---
-title: "CDEvents in Action #4: Webhook Transformers and Passive Monitoring"
-description: "Collect CDEvents from tools that already send webhooks - GitHub, GitLab, ArgoCD - without modifying pipelines. Transform platform events into CDEvents automatically."
+title: "CDEvents in Action #4: Passive Monitoring with Webhooks"
+description: "Collect CDEvents from tools that already send webhooks (GitHub, GitLab, ArgoCD) without changing pipelines. Transformers convert their events to CDEvents."
 tags:
   [
     "cdevents",

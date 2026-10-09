@@ -1,6 +1,6 @@
 ---
-title: "CDviz vs Kargo: SDLC Observability vs Promotion Orchestration"
-description: "Compare CDviz and Kargo. Kargo orchestrates GitOps promotions on Kubernetes; CDviz observes your whole delivery toolchain and triggers automation from CDEvents — without replacing any tool. Often complementary."
+title: "CDviz vs Kargo: SDLC Observability vs GitOps Promotion"
+description: "Kargo orchestrates GitOps promotions on Kubernetes. CDviz observes your whole delivery toolchain and triggers automation from CDEvents. Often complementary."
 head:
   - - script
     - type: application/ld+json

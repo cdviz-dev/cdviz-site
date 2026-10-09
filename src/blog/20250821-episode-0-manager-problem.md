@@ -1,6 +1,6 @@
 ---
 title: "CDEvents in Action #0: Monitor Your Software Factory"
-description: "Engineering teams waste time correlating data across CI/CD tools. CDviz provides unified CDEvents-based event collection and visualization for deployment tracking."
+description: "Engineering teams waste time correlating data across CI/CD tools. CDviz collects CDEvents from every tool and shows deployments in one place."
 tags:
   [
     "devops",

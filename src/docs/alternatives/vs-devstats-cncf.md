@@ -1,6 +1,6 @@
 ---
-title: "CDviz vs CNCF DevStats: SDLC Observability vs Open-Source Community Analytics"
-description: "Compare CDviz and CNCF DevStats (devstats.cncf.io). Two Apache 2.0 tools with overlapping stack but entirely different purposes: enterprise SDLC observability vs open-source contributor analytics."
+title: "CDviz vs CNCF DevStats: SDLC vs Community Analytics"
+description: "CDviz and CNCF DevStats (devstats.cncf.io): two Apache 2.0 tools with a similar stack. CDviz observes the SDLC; DevStats analyzes open-source contributors."
 head:
   - - script
     - type: application/ld+json

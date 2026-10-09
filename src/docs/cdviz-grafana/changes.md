@@ -1,5 +1,5 @@
 ---
-description: "CDviz Changes dashboard: track pull-request and change lifecycle across repos — created, in review, merged, abandoned — with merge throughput, cycle time, and oldest open changes."
+description: "CDviz Changes dashboard: track pull requests across repos (created, in review, merged, abandoned) with merge throughput, cycle time and oldest open changes."
 #plans:
 #  - cloud
 ---

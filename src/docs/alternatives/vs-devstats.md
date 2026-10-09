@@ -1,5 +1,5 @@
 ---
-title: "CDviz vs DevStats: Full SDLC Observability vs Git Analytics"
+title: "CDviz vs DevStats: SDLC Observability vs Git Analytics"
 description: "Open-source DevStats alternative for SDLC observability. CDviz vs DevStats: data model, deployment, and integration differences."
 head:
   - - script

@@ -1,5 +1,5 @@
 ---
-title: "CDEvents in Action #5: The Kubernetes Deployment Blind Spot"
+title: "CDEvents in Action #5: Kubernetes Deployment Blind Spot"
 description: "ArgoCD gives you GitOps visibility — but what about kubectl, Helm, and manual changes? Learn why native Kubernetes monitoring completes the picture."
 tags:
   [

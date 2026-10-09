@@ -1,6 +1,6 @@
 ---
 title: "CDEvents in Action #2: Send Your First CDEvent"
-description: "Learn three approaches to send CDEvents: basic curl, production bash script with HMAC signatures, and cdviz-collector send. From simple testing to production-ready integration."
+description: "Three ways to send CDEvents: basic curl, a bash script with HMAC signatures, and cdviz-collector send. From a first test to production."
 tags: ["cdevents", "devops", "cicd", "integration", "webhooks", "security"]
 author: "David B."
 author_github: "davidB"

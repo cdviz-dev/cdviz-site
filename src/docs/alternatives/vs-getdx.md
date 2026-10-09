@@ -1,5 +1,5 @@
 ---
-title: "CDviz vs GetDX: Pipeline Observability vs Developer Experience"
+title: "CDviz vs GetDX: Pipeline Data vs Developer Experience"
 description: "Self-hosted GetDX alternative. CDviz vs GetDX: open-source, data ownership, CDEvents standard, developer experience metrics without vendor lock-in."
 keywords: "CDviz vs GetDX,GetDX alternative,engineering analytics platform,developer experience metrics,open-source DX metrics"
 head:

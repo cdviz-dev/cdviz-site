@@ -1,5 +1,5 @@
 ---
-title: "CDviz vs Powerpipe: SDLC Event History vs Cloud State Dashboards"
+title: "CDviz vs Powerpipe: SDLC Events vs Cloud State"
 description: "Open-source Powerpipe alternative for pipeline observability. CDviz vs Powerpipe: data model, deployment, and integration approach."
 head:
   - - script

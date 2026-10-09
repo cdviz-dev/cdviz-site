@@ -1,5 +1,5 @@
 ---
-title: "CDEvents in Action #7: Instrument Any CI Step in a Few Lines"
+title: "CDEvents in Action #7: Instrument Any CI Step"
 description: "cdviz-collector send --run wraps any CI command and automatically emits CDEvents — branch, commit, and job name auto-detected from the CI environment."
 tags:
   [
