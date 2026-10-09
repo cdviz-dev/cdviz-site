@@ -19,7 +19,7 @@ import Faq from "./landing/SectionFaq.vue";
   <main
     class="px-sm"
     role="main"
-    aria-label="CDviz Cloud — managed CI/CD visibility"
+    aria-label="CDviz Cloud: managed CI/CD visibility"
     id="main-content"
   >
     <CloudHero />
