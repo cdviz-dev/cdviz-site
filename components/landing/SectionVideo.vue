@@ -3,7 +3,7 @@ import { ref } from "vue";
 import H2 from "./H2.vue";
 
 const VIDEO_ID = "YgWLUMKqQ3k";
-const VIDEO_TITLE = "See Which Pipelines Break — And Keep Breaking — CDviz Cloud";
+const VIDEO_TITLE = "See Which Pipelines Break and Keep Breaking: CDviz Cloud";
 
 defineProps({
   subhead: {
