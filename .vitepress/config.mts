@@ -522,6 +522,16 @@ export default defineConfig({
     },
   },
 
+  // Integration pages keep HTML in `description` for <IntegrationCard />; meta tags need plain text.
+  transformPageData(pageData) {
+    if (pageData.description) {
+      pageData.description = pageData.description
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+  },
+
   transformHead({ pageData }) {
     const siteUrl = "https://cdviz.dev";
     const relativePath = pageData.relativePath.replace(/\.md$/, "").replace(/(^|\/)index$/, "$1");
