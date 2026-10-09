@@ -51,7 +51,7 @@ const pricingPlans = [
       yearly: 216,
     },
     features: [
-      { icon: "icon-[lucide--cloud]", text: "Hosted & managed — zero infrastructure" },
+      { icon: "icon-[lucide--cloud]", text: "Hosted & managed, zero infrastructure" },
       { icon: "icon-[lucide--git-branch]", text: "Cross-repo pipeline reliability & trends" },
       { icon: "icon-[lucide--history]", text: "Optional 30-day history import" },
       { icon: "icon-[lucide--github]", text: "GitHub & GitLab" },
