@@ -7,7 +7,7 @@ description: "CDviz Grafana incidents and tickets dashboard: correlate deploymen
 ![Incidents & Tickets dashboard overview](/screenshots/grafana_dashboard_incidents_tickets-20260222.png)
 
 > [!TIP] Online Demo
-> Explore a live read-only instance at [demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/) — search for the **Incidents & Tickets** dashboard.
+> Explore a live read-only instance at [demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/). Search for the **Incidents & Tickets** dashboard.
 
 ## Overview
 
@@ -17,7 +17,7 @@ Key questions answered:
 
 - How many incidents are open right now, and how long have they been open?
 - What is the median time to resolve incidents (MTTR / FDRT)?
-- How many changes are in flight — created, in review, merged, abandoned?
+- How many changes are in flight: created, in review, merged, abandoned?
 - What is the cycle time from change creation to merge?
 
 ## Dashboard Panels
@@ -31,7 +31,7 @@ An at-a-glance stat row showing:
 | **Open Incidents**     | Count of detected but not yet resolved incidents in the selected time window |
 | **Resolved Incidents** | Count of resolved incidents in the selected time window                      |
 | **Median TTR**         | Median time from `incident.detected` to `incident.resolved`                  |
-| **P95 TTR**            | 95th-percentile time to restore — surfaces outlier incidents                 |
+| **P95 TTR**            | 95th-percentile time to restore: shows outlier incidents                     |
 
 ### Incidents Over Time
 
@@ -66,7 +66,7 @@ Scrollable list of recent changes with their current state, subject, source, and
 
 ## Also in CDviz Cloud
 
-The same insights are built into [CDviz Cloud](/cloud) — managed, nothing to install. Cloud splits tickets and changes into their own dashboards; see the [Changes](./changes.md) dashboard for the pull-request side.
+The same insights are built into [CDviz Cloud](/cloud), managed, with nothing to install. Cloud splits tickets and changes into their own dashboards; see the [Changes](./changes.md) dashboard for the pull-request side.
 
 ![CDviz Cloud tickets overview](/screenshots/cloud_tickets_dashboard_top-20260717.png)
 
@@ -74,8 +74,8 @@ The same insights are built into [CDviz Cloud](/cloud) — managed, nothing to i
 
 ## Dashboard Variables
 
-- **`environment`** — filter incidents by environment (from the CDEvent subject or payload fields)
-- **`source`** — filter by the tool or service that emitted the events (e.g. `pagerduty`, `jira`)
+- **`environment`**: filter incidents by environment (from the CDEvent subject or payload fields)
+- **`source`**: filter by the tool or service that emitted the events (e.g. `pagerduty`, `jira`)
 
 ## CDEvents Requirements
 
@@ -90,7 +90,7 @@ The same insights are built into [CDviz Cloud](/cloud) — managed, nothing to i
 | `change.abandoned`  | Change Summary                               |
 
 > [!NOTE]
-> Panels show no data — not zero — when the required event types have not been emitted. If your tools do not yet emit CDEvents natively, configure the [CDviz Collector](../cdviz-collector/) to translate webhook payloads using [transformer rules](../cdviz-collector/transformers-rules.md).
+> Panels show no data (not zero) when the required event types have not been emitted. If your tools do not yet emit CDEvents natively, configure the [CDviz Collector](../cdviz-collector/) to translate webhook payloads using [transformer rules](../cdviz-collector/transformers-rules.md).
 
 ## Connecting Your Tools
 
