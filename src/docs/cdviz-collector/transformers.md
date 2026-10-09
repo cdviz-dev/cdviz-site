@@ -78,22 +78,22 @@ a lightweight, ultra-fast tool for building observability pipelines.
 
 The input message is available as the variable `.`. Read its parts with:
 
-- `.metadata` — metadata of the message (used to pass information between transformers)
-- `.headers` — headers of the message
-- `.body` — body of the message
+- `.metadata`: metadata of the message (used to pass information between transformers)
+- `.headers`: headers of the message
+- `.body`: body of the message
 
-### Return value — three behaviors
+### Return value: three behaviors
 
 The value the template evaluates to (its last expression) decides what happens next. A returned
 message is a full object: any of `metadata`, `headers`, or `body` you omit is **not** carried
-over from the input — only the fields you put in the object are kept. Echo `.metadata` /
+over from the input. Only the fields you put in the object are kept. Echo `.metadata` /
 `.headers` explicitly when you want to preserve them.
 
-| Returned value   | Behavior                                                                |
-| ---------------- | ----------------------------------------------------------------------- |
-| `null`           | **Passthrough** — the original message is forwarded unchanged.          |
-| `[]`             | **Discard** — nothing is sent downstream (drops/filters the message).   |
-| `[{ … }, { … }]` | **Replace** — each object in the array is sent downstream as a message. |
+| Returned value   | Behavior                                                               |
+| ---------------- | ---------------------------------------------------------------------- |
+| `null`           | **Passthrough**: the original message is forwarded unchanged.          |
+| `[]`             | **Discard**: nothing is sent downstream (drops/filters the message).   |
+| `[{ … }, { … }]` | **Replace**: each object in the array is sent downstream as a message. |
 
 ```toml
 [transformers.three_cases]
@@ -120,7 +120,7 @@ if .body.kind == "ignore_me_keep_as_is" {
 """
 ```
 
-Returning a single transformed message is the array form with one element — `[.]` re-emits the
+Returning a single transformed message is the array form with one element: `[.]` re-emits the
 current message after in-place edits (see the example below).
 
 You can specify the VRL template directly in the config:
