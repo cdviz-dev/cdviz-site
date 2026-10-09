@@ -69,7 +69,7 @@ Nothing to run, and no transformer to configure: the endpoint is provisioned for
 
 1. Open [app.cdviz.dev](https://app.cdviz.dev) → **Settings** → **Collector**.
 2. Enable **GitHub Webhook**.
-3. Copy the **Endpoint** — `https://app.cdviz.dev/collect/<your-tenant>/webhook/github`.
+3. Copy the **Endpoint**: `https://app.cdviz.dev/collect/<your-tenant>/webhook/github`.
 4. Reveal (or regenerate) the **Signature secret** sent as the `x-hub-signature-256` header. You are free to change it, as long as GitHub and CDviz hold the same value.
 
 ![CDviz Cloud GitHub Webhook settings](/screenshots/cloud_settings_github_webhook-20260727.png)
