@@ -5,7 +5,7 @@ const problems = [
   {
     icon: "!",
     title: "Failures scattered across repos",
-    body: "Each repo has its own CI tab. To know what's broken, you check them one by one — or you find out when a teammate complains.",
+    body: "Each repo has its own CI tab. To know what's broken, you check them one by one, or you find out when a teammate complains.",
   },
   {
     icon: "~",
