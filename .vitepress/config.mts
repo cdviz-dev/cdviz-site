@@ -3,6 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
 import svgLoader from "vite-svg-loader";
 // import { configureDiagramsPlugin } from "vitepress-plugin-diagrams";
+import { imageSize } from "image-size";
+import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getBlogPosts, Status } from "./blog-utils.ts";
@@ -105,6 +107,25 @@ export default defineConfig({
   srcDir: "./src",
   srcExclude: [...getDraftExcludes(), "**/parts/*.md"],
   markdown: {
+    // Set width/height on local images so the browser reserves their box (no layout shift)
+    config(md) {
+      const renderImage = md.renderer.rules.image!;
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx];
+        const src = token.attrGet("src");
+        if (src?.startsWith("/") && !token.attrGet("width")) {
+          const file = readFileSync(join(__dirname, "../assets", src));
+          // an SVG without its own width renders at the browser default size: keep that
+          if (src.endsWith(".svg") && !/<svg[^>]*\swidth=/.test(file.toString())) {
+            return renderImage(tokens, idx, options, env, self);
+          }
+          const { width, height } = imageSize(file);
+          token.attrSet("width", String(width));
+          token.attrSet("height", String(height));
+        }
+        return renderImage(tokens, idx, options, env, self);
+      };
+    },
     languages: [
       // VRL (Vector Remap Language) has no Shiki grammar; register as stub to avoid fallback warnings
       {
