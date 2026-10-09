@@ -66,7 +66,7 @@ Nothing to run, and no transformer to configure: the endpoint is provisioned for
 
 1. Open [app.cdviz.dev](https://app.cdviz.dev) → **Settings** → **Collector**.
 2. Enable **GitLab Webhook**.
-3. Copy the **Endpoint** — `https://app.cdviz.dev/collect/<your-tenant>/webhook/gitlab`.
+3. Copy the **Endpoint**: `https://app.cdviz.dev/collect/<your-tenant>/webhook/gitlab`.
 4. Reveal (or regenerate) the token sent as the `x-gitlab-token` header. You are free to change it, as long as GitLab and CDviz hold the same value.
 
 ![CDviz Cloud GitLab Webhook settings](/screenshots/cloud_settings_gitlab_webhook-20260727.png)
