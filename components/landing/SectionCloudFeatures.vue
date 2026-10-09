@@ -5,7 +5,7 @@ import ScreenshotCarousel from "./ScreenshotCarousel.vue";
 const features = [
   {
     title: "Cross-repo pipeline reliability",
-    body: "Failure rates, chronically broken and intermittent pipelines, and trends — ranked across all your connected repos. The thing you came for.",
+    body: "Failure rates, chronically broken and intermittent pipelines, and trends, ranked across all your connected repos. The thing you came for.",
   },
   {
     title: "Pipeline duration & trends",
@@ -13,7 +13,7 @@ const features = [
   },
   {
     title: "Test suites & flaky detection",
-    body: "Pass/fail history and duration trends per suite, so a test that flip-flops red and green is obvious at a glance — no statistics degree required.",
+    body: "Pass/fail history and duration trends per suite, so a test that flip-flops red and green is easy to see, with no statistics required.",
     images: [
       {
         src: "/screenshots/cloud_testsuites_dashboard_top-20260717.png",
@@ -32,7 +32,7 @@ const features = [
   },
   {
     title: "Tickets & issues",
-    body: "How many issues are open, how long the oldest have been sitting, and how fast they close — fed from Jira, GitHub, or GitLab via CDEvents.",
+    body: "How many issues are open, how long the oldest have been sitting, and how fast they close, fed from Jira, GitHub, or GitLab via CDEvents.",
     images: [
       {
         src: "/screenshots/cloud_tickets_dashboard_top-20260717.png",
@@ -77,7 +77,7 @@ const features = [
   },
   {
     title: "Artifact & deployment timeline",
-    body: "Which version landed in which environment, and when — a per-artifact timeline across services, without infra permissions.",
+    body: "Which version landed in which environment, and when: a per-artifact timeline across services, without infra permissions.",
     images: [
       {
         src: "/screenshots/cloud_artifact_timeline_dashboard-20260717.png",
@@ -102,7 +102,7 @@ const features = [
     <div class="text-center max-w-[48ch] mx-auto mb-2xl">
       <H2>What you get.</H2>
       <p class="text-text/60 mt-md">
-        Focused on the questions a small team actually asks — not a 50-panel enterprise suite.
+        Focused on the questions a small team actually asks, not a 50-panel enterprise suite.
       </p>
     </div>
     <div class="flex flex-col gap-4 max-w-[760px] mx-auto">
