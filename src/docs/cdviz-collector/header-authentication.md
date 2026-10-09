@@ -37,14 +37,14 @@ Use fixed string values for headers:
 
 The `value` field holds the secret as a static string in TOML. To keep secrets out of the config file, use one of these approaches:
 
-**Read from a file** (recommended — mount a Kubernetes Secret or Docker volume):
+**Read from a file** (recommended: mount a Kubernetes Secret or Docker volume):
 
 ```toml
 [sources.events.extractor.headers]
 "X-API-Key" = { type = "secret", value_file = "/run/secrets/api_key" }
 ```
 
-**Set via environment variable** (hyphens in header names must be preserved — bash cannot `export` names with hyphens):
+**Set via environment variable** (keep the hyphens in header names; bash cannot `export` names with hyphens):
 
 ```bash
 # Preferred: --set flag handles hyphens cleanly
@@ -56,7 +56,7 @@ env 'CDVIZ_COLLECTOR__SOURCES__MYAPI__EXTRACTOR__HEADERS__X-API-KEY__VALUE=actua
   cdviz-collector connect --config config.toml
 ```
 
-Kubernetes `env[].name` and GitHub Actions `env:` support hyphens natively. See [Configuration — Environment Variables](./configuration.md#environment-variables) for the naming convention.
+Kubernetes `env[].name` and GitHub Actions `env:` support hyphens natively. See [Configuration: Environment Variables](./configuration.md#environment-variables) for the naming convention.
 
 ### HMAC Signature Generation
 
