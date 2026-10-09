@@ -426,7 +426,7 @@ Configuration is invalid:   × missing field `type` for key "default.sources.<na
   in Remote File Adapter
 ```
 
-The error path (`extractor`) and "Remote File Adapter" mention are misleading — the real failure is inside `extractor.headers`.
+The error path (`extractor`) and "Remote File Adapter" mention are misleading. The real failure is inside `extractor.headers`.
 
 **Reproduce:**
 
@@ -438,12 +438,12 @@ cdviz-collector config --config your-config.toml --check
 
 `cdviz-collector` uses [figment](https://docs.rs/figment) with `Env::prefixed("CDVIZ_COLLECTOR__").split("__")`. Double underscores are key-path separators; single underscores are **preserved as literal characters**. HTTP header names use hyphens (`x-hub-signature-256`), so an env var with underscores creates a _second_ map entry missing the required `type` field:
 
-| Env var segment       | figment key segment                               |
-| --------------------- | ------------------------------------------------- |
-| `X_HUB_SIGNATURE_256` | `x_hub_signature_256` (underscore — no match)     |
-| `X-HUB-SIGNATURE-256` | `x-hub-signature-256` (hyphen — matches TOML key) |
+| Env var segment       | figment key segment                              |
+| --------------------- | ------------------------------------------------ |
+| `X_HUB_SIGNATURE_256` | `x_hub_signature_256` (underscore, no match)     |
+| `X-HUB-SIGNATURE-256` | `x-hub-signature-256` (hyphen, matches TOML key) |
 
-**Option A — Keep hyphens in the env var name (simplest)**
+**Option A: Keep hyphens in the env var name (simplest)**
 
 Env var names with hyphens are valid in Linux and in Kubernetes `env[].name`:
 
@@ -462,7 +462,7 @@ env:
         key: github_webhook_token
 ```
 
-**Option B — Mount secret as a file and use `token_file` (more secure)**
+**Option B: Mount secret as a file and use `token_file` (more secure)**
 
 `figment_file_provider_adapter::FileAdapter` resolves any config key ending in `_file` by reading the referenced file and replacing the key with its contents:
 
@@ -471,7 +471,7 @@ env:
 "x-hub-signature-256" = { type = "signature", ..., token_file = "/secrets/github_webhook_token" }
 ```
 
-Mount the Kubernetes Secret as a volume — secret values stay out of `kubectl describe pod` output and header names with hyphens map cleanly to filenames.
+Mount the Kubernetes Secret as a volume. Secret values stay out of `kubectl describe pod` output and header names with hyphens map cleanly to filenames.
 
 **Summary:**
 
