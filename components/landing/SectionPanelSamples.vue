@@ -13,7 +13,7 @@ const executionShots = [
   },
   {
     src: "/screenshots/cloud_pipelines_dashboard_top-20260717.png",
-    alt: "CDviz Cloud pipelines dashboard — the managed equivalent view",
+    alt: "CDviz Cloud pipelines dashboard, the managed equivalent view",
     width: 1396,
     height: 905,
   },
@@ -28,7 +28,7 @@ const incidentShots = [
   },
   {
     src: "/screenshots/cloud_tickets_dashboard_top-20260717.png",
-    alt: "CDviz Cloud tickets dashboard — the managed equivalent view",
+    alt: "CDviz Cloud tickets dashboard, the managed equivalent view",
     width: 1406,
     height: 874,
   },
@@ -38,7 +38,7 @@ const incidentShots = [
   <section class="space-section">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->
-      <H2>Your SDLC — Finally Visible</H2>
+      <H2>Your SDLC, Finally Visible</H2>
       <p
         class="text-base sm:text-lg text-text/80 text-center mb-lg"
         style="max-width: 48rem; margin-inline: auto"
@@ -58,8 +58,8 @@ const incidentShots = [
               Artifact Timeline
             </h3>
             <p class="text-sm text-text/70">
-              Track which version landed in which environment — at a glance and historically. A
-              starting point you can adapt to your own deployment workflow.
+              Track which version landed in which environment, now and over time. A starting point
+              you can adapt to your own deployment workflow.
             </p>
           </div>
           <div class="md:col-span-3 p-md flex items-center">
@@ -85,8 +85,8 @@ const incidentShots = [
               Pipeline &amp; Test Runs
             </h3>
             <p class="text-sm text-text/70">
-              Spot slow pipelines, flaky tests, and rising failure rates — duration, queue time, and
-              pass/fail history for every pipeline, task, and test.
+              Spot slow pipelines, flaky tests, and rising failure rates. See duration, queue time,
+              and pass/fail history for every pipeline, task, and test.
             </p>
           </div>
         </a>
@@ -100,7 +100,7 @@ const incidentShots = [
               Incidents &amp; Tickets
             </h3>
             <p class="text-sm text-text/70">
-              Track open incidents, time-to-restore, and change cycle times — fed from your incident
+              Track open incidents, time-to-restore, and change cycle times, fed from your incident
               management and ticketing tools via CDEvents.
             </p>
           </div>
@@ -129,9 +129,9 @@ const incidentShots = [
               DORA Metrics
             </h3>
             <p class="text-sm text-text/70">
-              The four DORA indicators — deployment frequency, lead time, time to restore, and
-              change failure rate — computed from your existing CDEvents. A baseline to benchmark
-              and improve your delivery performance.
+              The four DORA indicators (deployment frequency, lead time, time to restore, and change
+              failure rate), computed from your existing CDEvents. A baseline to benchmark and
+              improve your delivery performance.
             </p>
           </div>
         </a>
