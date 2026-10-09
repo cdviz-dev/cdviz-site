@@ -23,7 +23,7 @@ import IntegrationCard from '../../../components/IntegrationCard.vue'
 > [!IMPORTANT] Forgejo vs Gitea
 > Forgejo is a Gitea fork and most webhook payloads are still byte-identical, **but the CI events are not**:
 > Forgejo sends `action_run_success` / `action_run_failure` / `action_run_recover`, while Gitea sends
-> `workflow_run` / `workflow_job`. Using the wrong transformer silently drops all pipeline events — for
+> `workflow_run` / `workflow_job`. Using the wrong transformer silently drops all pipeline events. For
 > Gitea, use the [Gitea integration](./gitea.md) instead.
 
 ## Configuration
@@ -61,7 +61,7 @@ The `template_rfile` references the VRL transformation logic from the [transform
 2. **Target URL**: `http://your-collector-url/webhook/000-forgejo`
 3. **HTTP Method**: `POST`, **POST Content Type**: `application/json`
 4. **Secret**: the same value as `token` of the `x-forgejo-signature` header in the collector configuration
-5. **Trigger On**: select the events you want, or "All events" (unmapped events are silently ignored) — at minimum:
+5. **Trigger On**: select the events you want, or "All events" (unmapped events are silently ignored). At minimum, select:
    - Repository events (branch/tag creation & deletion)
    - Pull request events
    - Issue events
@@ -111,7 +111,7 @@ Event type detection is performed in VRL, mostly from body fields rather than th
 
 A single payload produces at most one CDEvent, except `release.published` (one per asset) and `action_run_*` (up to three, see below).
 
-Any other event (`push`, `wiki`, `workflow_dispatch`, `schedule`, `create`/`delete` for tags, …) produces **no** event — there is no CDEvents subject for raw pushes or tags outside of the artifact model.
+Any other event (`push`, `wiki`, `workflow_dispatch`, `schedule`, `create`/`delete` for tags, …) produces **no** event. There is no CDEvents subject for raw pushes or tags outside of the artifact model.
 
 ### Inferred `pipelineRun.queued` / `.started`
 
@@ -119,11 +119,11 @@ Forgejo Actions only notify on terminal states (`action_run_success` / `action_r
 
 Consequences:
 
-- The three events are sent **at once, after the run ended** — useless for real-time alerting, but queue time, run duration and DORA-style metrics stay computable from CDEvents alone.
+- The three events are sent **at once, after the run ended**. They are not usable for real-time alerting, but you can still compute queue time, run duration and DORA-style metrics from CDEvents alone.
 - Inferred events carry `customData.inferred = true`, so consumers can tell them apart from observed ones.
 - A phase that never happened is skipped rather than faked: a run cancelled while still queued has a Go zero timestamp (`0001-01-01T00:00:00Z`) for `run.started`, and produces no `pipelineRun.started`.
 
-There is still no job-level webhook, so `taskRun` is not emitted at all — and, unlike the pipeline phases, the payload carries no per-job data to infer it from. Gitea, which has `workflow_run:requested` / `:in_progress` and `workflow_job`, observes those directly — see the [Gitea integration](./gitea.md).
+There is still no job-level webhook, so `taskRun` is not emitted at all. Unlike the pipeline phases, the payload carries no per-job data to infer it from. Gitea, which has `workflow_run:requested` / `:in_progress` and `workflow_job`, observes those directly (see the [Gitea integration](./gitea.md)).
 
 ### Artifact Identification
 
@@ -156,7 +156,7 @@ These can be added following the existing pattern in the [transformer VRL file](
 
 ### No event produced
 
-1. Check that the event/action combination is mapped (see the table above) — unmapped ones are silently ignored.
+1. Check that the event/action combination is mapped (see the table above). Unmapped ones are silently ignored.
 2. Check the delivery in **Repository settings > Webhooks > (your webhook) > Recent Deliveries**.
 
 ### Signature rejected
