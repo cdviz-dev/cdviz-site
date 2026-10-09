@@ -11,7 +11,7 @@ description: "CDviz Changes dashboard: track pull requests across repos (created
 > [!NOTE] Available in CDviz Cloud
 > The Changes dashboard ships today in [CDviz Cloud](/cloud). It is built on the
 > same `change.*` [CDEvents](https://cdevents.dev) as the rest of the stack, so a
-> self-hosted Grafana version can follow — the change lifecycle is also covered
+> self-hosted Grafana version can follow. The change lifecycle is also covered
 > from the incident side in the [Incidents & Tickets](./incidents_tickets.md) dashboard.
 
 ## Overview
@@ -23,7 +23,7 @@ see delivery flow without opening every repo's PR tab.
 
 Key questions answered:
 
-- How many changes are in flight right now — created, in review, merged, abandoned?
+- How many changes are in flight right now: created, in review, merged, abandoned?
 - What is our merge throughput, and is it trending up or down?
 - What is the cycle time from change creation to merge?
 - Which changes have been open the longest and need attention?
@@ -40,7 +40,7 @@ An at-a-glance stat row: changes **created**, **in review**, **merged**, and
 
 ![Merge throughput panel](/screenshots/cloud_changes_merge_throughput_panel-20260717.png)
 
-Merged changes over time, grouped by day or week — the delivery-flow signal that
+Merged changes over time, grouped by day or week. This delivery-flow signal
 tells you whether work is actually shipping, and lets you spot slowdowns before
 they show up as missed sprint goals.
 
@@ -62,7 +62,7 @@ unnoticed.
 | `change.abandoned` | Change Summary                               |
 
 > [!NOTE]
-> Panels show no data — not zero — when the required event types have not been
+> Panels show no data (not zero) when the required event types have not been
 > emitted. If your tools do not yet emit CDEvents natively, configure the
 > [CDviz Collector](../cdviz-collector/) to translate webhook payloads using
 > [transformer rules](../cdviz-collector/transformers-rules.md).
