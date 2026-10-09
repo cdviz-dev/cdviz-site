@@ -16,7 +16,7 @@ cdviz-collector send [OPTIONS] --data <DATA>
 
 ## Input Data
 
-`--data` accepts a CDEvent as an inline JSON string, a file reference (`@event.json`), or stdin (`@-`). An array of CDEvents is also accepted — each item is dispatched individually.
+`--data` accepts a CDEvent as an inline JSON string, a file reference (`@event.json`), or stdin (`@-`). An array of CDEvents is also accepted: each item is dispatched individually.
 
 > [!WARNING]
 > Without `--input-parser`, the input must already be valid CDEvent JSON.
@@ -75,7 +75,7 @@ npm test --reporter=tap | cdviz-collector send --data @- --input-parser tap --ur
 
 ## Process Wrapping (`--run`)
 
-`--run` wraps a child process and emits CDEvents around its execution — a `started` event before the process begins and a `finished` event when it completes. This is the primary way to capture **test result observability** from CI jobs: webhook integrations track pipeline-level events, but `--run testsuiterun_junit` (or `_tap`) additionally parses JUnit/TAP output and emits structured `testSuiteRun` events.
+`--run` wraps a child process and emits CDEvents around its execution: a `started` event before the process begins and a `finished` event when it completes. This is the primary way to capture **test result observability** from CI jobs: webhook integrations track pipeline-level events, but `--run testsuiterun_junit` (or `_tap`) additionally parses JUnit/TAP output and emits structured `testSuiteRun` events.
 
 ### Syntax
 
@@ -104,7 +104,7 @@ The built-in `ci_env_detection` transformer automatically reads branch, commit S
 
 ### `--metadata` for cross-referencing
 
-Use `--metadata` to supply data that cannot be auto-detected — primarily identifiers for the artifact, environment, or repository being tested. These feed `customData.links` in the emitted CDEvent, enabling cross-referencing between test results and other subjects.
+Use `--metadata` to supply data that cannot be auto-detected, mainly identifiers for the artifact, environment, or repository being tested. These feed `customData.links` in the emitted CDEvent, enabling cross-referencing between test results and other subjects.
 
 ```bash
 # JUnit test suite with artifact cross-reference
