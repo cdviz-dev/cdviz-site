@@ -75,7 +75,7 @@ const rows = GROUPS.map((group) => {
   </div>
 
   <p class="text-sm text-text/70">
-    A row covers all the integrations listed under it: a subject may be emitted by only some of them
-    — hover a cell, or open the integration page, to see which.
+    A row covers all the integrations listed under it: a subject may be emitted by only some of
+    them. Hover a cell, or open the integration page, to see which.
   </p>
 </template>
