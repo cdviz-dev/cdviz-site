@@ -33,11 +33,11 @@ Building an event consumer before understanding the data flow is like writing SQ
 
 Each approach serves different needs and skill levels:
 
-| Approach                       | Best For                                    | Setup Time | Real Data      |
-| ------------------------------ | ------------------------------------------- | ---------- | -------------- |
-| **webhook.site**               | Quick testing, event structure exploration  | 30 seconds | ❌ Manual only |
-| **CDviz docker compose**       | Full pipeline simulation, realistic testing | 3 minutes  | ✅ Demo events |
-| **cdviz-collector connect** ⭐ | Local development, production debugging     | 2 minutes  | ✅ Real events |
+| Approach                                  | Best For                                    | Setup Time | Real Data   |
+| ----------------------------------------- | ------------------------------------------- | ---------- | ----------- |
+| **webhook.site**                          | Quick testing, event structure exploration  | 30 seconds | Manual only |
+| **CDviz docker compose**                  | Full pipeline simulation, realistic testing | 3 minutes  | Demo events |
+| **cdviz-collector connect** (recommended) | Local development, production debugging     | 2 minutes  | Real events |
 
 Let's explore each approach and learn when to use them.
 
@@ -89,14 +89,18 @@ Switch back to webhook.site to see your event. Notice:
 
 ### What You Learn
 
-✅ **Event structure**: See exactly what CDEvents look like
-✅ **Header requirements**: Understand HTTP headers needed
-✅ **JSON schema**: Valid CDEvent format and required fields
-✅ **Quick iteration**: Test different event types rapidly
+**Strengths**:
 
-❌ **No processing**: Events just display, no storage or correlation
-❌ **Manual only**: You must send events yourself
-❌ **No authentication**: Simple HTTP POST only
+- **Event structure**: See exactly what CDEvents look like
+- **Header requirements**: Understand HTTP headers needed
+- **JSON schema**: Valid CDEvent format and required fields
+- **Quick iteration**: Test different event types rapidly
+
+**Limits**:
+
+- **No processing**: Events just display, no storage or correlation
+- **Manual only**: You must send events yourself
+- **No authentication**: Simple HTTP POST only
 
 **Best practice**: Use webhook.site to understand CDEvents structure before building your consumer logic.
 
@@ -171,18 +175,22 @@ Browse different Grafana dashboards to understand:
 
 ### What You Learn
 
-✅ **Complete integration**: Full event processing pipeline
-✅ **Visual feedback**: See events in realistic dashboards
-✅ **Event correlation**: Understand how events relate to each other
-✅ **Storage patterns**: Events stored in PostgreSQL for analysis
-✅ **Production simulation**: Realistic event processing behavior
+**Strengths**:
 
-❌ **Resource intensive**: Requires Docker and multiple containers
-❌ **Complex setup**: More moving parts than simple webhook testing
+- **Complete integration**: Full event processing pipeline
+- **Visual feedback**: See events in realistic dashboards
+- **Event correlation**: Understand how events relate to each other
+- **Storage patterns**: Events stored in PostgreSQL for analysis
+- **Production simulation**: Realistic event processing behavior
+
+**Limits**:
+
+- **Resource intensive**: Requires Docker and multiple containers
+- **Complex setup**: More moving parts than simple webhook testing
 
 **Best practice**: Use CDviz docker compose when evaluating CDEvents for your team or testing integration patterns.
 
-## Approach 3: cdviz-collector connect - Recommended for Development ⭐
+## Approach 3: cdviz-collector connect - Recommended for Development
 
 **When to use**: Local development, troubleshooting integrations, validating event flows
 
@@ -263,13 +271,17 @@ curl -X POST http://localhost:8080/webhook/000-cdevents \
 
 ### What You Learn
 
-✅ **CDEvent validation**: Immediate feedback on event format and structure
-✅ **Lightweight development**: No Docker required, fast startup
-✅ **Real-time debugging**: See events as they arrive with validation feedback
-✅ **Configuration flexibility**: Easy to modify behavior via TOML config
+**Strengths**:
 
-❌ **Command-line only**: No visual interface like Grafana
-❌ **Local only**: Events not persisted or aggregated
+- **CDEvent validation**: Immediate feedback on event format and structure
+- **Lightweight development**: No Docker required, fast startup
+- **Real-time debugging**: See events as they arrive with validation feedback
+- **Configuration flexibility**: Easy to modify behavior via TOML config
+
+**Limits**:
+
+- **Command-line only**: No visual interface like Grafana
+- **Local only**: Events not persisted or aggregated
 
 **Best practice**: Use cdviz-collector connect as your primary development tool for CDEvents integration.
 
@@ -290,7 +302,7 @@ curl -X POST http://localhost:8080/webhook/000-cdevents \
 - You need to test integration patterns before production deployment
 - You want to explore Grafana dashboards and event visualization
 
-**Use cdviz-collector connect if** (⭐ Recommended):
+**Use cdviz-collector connect if** (recommended):
 
 - You're developing CDEvents integration locally
 - You want fast feedback on event validation
@@ -302,7 +314,7 @@ curl -X POST http://localhost:8080/webhook/000-cdevents \
 **Recommended learning path**:
 
 1. **webhook.site** (5 minutes) → Understand CDEvent structure
-2. **cdviz-collector connect** (10 minutes) → Validate and debug locally ⭐
+2. **cdviz-collector connect** (10 minutes) → Validate and debug locally (recommended)
 3. **CDviz docker compose** (15 minutes) → See complete integration with dashboards
 
 For most developers, **cdviz-collector connect** provides the best balance of simplicity and functionality for ongoing development work.
@@ -319,17 +331,17 @@ Now that you understand how to receive and inspect CDEvents, you're ready to lea
 2. Send different CDEvent types (`service.deployed`, `taskrun.finished`, `artifact.published`)
 3. Note what you learned about event structure and timing
 
-This foundation will help you build robust CDEvents integration in your own systems.
+Use them to test your own CDEvents integration before you build producers.
 
 ## Key Takeaways
 
-🎯 **Test first**: Simulate receiving events before building producers
-🔧 **Multiple tools**: Different approaches serve different testing needs
-⭐ **Recommended approach**: cdviz-collector connect for most development work
-📊 **Visual integration**: CDviz docker compose for complete pipeline visualization
-📈 **Progressive learning**: Start simple (webhook.site) then build practical skills
+**Test first**: Simulate receiving events before building producers
+**Multiple tools**: Different approaches serve different testing needs
+**Recommended approach**: cdviz-collector connect for most development work
+**Visual integration**: CDviz docker compose for complete pipeline visualization
+**Progressive learning**: Start simple (webhook.site) then build practical skills
 
-Understanding how to consume CDEvents is essential before producing them. These simulation approaches give you the foundation to build robust CDEvents integration.
+Understanding how to consume CDEvents is essential before producing them. These simulation approaches let you check events before you write a producer.
 
 ---
 

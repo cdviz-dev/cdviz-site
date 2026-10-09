@@ -95,7 +95,7 @@ GitHub webhooks automatically notify cdviz-collector about repository activity:
 - **Issues** → `ticket.*` events
 - **Branches** → `branch.created/deleted` events
 
-**🔗 [Complete event mapping and setup guide](/docs/integrations/github)**
+**[Complete event mapping and setup guide](/docs/integrations/github)**
 
 ### Minimal Configuration
 
@@ -134,16 +134,16 @@ template_rfile = "transformers-community:///github_events/transformer.vrl"
 - **Secret**: Same token as collector configuration
 - **Events**: Workflow runs, jobs, releases, PRs, issues
 
-**🔗 [Detailed GitHub webhook setup instructions](/docs/integrations/github#setting-up-github-webhook)**
+**[Detailed GitHub webhook setup instructions](/docs/integrations/github#setting-up-github-webhook)**
 
 ### What You Get
 
-- ✅ **Organization-wide coverage**: Configure once, all repositories tracked
-- ✅ **Zero pipeline changes**: Automatic event generation
-- ✅ **Complete lifecycle**: Queued → started → finished events
-- ✅ **Secure**: HMAC-SHA256 signature verification
+- **Organization-wide coverage**: Configure once, all repositories tracked
+- **Zero pipeline changes**: Automatic event generation
+- **Complete lifecycle**: Queued → started → finished events
+- **Secure**: HMAC-SHA256 signature verification
 
-**💡 Tip**: For custom deployment context, combine with [GitHub Action integration](/docs/integrations/github-action) from Episode #3.
+**Tip**: For custom deployment context, combine with [GitHub Action integration](/docs/integrations/github-action) from Episode #3.
 
 ## Pattern 2: GitLab Webhook Integration
 
@@ -159,7 +159,7 @@ GitLab webhooks automatically notify cdviz-collector about project activity:
 - **Issues** → `ticket.*` events
 - **Branches** → `branch.created/deleted` events
 
-**🔗 [Complete event mapping and setup guide](/docs/integrations/gitlab)**
+**[Complete event mapping and setup guide](/docs/integrations/gitlab)**
 
 ### Minimal Configuration
 
@@ -200,16 +200,16 @@ template_rfile = "transformers-community:///gitlab_webhook/transformer.vrl"
 - **Secret token**: Same token as collector configuration
 - **Trigger events**: Pipeline, job, release, MR, issue events
 
-**🔗 [Detailed GitLab webhook setup instructions](/docs/integrations/gitlab#setting-up-gitlab-webhook)**
+**[Detailed GitLab webhook setup instructions](/docs/integrations/gitlab#setting-up-gitlab-webhook)**
 
 ### What You Get
 
-- ✅ **Group-wide coverage**: Configure once, all projects tracked
-- ✅ **Zero pipeline changes**: Automatic event generation
-- ✅ **Complete lifecycle**: Queued → started → finished events
-- ✅ **Secure**: Token-based authentication
+- **Group-wide coverage**: Configure once, all projects tracked
+- **Zero pipeline changes**: Automatic event generation
+- **Complete lifecycle**: Queued → started → finished events
+- **Secure**: Token-based authentication
 
-**💡 Tip**: For Kubernetes deployment details, combine with ArgoCD integration (Pattern 3).
+**Tip**: For Kubernetes deployment details, combine with ArgoCD integration (Pattern 3).
 
 ## Pattern 3: ArgoCD Webhook Integration
 
@@ -265,11 +265,11 @@ template_rfile = "transformers-community:///argocd_notifications/transformer.vrl
 
 **What this does**:
 
-- ✅ Receives ArgoCD webhooks at `http://your-collector/webhook/000-argocd`
-- ✅ Verifies authenticity using Authorization header
-- ✅ Transforms ArgoCD notifications into CDEvents using VRL transformer
-- ✅ Generates per-container `service.deployed` events automatically
-- ✅ Routes CDEvents to configured sinks
+- Receives ArgoCD webhooks at `http://your-collector/webhook/000-argocd`
+- Verifies authenticity using Authorization header
+- Transforms ArgoCD notifications into CDEvents using VRL transformer
+- Generates per-container `service.deployed` events automatically
+- Routes CDEvents to configured sinks
 
 ### Configuration: ArgoCD Side
 
@@ -385,11 +385,11 @@ git commit -m "Update deployment" && git push
 
 ### What You Get Without Pipeline Changes
 
-- ✅ **Deployment visibility**: Automatic `service.deployed` events for all ArgoCD apps
-- ✅ **Per-container events**: Separate events for each container in the deployment
-- ✅ **Incident detection**: Automatic `incident.detected` for sync failures and health issues
-- ✅ **PURL generation**: Correct Package URL (PURL) for Helm charts, Git repos, OCI images
-- ✅ **GitOps correlation**: Links deployments to source commits automatically
+- **Deployment visibility**: Automatic `service.deployed` events for all ArgoCD apps
+- **Per-container events**: Separate events for each container in the deployment
+- **Incident detection**: Automatic `incident.detected` for sync failures and health issues
+- **PURL generation**: Correct Package URL (PURL) for Helm charts, Git repos, OCI images
+- **GitOps correlation**: Links deployments to source commits automatically
 
 **Advantage**: ArgoCD is the deployment source of truth. Events reflect actual Kubernetes state, not just CI/CD pipeline intent.
 
@@ -440,9 +440,9 @@ The most powerful observability strategy combines both approaches:
 
 **Result**:
 
-- ✅ 100% observability coverage via passive integration
-- ✅ Rich context for critical services via active integration
-- ✅ Minimal maintenance burden
+- 100% observability coverage via passive integration
+- Rich context for critical services via active integration
+- Minimal maintenance burden
 
 ## Migration Strategy: Passive First, Active Later
 
@@ -509,10 +509,10 @@ token = "your-webhook-secret-here"
 
 **What this does**:
 
-- ✅ Verifies webhook came from GitHub
-- ✅ Prevents replay attacks
-- ✅ Rejects tampered payloads
-- ❌ Blocks unauthorized requests
+- Verifies webhook came from GitHub
+- Prevents replay attacks
+- Rejects tampered payloads
+- Blocks unauthorized requests
 
 **Best practice**: Use a strong random token (32+ characters) and rotate periodically.
 
@@ -532,9 +532,9 @@ case_sensitive = true
 
 **What this does**:
 
-- ✅ Verifies webhook came from GitLab
-- ✅ Simple token-based authentication
-- ❌ Blocks unauthorized requests
+- Verifies webhook came from GitLab
+- Simple token-based authentication
+- Blocks unauthorized requests
 
 **Best practice**: Use a UUID or strong random token, store in secrets manager.
 
@@ -558,9 +558,9 @@ service.webhook.cdviz: |
 
 **Collector side**: No authentication required (rely on NetworkPolicies)
 
-- ✅ No public internet exposure
-- ✅ Use Kubernetes NetworkPolicies to restrict access
-- ✅ Simple configuration
+- No public internet exposure
+- Use Kubernetes NetworkPolicies to restrict access
+- Simple configuration
 
 **Option 2: Authorization header (external endpoints or defense-in-depth)**
 
@@ -586,9 +586,9 @@ type = "secret"
 value = "Bearer your-secret-token-here"
 ```
 
-- ✅ Works with external collectors
-- ✅ Standard HTTP Authorization header
-- ✅ Blocks unauthorized requests
+- Works with external collectors
+- Standard HTTP Authorization header
+- Blocks unauthorized requests
 
 **Best practice**: Use Option 1 (network isolation) when possible, add Option 2 (Authorization header) for external endpoints or defense-in-depth.
 
@@ -627,18 +627,23 @@ template_rfile = "transformers-community:///github_events/transformer.vrl"
 
 **Trade-off**:
 
-- ✅ Automatic bug fixes and improvements
-- ❌ Risk of breaking changes
+**Strengths**:
+
+- Automatic bug fixes and improvements
+
+**Limits**:
+
+- Risk of breaking changes
 
 ## Key Takeaways
 
-- 🎯 **Passive first**: Webhook integration provides broad coverage without pipeline changes
-- 🔧 **Combine approaches**: Passive for coverage, active for custom context
-- 📊 **Platform coverage**: GitHub, GitLab, ArgoCD webhooks transform automatically
-- 🔒 **Security built-in**: HMAC signatures, token validation, network isolation
-- 📈 **Incremental adoption**: Start with webhooks, add active integration selectively
-- ⚙️ **Centralized transformers**: VRL logic versioned in remote repositories
-- 🚀 **Zero pipeline changes**: Organization-level webhook = all repositories covered
+- **Passive first**: Webhook integration provides broad coverage without pipeline changes
+- **Combine approaches**: Passive for coverage, active for custom context
+- **Platform coverage**: GitHub, GitLab, ArgoCD webhooks transform automatically
+- **Security built-in**: HMAC signatures, token validation, network isolation
+- **Incremental adoption**: Start with webhooks, add active integration selectively
+- **Centralized transformers**: VRL logic versioned in remote repositories
+- **Zero pipeline changes**: Organization-level webhook = all repositories covered
 
 Webhook transformers make CDEvents observability achievable at scale. Configure once, gain visibility across all repositories and deployments without modifying pipelines.
 

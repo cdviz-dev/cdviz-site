@@ -80,15 +80,15 @@ This ordering reflects **progressive complexity**: Pattern A shows the foundatio
 
 Before diving into detailed examples, here's how each pattern maps to popular CI/CD platforms:
 
-| Platform                | Pattern A (Curl + Bash) | Pattern B (cdviz-collector) | Pattern C (Plugin)  |
-| ----------------------- | ----------------------- | --------------------------- | ------------------- |
-| **Jenkins**             | ✅ Yes                  | ✅ Yes                      | ❓ Plugins TBD      |
-| **GitLab CI**           | ✅ Yes                  | ✅ Yes                      | ❌ No native        |
-| **GitHub Actions**      | ✅ Yes                  | ✅ Yes                      | ✅ send-cdevents@v1 |
-| **CircleCI**            | ✅ Yes                  | ✅ Yes                      | ❓ Orbs TBD         |
-| **Azure DevOps**        | ✅ Yes                  | ✅ Yes                      | ❓ Tasks TBD        |
-| **Bitbucket Pipelines** | ✅ Yes                  | ✅ Yes                      | ❌ No native        |
-| **Generic/Custom**      | ✅ If bash available    | ✅ If bash/curl available   | ❌ No native        |
+| Platform                | Pattern A (Curl + Bash) | Pattern B (cdviz-collector) | Pattern C (Plugin) |
+| ----------------------- | ----------------------- | --------------------------- | ------------------ |
+| **Jenkins**             | Yes                     | Yes                         | Plugins TBD        |
+| **GitLab CI**           | Yes                     | Yes                         | No native          |
+| **GitHub Actions**      | Yes                     | Yes                         | send-cdevents@v1   |
+| **CircleCI**            | Yes                     | Yes                         | Orbs TBD           |
+| **Azure DevOps**        | Yes                     | Yes                         | Tasks TBD          |
+| **Bitbucket Pipelines** | Yes                     | Yes                         | No native          |
+| **Generic/Custom**      | If bash available       | If bash/curl available      | No native          |
 
 **Key Takeaway**: Patterns A and B work universally on any platform with shell access. Pattern C provides the simplest experience but depends on platform-specific plugin availability.
 
@@ -156,10 +156,10 @@ pipeline {
 
 **What this does**:
 
-- ✅ Zero external dependencies (uses curl + openssl)
-- ✅ Works in any environment with bash
-- ✅ Full control over event payload and HTTP request
-- ✅ HMAC signature authentication for secure delivery
+- Zero external dependencies (uses curl + openssl)
+- Works in any environment with bash
+- Full control over event payload and HTTP request
+- HMAC signature authentication for secure delivery
 
 **Adaptation for other platforms**: Replace Jenkins-specific variables (`$BUILD_URL`, `$GIT_COMMIT`) with your platform's equivalents. The curl command works identically across all systems.
 
@@ -217,11 +217,11 @@ deploy:
 
 **What this does**:
 
-- ✅ Automatic ID and timestamp generation (no manual `context.id` or `context.timestamp`)
-- ✅ Built-in validation of CDEvent format
-- ✅ Support for various destination types (HTTP, Kafka, S3, Database, and more)
-- ✅ Advanced authentication (HMAC, Bearer tokens, custom headers)
-- ✅ Transformers and data manipulation capabilities
+- Automatic ID and timestamp generation (no manual `context.id` or `context.timestamp`)
+- Built-in validation of CDEvent format
+- Support for various destination types (HTTP, Kafka, S3, Database, and more)
+- Advanced authentication (HMAC, Bearer tokens, custom headers)
+- Transformers and data manipulation capabilities
 
 **Adaptation for other platforms**: Install `cdviz-collector` binary, replace GitLab variables (`$CI_PIPELINE_URL`, `$CI_COMMIT_SHA`) with your platform's equivalents.
 
@@ -274,11 +274,11 @@ jobs:
 
 **What this does**:
 
-- ✅ Automatic ID and timestamp generation
-- ✅ Built-in validation of CDEvent format
-- ✅ Native GitHub Actions integration
-- ✅ Secure secrets management
-- ✅ Zero installation required
+- Automatic ID and timestamp generation
+- Built-in validation of CDEvent format
+- Native GitHub Actions integration
+- Secure secrets management
+- Zero installation required
 
 **Adaptation for other platforms**: Check if your platform has a native CDEvents plugin (see Platform Compatibility Matrix). If not, use Pattern A or B.
 
@@ -410,7 +410,7 @@ jobs:
           url: ${{ secrets.CDEVENTS_ENDPOINT_URL }}
 ```
 
-**⚠️ Note on Complete Instrumentation**: This example shows **simplified** instrumentation with 4 events. A **fully instrumented** CI/CD pipeline would generate:
+**Note on Complete Instrumentation**: This example shows **simplified** instrumentation with 4 events. A **fully instrumented** CI/CD pipeline would generate:
 
 - `pipelinerun.started` + `pipelinerun.finished` (workflow level)
 - `taskrun.started` + `taskrun.finished` (for each job/stage)
@@ -502,12 +502,12 @@ When creating CDEvents, choosing good values for key fields improves observabili
 **Why**: Enables tracing events back to the exact pipeline run that generated them.
 
 ```yaml
-# ✅ Good - Specific workflow run
+# Good - Specific workflow run
 "source": "https://github.com/myorg/myrepo/actions/runs/12345"
 "source": "https://gitlab.com/myorg/myrepo/-/pipelines/67890"
 "source": "https://jenkins.example.com/job/deploy/123"
 
-# ❌ Avoid - Too generic - conflict when aggregated within a bigger scope
+# Avoid - Too generic - conflict when aggregated within a bigger scope
 "source": "github.com/myorg/myrepo"
 "source": "myrepo"
 ```
@@ -521,13 +521,13 @@ When creating CDEvents, choosing good values for key fields improves observabili
 **Important**: Do NOT use `subject.source` - it's confusing and optional. Instead, make `subject.id` unique within your organization's scope and let `context.source` identify the event origin.
 
 ```yaml
-# ✅ Good - Unique within organization, hierarchical, semantic
+# Good - Unique within organization, hierarchical, semantic
 "subject.id": "my-service/production"
 "subject.id": "frontend/staging/web-app"
 "subject.id": "backend/dev/api-gateway"
 "subject.id": "/team/my-service/production" # Include team for larger orgs
 
-# ❌ Avoid - Not unique or too generic within your scope
+# Avoid - Not unique or too generic within your scope
 "subject.id": "550e8400-e29b-41d4-a716-446655440000" # UUID (use context.id for that)
 "subject.id": "run-12345" # Run-specific (use context.id for that)
 "subject.id": "production" # Too generic - which service?
@@ -540,12 +540,12 @@ When creating CDEvents, choosing good values for key fields improves observabili
 **Why**: Enables environment-level dashboards and alerts.
 
 ```yaml
-# ✅ Good - Consistent naming
+# Good - Consistent naming
 "environment": { "id": "production" }
 "environment": { "id": "staging" }
 "environment": { "id": "dev" }
 
-# ❌ Avoid - Inconsistent naming
+# Avoid - Inconsistent naming
 "environment": { "id": "prod" } # vs "production"
 "environment": { "id": "STAGING" } # vs "staging"
 "environment": { "id": "dev-123" } # too specific
@@ -595,23 +595,23 @@ When creating CDEvents, choosing good values for key fields improves observabili
 {
   "context": {
     "version": "0.4.1",
-    // ✅ Omit "id" - cdviz-collector generates content-based ID
+    // Omit "id" - cdviz-collector generates content-based ID
     "source": "https://github.com/myorg/myrepo/actions/runs/12345",
     "type": "dev.cdevents.service.deployed.0.2.0"
-    // ✅ Omit "timestamp" - cdviz-collector uses current time
+    // Omit "timestamp" - cdviz-collector uses current time
   }
 }
 ```
 
 ## Key Takeaways
 
-🎯 **Three universal patterns**: Curl+bash → cdviz-collector → platform plugins (progressive complexity)
-🔧 **One pattern per platform**: Jenkins (Pattern A), GitLab CI (Pattern B), GitHub Actions (Pattern C)
-📊 **Cross-platform compatibility**: All patterns work on any platform with shell access
-🔒 **Security built-in**: Native secrets management, HMAC signatures, error handling
-📝 **CDEvents best practices**: Use workflow URLs for source, hierarchical subject IDs, PURL for artifacts
-⚙️ **Auto-generated fields**: Let tools generate context.id and context.timestamp
-📈 **Start simple**: Begin with key lifecycle events (build, test, deploy), expand as needed
+**Three universal patterns**: Curl+bash → cdviz-collector → platform plugins (progressive complexity)
+**One pattern per platform**: Jenkins (Pattern A), GitLab CI (Pattern B), GitHub Actions (Pattern C)
+**Cross-platform compatibility**: All patterns work on any platform with shell access
+**Security built-in**: Native secrets management, HMAC signatures, error handling
+**CDEvents best practices**: Use workflow URLs for source, hierarchical subject IDs, PURL for artifacts
+**Auto-generated fields**: Let tools generate context.id and context.timestamp
+**Start simple**: Begin with key lifecycle events (build, test, deploy), expand as needed
 
 Direct CI/CD integration gives you full control over CDEvents generation. These patterns work universally, letting you implement observability regardless of your tooling.
 

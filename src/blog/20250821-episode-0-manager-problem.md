@@ -116,13 +116,16 @@ Some events are generated automatically by the demo. Browse the other dashboard 
 
 ## Real Questions CDviz Helps Answer
 
-✅ "What version is running in production right now?"
-✅ "When did we last deploy service X?"
-✅ "Show me all deployments from last week"
-✅ "What's our deployment frequency?"
+Answered:
 
-🔄 "How do teams compare?" (data available, dashboard TBD)
-❌ "What's our lead time?" (needs commit events integration)
+- "What version is running in production right now?"
+- "When did we last deploy service X?"
+- "Show me all deployments from last week"
+- "What's our deployment frequency?"
+
+Partly answered: "How do teams compare?" (data available, dashboard TBD)
+
+Not answered yet: "What's our lead time?" (needs commit events integration)
 
 ## Next Steps
 

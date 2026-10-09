@@ -69,10 +69,10 @@ cdviz-collector connect -v --config ./cdviz-collector-debug.toml
 
 **What this does**:
 
-- ✅ Accepts CDEvents at `http://localhost:8080/webhook/000-cdevents`
-- ✅ Validates CDEvent format and rejects invalid events
-- ✅ Shows events in real-time on stdout as they arrive
-- ✅ Provides immediate feedback for your testing
+- Accepts CDEvents at `http://localhost:8080/webhook/000-cdevents`
+- Validates CDEvent format and rejects invalid events
+- Shows events in real-time on stdout as they arrive
+- Provides immediate feedback for your testing
 
 Keep this running in one terminal while you test sending events from another terminal.
 
@@ -80,11 +80,11 @@ Keep this running in one terminal while you test sending events from another ter
 
 Each approach serves different needs and skill levels:
 
-| Approach                    | Best For                              | Setup Time | Security     | Flexibility |
-| --------------------------- | ------------------------------------- | ---------- | ------------ | ----------- |
-| **Basic curl**              | Learning, quick testing               | 30 seconds | ❌ None      | Low         |
-| **Production bash script**  | CI/CD without dependencies            | 5 minutes  | ✅ HMAC      | Medium      |
-| **cdviz-collector send** ⭐ | Production use, multiple destinations | 2 minutes  | ✅ Full auth | High        |
+| Approach                               | Best For                              | Setup Time | Security  | Flexibility |
+| -------------------------------------- | ------------------------------------- | ---------- | --------- | ----------- |
+| **Basic curl**                         | Learning, quick testing               | 30 seconds | None      | Low         |
+| **Production bash script**             | CI/CD without dependencies            | 5 minutes  | HMAC      | Medium      |
+| **cdviz-collector send** (recommended) | Production use, multiple destinations | 2 minutes  | Full auth | High        |
 
 Let's explore each approach and understand when to use them.
 
@@ -123,16 +123,20 @@ Check your test consumer terminal - you should see the event appear immediately.
 
 ### What You Learn
 
-- ✅ **CDEvent structure**: See exactly what fields are required
-- ✅ **HTTP basics**: Understand headers and request format
-- ✅ **Quick iteration**: Test different event types rapidly
-- ✅ **Immediate validation**: See results in test consumer
+**Strengths**:
 
-- ❌ **No security**: No authentication or request signing
-- ❌ **Static IDs**: Hardcoded ID causes deduplication issues
-- ❌ **Not production-ready**: Missing security and proper ID generation
+- **CDEvent structure**: See exactly what fields are required
+- **HTTP basics**: Understand headers and request format
+- **Quick iteration**: Test different event types rapidly
+- **Immediate validation**: See results in test consumer
 
-**Best practice**: Use basic curl to understand CDEvents structure, then graduate to more robust approaches.
+**Limits**:
+
+- **No security**: No authentication or request signing
+- **Static IDs**: Hardcoded ID causes deduplication issues
+- **Not production-ready**: Missing security and proper ID generation
+
+**Best practice**: Use basic curl to understand CDEvents structure, then move to a signed script or cdviz-collector send.
 
 ## Approach 2: Production-Ready Bash Script
 
@@ -283,19 +287,23 @@ export API_TOKEN="wrong-token"
 
 ### What You Learn
 
-- ✅ **Production security**: HMAC signatures for authentication
-- ✅ **Unique IDs**: Time-ordered UUIDs for guaranteed uniqueness
-- ✅ **Accurate timing**: Current timestamps in correct format
-- ✅ **Minimal dependencies**: Requires only bash, curl, openssl, uuidgen (common Unix tools)
-- ✅ **CI/CD ready**: Easy to integrate into existing pipelines
+**Strengths**:
 
-- ❌ **No content-based deduplication**: UUIDs are always unique (unlike content-based CIDs)
-- ❌ **Limited destinations**: Only sends to one HTTP endpoint
-- ❌ **Manual parameterization**: Must edit script or use environment variables
+- **Production security**: HMAC signatures for authentication
+- **Unique IDs**: Time-ordered UUIDs for guaranteed uniqueness
+- **Accurate timing**: Current timestamps in correct format
+- **Minimal dependencies**: Requires only bash, curl, openssl, uuidgen (common Unix tools)
+- **CI/CD ready**: Easy to integrate into existing pipelines
+
+**Limits**:
+
+- **No content-based deduplication**: UUIDs are always unique (unlike content-based CIDs)
+- **Limited destinations**: Only sends to one HTTP endpoint
+- **Manual parameterization**: Must edit script or use environment variables
 
 **Best practice**: Use production bash scripts when you can't install cdviz-collector but need production-grade security.
 
-## Approach 3: cdviz-collector send - Recommended ⭐
+## Approach 3: cdviz-collector send (Recommended)
 
 **When to use**: Production deployments, multiple destinations, simplicity
 
@@ -329,10 +337,10 @@ cdviz-collector send --data '{
 
 **What just happened**:
 
-- ✅ Collector generated a content-based CID automatically
-- ✅ Collector added current timestamp automatically
-- ✅ Event validated against CDEvents specification
-- ✅ Sent to the webhook endpoint
+- Collector generated a content-based CID automatically
+- Collector added current timestamp automatically
+- Event validated against CDEvents specification
+- Sent to the webhook endpoint
 
 Check your test consumer - the event appears with generated ID and timestamp!
 
@@ -418,15 +426,19 @@ cdviz-collector send \
 
 ### What You Learn
 
-✅ **Simplicity**: Minimal JSON, automatic ID/timestamp generation
-✅ **Production security**: Built-in authentication without scripting
-✅ **Configuration-based**: Secrets in config files, not code
-✅ **Format validation**: Built-in CDEvent validation
-✅ **Flexibility**: Easy to change destinations without code changes
-✅ **Best practices**: Follows CDEvents recommendations automatically
+**Strengths**:
 
-❌ **External dependency**: Requires installing cdviz-collector
-❌ **Learning curve**: Need to understand configuration format
+- **Simplicity**: Minimal JSON, automatic ID/timestamp generation
+- **Production security**: Built-in authentication without scripting
+- **Configuration-based**: Secrets in config files, not code
+- **Format validation**: Built-in CDEvent validation
+- **Flexibility**: Easy to change destinations without code changes
+- **Best practices**: Follows CDEvents recommendations automatically
+
+**Limits**:
+
+- **External dependency**: Requires installing cdviz-collector
+- **Learning curve**: Need to understand configuration format
 
 **Best practice**: Use `cdviz-collector send` for all production deployments. It's simpler, more secure, and more flexible than custom scripts.
 
@@ -451,7 +463,7 @@ cdviz-collector send \
 - You only need to send to one HTTP endpoint
 - You're comfortable maintaining bash scripts
 
-**Use cdviz-collector send if** (⭐ Recommended):
+**Use cdviz-collector send if** (recommended):
 
 - You want production-ready features without custom scripting
 - You need to send to multiple destinations
@@ -465,18 +477,18 @@ cdviz-collector send \
 
 1. **Basic curl** (5 minutes) → Understand CDEvent structure
 2. **Test with cdviz-collector connect** (5 minutes) → Validate your events
-3. **cdviz-collector send** (10 minutes) → Production implementation ⭐
+3. **cdviz-collector send** (10 minutes) → Production implementation (recommended)
 
 For most teams, **cdviz-collector send** provides the best balance of simplicity, security, and flexibility.
 
 ## Key Takeaways
 
-🎯 **Start simple**: Begin with curl to understand CDEvents structure
-🔒 **Add security**: Production requires HMAC signatures and proper IDs
-⭐ **Use the right tool**: cdviz-collector send for production deployments
-📊 **Test locally**: Use cdviz-collector connect to validate events
-🚀 **Multiple destinations**: Send to HTTP, Database, Kafka, S3 simultaneously
-📈 **Follow best practices**: Let tools generate IDs and timestamps automatically
+**Start simple**: Begin with curl to understand CDEvents structure
+**Add security**: Production requires HMAC signatures and proper IDs
+**Use the right tool**: cdviz-collector send for production deployments
+**Test locally**: Use cdviz-collector connect to validate events
+**Multiple destinations**: Send to HTTP, Database, Kafka, S3 simultaneously
+**Follow best practices**: Let tools generate IDs and timestamps automatically
 
 Understanding how to send CDEvents properly is essential for SDLC observability. These three approaches give you options for every scenario, from learning to production.
 
