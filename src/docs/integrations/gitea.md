@@ -24,7 +24,7 @@ import IntegrationCard from '../../../components/IntegrationCard.vue'
 > Forgejo is a Gitea fork and most webhook payloads are still byte-identical, **but the CI events are not**:
 > Gitea sends `workflow_run` / `workflow_job`, while Forgejo sends `action_run_success` /
 > `action_run_failure` / `action_run_recover`. Using the wrong transformer silently drops all pipeline
-> events — for Forgejo, use the [Forgejo integration](./forgejo.md) instead.
+> events. For Forgejo, use the [Forgejo integration](./forgejo.md) instead.
 
 ## Configuration
 
@@ -61,7 +61,7 @@ The `template_rfile` references the VRL transformation logic from the [transform
 2. **Target URL**: `http://your-collector-url/webhook/000-gitea`
 3. **HTTP Method**: `POST`, **POST Content Type**: `application/json`
 4. **Secret**: the same value as `token` of the `x-gitea-signature` header in the collector configuration
-5. **Trigger On**: select the events you want, or "All events" (unmapped events are silently ignored) — at minimum:
+5. **Trigger On**: select the events you want, or "All events" (unmapped events are silently ignored). At minimum, select:
    - Repository events (branch/tag creation & deletion)
    - Pull request events
    - Issue events
@@ -114,7 +114,7 @@ Event type detection is performed in VRL, mostly from body fields rather than th
 
 A single payload produces at most one CDEvent (except `release.published`, which produces one per asset).
 
-Any other event (`push`, `wiki`, `status`, `schedule`, `create`/`delete` for tags, …) produces **no** event — there is no CDEvents subject for raw pushes or tags outside of the artifact model.
+Any other event (`push`, `wiki`, `status`, `schedule`, `create`/`delete` for tags, …) produces **no** event. There is no CDEvents subject for raw pushes or tags outside of the artifact model.
 
 ### Artifact Identification
 
@@ -147,7 +147,7 @@ These can be added following the existing pattern in the [transformer VRL file](
 
 ### No event produced
 
-1. Check that the event/action combination is mapped (see the table above) — unmapped ones are silently ignored.
+1. Check that the event/action combination is mapped (see the table above). Unmapped ones are silently ignored.
 2. Check the delivery in **Repository settings > Webhooks > (your webhook) > Recent Deliveries**.
 
 ### Signature rejected
