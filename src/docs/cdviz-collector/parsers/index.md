@@ -16,7 +16,7 @@ Parsers convert file contents into JSON messages for the CDviz pipeline.
 
 | Parser      | Format      | Output     | Auto-detected extensions | Use Case                             |
 | ----------- | ----------- | ---------- | ------------------------ | ------------------------------------ |
-| `auto`      | Auto-detect | Varies     | —                        | Default — detects by file extension  |
+| `auto`      | Auto-detect | Varies     | —                        | Default: detects by file extension   |
 | `json`      | JSON        | 1 message  | `.json`                  | Single JSON object per file          |
 | `jsonl`     | JSON Lines  | N messages | `.jsonl`, `.ndjson`      | One message per line                 |
 | `csv_row`   | CSV         | N messages | `.csv`                   | One message per row (header as keys) |
@@ -38,7 +38,7 @@ Built-in (always available): `json`, `jsonl`, `csv_row`, `text`, `text_line`, `m
 
 ## Parsers and Transformers
 
-Parsers produce an intermediate message — the body is raw parsed content (text, CSV row, XML-as-JSON, etc.), not a CDEvent. A [transformer](../transformers.md) is required to map that body to a valid CDEvent before delivery to a sink.
+Parsers produce an intermediate message. Its body is raw parsed content (text, CSV row, XML-as-JSON, etc.), not a CDEvent. A [transformer](../transformers.md) is required to map that body to a valid CDEvent before delivery to a sink.
 
 Exception: `json` and `jsonl` parsers can be used directly when the source files are already valid CDEvents.
 
@@ -63,7 +63,7 @@ cdviz-collector send --run testsuiterun_junit --url $CDVIZ_URL -- pytest --junit
 parser = "auto"  # default — can omit
 ```
 
-Detects format by file extension (see Quick Reference table). Falls back to `text_line` for unknown extensions. Never selects `metadata` — that must be specified explicitly.
+Detects format by file extension (see Quick Reference table). Falls back to `text_line` for unknown extensions. Never selects `metadata`: specify it explicitly.
 
 ```toml
 [sources.ci_outputs.extractor]
@@ -252,9 +252,9 @@ failed = length(filter(.body.tests, |_, t| t.ok == false))
 parser = "metadata"
 ```
 
-- No file content is read — emits file metadata only
+- No file content is read: emits file metadata only
 - 1 message per file; body is empty; fields: `file_path`, `file_name`, `file_size`, `last_modified`, `content_type`
-- Must be specified explicitly — `auto` never selects this parser
+- Must be specified explicitly: `auto` never selects this parser
 
 Emit a CDEvent when a new artifact appears in S3 without downloading it:
 
