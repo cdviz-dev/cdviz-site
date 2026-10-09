@@ -10,7 +10,7 @@ const steps = [
   {
     n: "2",
     title: "Add a webhook in GitHub or GitLab",
-    body: "Paste the URL and secret into your organization's webhook settings — two values, one form, on your side. No GitHub App, no OAuth grant, and you can revoke it yourself at any time. (~5 minutes)",
+    body: "Paste the URL and secret into your organization's webhook settings: two values, one form, on your side. No GitHub App, no OAuth grant, and you can revoke it yourself at any time. (~5 minutes)",
   },
   {
     n: "3",
