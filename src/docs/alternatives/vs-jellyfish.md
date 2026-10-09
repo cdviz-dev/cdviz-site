@@ -39,9 +39,9 @@ CDviz is an open-source platform with self-hosted and SaaS options. Jellyfish is
 ## Key differences
 
 - **Data sovereignty**: With CDviz, your SDLC event data stays in your infrastructure. Jellyfish ingests data from GitHub, Jira, and other tools into its own servers.
-- **Pipeline-first vs. people-first**: CDviz focuses on CI/CD pipeline events and delivery workflow observability. Jellyfish focuses on engineering investment allocation — how engineering time maps to business initiatives — and is primarily a tool for VPs and engineering leaders.
+- **Pipeline-first vs. people-first**: CDviz focuses on CI/CD pipeline events and delivery workflow observability. Jellyfish focuses on engineering investment allocation (how engineering time maps to business initiatives) and is primarily a tool for VPs and engineering leaders.
 - **Open standard**: CDviz is built on [CDEvents](https://cdevents.dev/), making your event data portable and vendor-agnostic. Jellyfish uses a proprietary data model.
-- **Observe and act**: CDviz events can trigger downstream workflows — the same event stream drives both observability and automation. Jellyfish is analytics-only.
+- **Observe and act**: The same CDviz event stream drives both observability and automation (downstream workflows). Jellyfish is analytics-only.
 - **Customization**: CDviz lets you enrich events at ingestion, choose your storage backend, and connect Grafana, BI platforms, AI agents, and MCP-connected tools. Jellyfish is a closed analytics product.
 - **Cost model**: CDviz self-hosted is free (infra costs only). Jellyfish is an enterprise SaaS with contract-based pricing targeting larger engineering organizations.
 
@@ -49,10 +49,10 @@ CDviz is an open-source platform with self-hosted and SaaS options. Jellyfish is
 
 - Data ownership or privacy regulations make vendor-hosted SaaS unacceptable.
 - Your primary need is CI/CD pipeline visibility and DORA metrics, not investment allocation.
-- You want events to trigger workflows — not just observe them.
+- You want events to trigger workflows, not only to observe them.
 - Your organization is adopting the CDEvents open standard.
 - You need flexible storage or reporting (BI, AI agents, MCP, IDP integrations).
-- You want commercial support without vendor lock-in — the [Pro plan](/pricing) includes it (€200/month per organization).
+- You want commercial support without vendor lock-in. The [Pro plan](/pricing) includes it (€200/month per organization).
 
 ## When to choose Jellyfish
 
@@ -63,21 +63,21 @@ CDviz is an open-source platform with self-hosted and SaaS options. Jellyfish is
 
 ## Summary
 
-Jellyfish is a strong fit for engineering leaders who need investment allocation reporting and visibility into how engineering effort maps to business priorities. CDviz is the right choice for platform and DevOps teams who need CI/CD pipeline observability, open standards, event-driven automation, and data ownership — with commercial support available to reduce operational risk.
+Jellyfish is a strong fit for engineering leaders who need investment allocation reporting and visibility into how engineering effort maps to business priorities. CDviz is the right choice for platform and DevOps teams who need CI/CD pipeline observability, open standards, event-driven automation, and data ownership. Commercial support is available to reduce operational risk.
 
 <!--@include: ./parts/get-started-cta.md-->
 
 ## FAQ
 
-**Does CDviz support engineering investment allocation reporting?** Not yet — it's on the roadmap. Jellyfish is purpose-built for this use case.
+**Does CDviz support engineering investment allocation reporting?** Not yet. It is on the roadmap. Jellyfish is purpose-built for this use case.
 
 **Can I self-host Jellyfish?** No. Jellyfish is an enterprise SaaS product with contract-based pricing.
 
-**Is CDviz free?** Yes — the Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 
-- [CDviz vs GetDX](./vs-getdx.md) — developer experience metrics platform
-- [CDviz vs Swarmia](./vs-swarmia.md) — engineering effectiveness platform
-- [CDviz vs LinearB](./vs-linearb.md) — PR-centric engineering metrics
+- [CDviz vs GetDX](./vs-getdx.md): developer experience metrics platform
+- [CDviz vs Swarmia](./vs-swarmia.md): engineering effectiveness platform
+- [CDviz vs LinearB](./vs-linearb.md): PR-centric engineering metrics
 - [All alternatives](./)
