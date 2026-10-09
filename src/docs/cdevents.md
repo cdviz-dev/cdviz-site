@@ -10,17 +10,17 @@ keywords: "CDEvents,CDEvents specification,CI/CD event standard,software deliver
 
 ## What are CDEvents?
 
-CDEvents (Continuous Delivery Events) is an open specification initiated by the Continuous Delivery Foundation (CDF). CDEvents defines a standardized JSON format for describing events in software delivery pipelines — deployments, builds, tests, incidents, and environment changes. The specification enables different CI/CD tools to communicate using a common event language, eliminating proprietary data silos.
+CDEvents (Continuous Delivery Events) is an open specification initiated by the Continuous Delivery Foundation (CDF). CDEvents defines a standardized JSON format for describing events in software delivery pipelines: deployments, builds, tests, incidents, and environment changes. With the specification, different CI/CD tools share a common event format instead of proprietary data silos.
 
 CDviz is built natively on CDEvents: all data stored and visualized by CDviz conforms to the CDEvents specification. Events are structured JSON objects with a `context` block (event type, timestamp, source, version) and a `subject` block (what the event describes and its content).
 
 ## CDviz vs CDEvents
 
-**CDEvents** is a specification — an open standard for describing events in software delivery pipelines, initiated by the Continuous Delivery Foundation (CDF). It defines a JSON schema for event types like `dev.cdevents.service.deployed`, `dev.cdevents.build.finished`, etc.
+**CDEvents** is a specification: an open standard for describing events in software delivery pipelines, initiated by the Continuous Delivery Foundation (CDF). It defines a JSON schema for event types like `dev.cdevents.service.deployed`, `dev.cdevents.build.finished`, etc.
 
 **CDviz** is a platform that implements the CDEvents specification. CDviz collects CDEvents from your CI/CD tools, stores them in PostgreSQL with TimescaleDB, and visualizes them in Grafana dashboards. Think of CDEvents as the language and CDviz as the system that speaks it.
 
-Other tools can also produce or consume CDEvents — CDviz is one implementation, not the only one. The CDEvents ecosystem includes CLIs, SDKs, and integrations for GitHub Actions, Jenkins, Tekton, and more.
+Other tools can also produce or consume CDEvents. CDviz is one implementation, not the only one. The CDEvents ecosystem includes CLIs, SDKs, and integrations for GitHub Actions, Jenkins, Tekton, and more.
 
 ## CDEvent Structure
 
@@ -63,7 +63,7 @@ You can see some **opinionated** rules to create CDEvents at [Transformers & CDE
 
 ## CDEvents ecosystem
 
-Tools that emit or consume CDEvents — compatible with CDviz as sources or consumers. The CDEvents specification is implemented or being integrated by many SDLC tools.
+Tools that emit or consume CDEvents are compatible with CDviz as sources or consumers. The CDEvents specification is implemented or being integrated by many SDLC tools.
 
 ### CI/CD pipelines
 
@@ -90,10 +90,10 @@ Tools that emit or consume CDEvents — compatible with CDviz as sources or cons
 
 ### Artifact registries & supply chain
 
-| Tool                           | CDEvents role | Notes                                                                                                 |
-| ------------------------------ | ------------- | ----------------------------------------------------------------------------------------------------- |
-| [Harbor](https://goharbor.io/) | producer      | Emits CDEvents for artifact push, scan, and replication events                                        |
-| [GUAC](https://guac.sh/)       | consumer      | Graph for Understanding Artifact Composition — ingests CDEvents to build software supply chain graphs |
+| Tool                           | CDEvents role | Notes                                                                                                |
+| ------------------------------ | ------------- | ---------------------------------------------------------------------------------------------------- |
+| [Harbor](https://goharbor.io/) | producer      | Emits CDEvents for artifact push, scan, and replication events                                       |
+| [GUAC](https://guac.sh/)       | consumer      | Graph for Understanding Artifact Composition: ingests CDEvents to build software supply chain graphs |
 
 ### CLIs & utilities
 
@@ -111,5 +111,5 @@ cdviz-collector as a source.
 
 ## Related standards
 
-- [Semantic conventions for CI/CD — OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/cicd/)
-- [CDEvents specification](https://cdevents.dev/) — the open standard CDviz is built on
+- [Semantic conventions for CI/CD (OpenTelemetry)](https://opentelemetry.io/docs/specs/semconv/cicd/)
+- [CDEvents specification](https://cdevents.dev/): the open standard CDviz is built on
