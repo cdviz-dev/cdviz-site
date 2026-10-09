@@ -12,8 +12,8 @@ import { CTA_DEMO, CTA_TRIAL } from "./ctas.js";
           Ready to See Your Pipeline?
         </h2>
         <p class="text-base sm:text-lg text-text/80 mb-lg leading-relaxed">
-          Self-host free forever — open-source, no lock-in.<br />
-          Or let us run it: CDviz Cloud, 14-day free trial, no credit card.
+          Self-host free forever: open source, no lock-in.<br />
+          Or let the CDviz team run it: CDviz Cloud, 14-day free trial, no credit card.
         </p>
 
         <!-- Shared CTAs (see ctas.js) — identical to the hero and the cloud page -->
