@@ -8,9 +8,9 @@ markdownStyles: false
 faq:
   - q: Which plan should I pick?
     a: |
-      If you have no devops and want it to just work, start with <strong>Cloud</strong> —
-      hosted, focused on cross-repo pipeline reliability, free for 14 days —
-      no credit card required.
+      If you have no devops and want it to just work, start with <strong>Cloud</strong>.
+      It is hosted, focused on cross-repo pipeline reliability, and free for 14 days,
+      with no credit card required.
       If you want to self-host and need professional support and an on-premise commercial
       license, choose <strong>Pro</strong>.
       If you're a hands-on team happy to self-host the open-source stack,
@@ -18,23 +18,23 @@ faq:
   - q: Why is there no "contact us" to buy?
     a: |
       Because every plan is a defined package with a price you can see and purchase directly.
-      Talk to the CDviz team only for bespoke work — custom development or
-      consulting — which lives under Services, not the plans.
+      Talk to the CDviz team only for bespoke work (custom development or
+      consulting), which lives under Services, not the plans.
   - q: Can I keep using CDviz if I cancel?
     a: |
       Yes. The open-source components (collector, database schemas, Grafana components) are
       Apache 2.0 and yours to keep forever. Cancelling a paid plan ends managed hosting (Cloud)
-      or support and the optional commercial license (Pro) — never your access to the open source.
+      or support and the optional commercial license (Pro). It never ends your access to the open source.
   - q: What does Cloud actually show me?
     a: |
       A cross-repo view of which pipelines fail, which fail repeatedly, and whether reliability
-      is trending worse — across all your connected GitHub and GitLab repos. You can optionally
+      is trending worse, across all your connected GitHub and GitLab repos. You can optionally
       import ~30 days of history so the dashboard is useful immediately, using a read-only
       token you create yourself.
   - q: How does this relate to CDEvents?
     a: |
       CDviz is built on <a href="https://cdevents.dev">CDEvents</a>, the CD Foundation standard
-      for delivery events. Your event data follows an open, portable standard — no lock-in.
+      for delivery events. Your event data follows an open, portable standard, so you are not locked in.
   - q: Are prices inclusive of taxes?
     a: |
       Prices exclude VAT and applicable sales tax. Cloud and Pro are billed per organization,
@@ -48,7 +48,7 @@ import PricingPage from '../components/PricingPage.vue'
 
 > [!NOTE] 100% open source
 > All CDviz transformers (GitHub, GitLab, Bitbucket, Jira, Jenkins, and more) are Apache 2.0 and
-> public in [transformers-community](https://github.com/cdviz-dev/transformers-community) — free
+> public in [transformers-community](https://github.com/cdviz-dev/transformers-community), free
 > to self-host on every plan, including Community.
 
 <PricingPage />
