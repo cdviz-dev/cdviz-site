@@ -16,17 +16,17 @@ CDviz Collector is an open-source event ingestion agent written in Rust. It rece
 
 **New to CDviz Collector?** Get a working setup in 5 minutes:
 
-**[🚀 Quick Start Guide](./quick-start.md)** - Webhook → Transform → Save to files
+**[Quick Start Guide](./quick-start.md)** - Webhook → Transform → Save to files
 
 ## Learning Paths
 
-### 📖 Tutorials (Learning-Oriented)
+### Tutorials (Learning-Oriented)
 
 Step-by-step lessons to build understanding:
 
 - **[Quick Start](./quick-start.md)** - 5 min setup with webhook and file output
 
-### 🔧 How-to Guides (Problem-Oriented)
+### How-to Guides (Problem-Oriented)
 
 Practical solutions for specific tasks:
 
@@ -44,7 +44,7 @@ Practical solutions for specific tasks:
 - **[Authentication](./header-authentication.md)** - Secure outgoing requests
 - **[Validation](./header-validation.md)** - Validate incoming webhooks
 
-### 📚 Reference (Information-Oriented)
+### Reference (Information-Oriented)
 
 Complete technical specifications:
 
@@ -69,12 +69,12 @@ Complete technical specifications:
 - **[Transformers](./transformers.md)** - Event processing with VRL
 - **[Sinks](./sinks/)** - Event delivery: [Database](./sinks/db.md), [HTTP](./sinks/http.md), [Files](./sinks/folder.md), [SSE](./sinks/sse.md), [Kafka](./sinks/kafka.md), [NATS](./sinks/nats.md), [Debug](./sinks/debug.md)
 
-### 🧠 Explanation (Understanding-Oriented)
+### Explanation (Understanding-Oriented)
 
 Concepts and design decisions:
 
 - **[CDEvents](../cdevents.md)** - What CDEvents are and how CDviz uses them
-- **[CDEvents Standard](https://cdevents.dev/)** - Why we use CDEvents for standardization
+- **[CDEvents Standard](https://cdevents.dev/)** - The CDEvents specification
 - **[Use Cases](./use-cases.md)** - DORA metrics, multi-tool pipelines, Kubernetes deployment tracking, audit trails
 
 **Architecture Concepts:**

@@ -18,7 +18,7 @@ faq:
   - q: Why is there no "contact us" to buy?
     a: |
       Because every plan is a defined package with a price you can see and purchase directly.
-      We only ask you to talk to us for genuinely bespoke work — custom development or
+      Talk to the CDviz team only for bespoke work — custom development or
       consulting — which lives under Services, not the plans.
   - q: Can I keep using CDviz if I cancel?
     a: |

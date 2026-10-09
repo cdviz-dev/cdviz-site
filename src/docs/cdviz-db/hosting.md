@@ -8,7 +8,7 @@ description: "Hosting options for CDviz Database: self-hosted PostgreSQL with Ti
 
 CDviz database can be deployed on Kubernetes using several mature operators:
 
-- **Cloud Native Postgres (CNPG)** - The officially recommended solution, also used in our demonstration cluster. [Documentation](https://cloudnative-pg.io/) | [Reference configuration](https://github.com/cdviz-dev/cdviz/blob/main/demos/stack-k8s/values/cdviz-db.yaml)
+- **Cloud Native Postgres (CNPG)** - The officially recommended solution, also used in the CDviz demo cluster. [Documentation](https://cloudnative-pg.io/) | [Reference configuration](https://github.com/cdviz-dev/cdviz/blob/main/demos/stack-k8s/values/cdviz-db.yaml)
 - **Postgres Operator by Zalando** - A production-grade Postgres operator with high availability features. [Documentation](https://github.com/zalando/postgres-operator)
 - **StackGres** - Enterprise-grade PostgreSQL operator with monitoring capabilities. [Documentation](https://stackgres.io/)
 

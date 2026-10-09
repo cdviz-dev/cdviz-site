@@ -1,5 +1,6 @@
 ---
 layout: home
+description: CDviz licensing. Apache-2.0 open-source components, the AGPL v3 to Apache-2.0 change in cdviz-collector v0.15, and commercial subscriptions.
 markdownStyles: true
 head:
   - - meta
@@ -43,7 +44,7 @@ For the full license text, see [Apache License v2.0](https://www.apache.org/lice
 While the open source components are freely available under Apache License v2, CDviz offers commercial subscriptions that provide:
 
 - **Enterprise features**: Additional functionality not available in the open source version
-- **Professional support**: Direct access to our engineering team
+- **Professional support**: Direct access to the CDviz engineering team
 - **Service level agreements**: Guaranteed response times and support commitments
 - **Consultation services**: Help with implementation, optimization, and best practices
 - **Development support**: Your subscription helps fund the ongoing maintenance and development of CDviz, including the open source components
@@ -54,7 +55,7 @@ These subscriptions are service offerings, not licensing requirements. By subscr
 
 ### Why did CDviz change from AGPL v3 to Apache License v2?
 
-We changed the license to Apache License v2 starting with cdviz-collector v0.15 to:
+The CDviz team changed the license to Apache License v2, starting with cdviz-collector v0.15, to:
 
 - **Increase adoption**: Apache License v2 is more business-friendly and widely accepted
 - **Simplify compliance**: Permissive license reduces legal complexity
@@ -81,14 +82,14 @@ No. Unlike copyleft licenses (such as AGPL v3), Apache License v2 does not requi
 
 ### What about older versions under AGPL v3?
 
-cdviz-collector versions v0.14 and earlier remain under AGPL v3. If you're using these older versions, the AGPL v3 license terms still apply. We recommend upgrading to v0.15+ to benefit from the Apache License v2.
+cdviz-collector versions v0.14 and earlier remain under AGPL v3. If you're using these older versions, the AGPL v3 license terms still apply. Upgrade to v0.15+ to benefit from the Apache License v2.
 
 ### When should I consider a commercial subscription?
 
 Consider a commercial subscription if you:
 
 - **Need enterprise features**: Additional functionality not available in the open source version
-- **Want professional support**: Direct access to our engineering team
+- **Want professional support**: Direct access to the CDviz engineering team
 - **Require service level agreements**: Guaranteed response times and support commitments
 - **Need consultation services**: Help with implementation, optimization, and best practices
 - **Want to support open source development**: Help fund the ongoing maintenance and enhancement of CDviz
@@ -97,4 +98,4 @@ Note: This is a service subscription, not a licensing requirement. You can use a
 
 ### Legal Questions
 
-For specific legal questions about licensing, we recommend consulting with your legal counsel. The information provided here is for general guidance and should not be considered legal advice.
+For specific legal questions about licensing, consult your legal counsel. The information provided here is for general guidance and should not be considered legal advice.

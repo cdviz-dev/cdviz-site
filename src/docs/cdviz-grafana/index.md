@@ -134,7 +134,7 @@ Available dashboards:
 
 ## Contributing
 
-Contributions to CDviz Grafana dashboards are welcomed. For new dashboard ideas, panel enhancements, or other improvements, please submit an issue or pull request to our [GitHub repository](https://github.com/cdviz-dev/cdviz).
+To propose a new dashboard, a panel change or another improvement, open an issue or a pull request in the [cdviz GitHub repository](https://github.com/cdviz-dev/cdviz).
 
 ### Dashboard Design Guidelines
 

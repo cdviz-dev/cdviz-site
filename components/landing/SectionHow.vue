@@ -165,7 +165,7 @@ const selectComponent = async (componentName) => {
       <!-- Interactive Component Explorer -->
       <div class="mt-6 space-y-6 max-w-5xl mx-auto">
         <p class="text-sm sm:text-base text-text/80 text-center">
-          Click on a component to learn more
+          Select a component to see what it does
         </p>
         <!-- Component Buttons -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">

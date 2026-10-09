@@ -56,7 +56,7 @@ template = '''
 }]
 '''
 
-# ⚠️ CDEvents Transformation Disclaimer:
+# CDEvents Transformation Disclaimer:
 # This VRL template is a simplified example and may be incomplete or outdated.
 # For production use:
 # - Check the official CDEvents specification: https://cdevents.dev/

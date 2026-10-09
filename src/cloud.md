@@ -15,7 +15,7 @@ faq:
     a: |
       The plan is sized for small teams, but the limit isn't a wall — if you need more seats,
       more repos, or access for a wider org,
-      <a href="mailto:contact@cdviz.dev">contact us</a> and we'll sort it out.
+      <a href="mailto:contact@cdviz.dev">contact the CDviz team</a> to adjust the plan.
   - q: What happens when the 14-day trial ends?
     a: |
       Nothing is charged — no credit card was taken. You pick the Cloud plan
@@ -29,16 +29,15 @@ faq:
       <strong>read-only token you create and scope yourself</strong> so CDviz can import
       your last 30 days of history. There is no GitHub App and no OAuth grant. CDviz never
       reads your source code, never needs write access, and you can revoke either one from
-      your own settings without contacting us.
+      your own settings without contacting the CDviz team.
   - q: How long does setup actually take?
     a: |
       Around ten minutes for the webhook, which is what gets live data flowing. Importing
       your last 30 days of history is a separate optional step and needs a read-only token
-      you create yourself — budget another five minutes. We'd rather tell you that up front
-      than have you discover it after signing up.
+      you create yourself — budget another five minutes.
   - q: Where is my data and who can see it?
     a: |
-      Pipeline event metadata is stored in our managed database, isolated per
+      Pipeline event metadata is stored in the CDviz managed database, isolated per
       organization. It's built on the same open-source, CDEvents-based stack you can
       inspect on <a href="https://github.com/cdviz-dev/cdviz">GitHub</a>.
   - q: How is Cloud different from self-hosting CDviz?

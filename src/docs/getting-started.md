@@ -39,7 +39,7 @@ faq:
 
 This guide walks you through running CDviz locally using a demo Docker Compose stack with simulated events. In under 5 minutes you'll have a working environment: the CDviz Collector ingesting events, PostgreSQL storing them, and Grafana displaying DORA metrics — a safe sandbox to understand the platform before connecting real pipelines.
 
-If you're new to CDviz, we recommend reading the [CDviz Platform Overview](/docs/) to understand its core concepts and components.
+New to CDviz? Read the [CDviz Platform Overview](/docs/) first for the core concepts and components.
 
 ::: tip Prefer not to run anything?
 [CDviz Cloud](/cloud) connects to GitHub or GitLab in minutes — managed hosting,

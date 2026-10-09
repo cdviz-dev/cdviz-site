@@ -40,7 +40,7 @@ faq:
   - q: Where is CDviz located?
     a: |
       CDviz is built by Alchim312, a French company. CDviz Cloud data is hosted and operated
-      in Europe — see our <a href="/pro/privacy">privacy policy</a>.
+      in Europe — see the <a href="/pro/privacy">privacy policy</a>.
   - q: Is it really free to use?
     a: |
       Yes. The open-source components — collector, database schemas, and Grafana dashboards —

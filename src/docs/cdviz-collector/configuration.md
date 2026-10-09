@@ -6,7 +6,7 @@ description: "CDviz Collector configuration reference: TOML structure, environme
 
 CDviz Collector uses TOML configuration files. Environment variables can set or override any value at runtime.
 
-📚 **TOML Help:** See [TOML Syntax Guide](./toml-guide.md) for configuration file format.
+For the file format, see the [TOML Syntax Guide](./toml-guide.md).
 
 ## Basic Configuration
 

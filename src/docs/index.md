@@ -26,15 +26,15 @@ CDviz enables organizations to answer critical operational questions:
 > Explore a live read-only instance of the CDviz Grafana dashboards at
 > **[demo.cdviz.dev/grafana](https://demo.cdviz.dev/grafana/)** — no installation required.
 
-If you're new to CDviz, we recommend starting with our **[Getting Started Guide](./getting-started.md)**. This guide will walk you through setting up a local CDviz environment, sending your first events, and seeing the results in Grafana.
+New to CDviz? Start with the **[Getting Started Guide](./getting-started.md)**. It runs a local CDviz environment, sends your first events, and shows the results in Grafana.
 
 ## CDEvents
 
-CDviz is built on top of the **[CDEvents](https://cdevents.dev/)** specification. To learn more about CDEvents, please refer to our **[CDEvents](./cdevents.md)** documentation.
+CDviz is built on the **[CDEvents](https://cdevents.dev/)** specification. See **[how CDviz uses CDEvents](./cdevents.md)**.
 
 ## Architecture
 
-To get an overview of how CDviz components collaborate, check out our **[Architecture](./architecture.md)** documentation.
+The **[Architecture](./architecture.md)** page shows how the CDviz components work together.
 
 ## From Events to Insight in 4 Steps
 

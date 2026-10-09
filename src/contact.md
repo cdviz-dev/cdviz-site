@@ -1,5 +1,6 @@
 ---
 layout: home
+description: Contact the CDviz team for commercial support, CDviz Cloud or a sales enquiry.
 markdownStyles: true
 head:
   - - meta
@@ -7,9 +8,9 @@ head:
       content: noindex, follow
 ---
 
-# Contact us
+# Contact
 
-For commercial support, the managed offer, or any sales enquiry, email us at
+For commercial support, the managed offer, or any sales enquiry, email the CDviz team at
 [contact@cdviz.dev](mailto:contact@cdviz.dev).
 
-We typically reply within two business days.
+The CDviz team typically replies within two business days.

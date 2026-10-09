@@ -12,7 +12,7 @@ import GrafanaPanelTimelineVersionOnStageWithLegend from '../../../components/di
 
 ## Overview
 
-The Artifact Timeline Dashboard provides visualization capabilities for tracking package version lifecycles throughout their development and deployment journey. This dashboard enables users to monitor the progression of artifacts across various stages including packaging, publication, signing, and service deployment.
+The Artifact Timeline Dashboard shows the lifecycle of each package version. Follow an artifact through packaging, publication, signing and deployment to a service.
 
 ## Features
 

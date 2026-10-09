@@ -65,7 +65,7 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 
 ## Summary
 
-Splunk is the right choice when you already run it for security or operations and want to extend it to DevOps log analysis — leveraging existing investment and expertise. CDviz is the right choice when SDLC observability is the primary goal: it delivers purpose-built DORA dashboards, real-time CDEvents pipelines, and workflow automation out of the box, at lower cost and setup complexity, without volume-based pricing.
+Splunk is the right choice when you already run it for security or operations and want to extend it to DevOps log analysis, and reuse your existing Splunk skills and licenses. CDviz is the right choice when SDLC observability is the primary goal: it delivers purpose-built DORA dashboards, real-time CDEvents pipelines, and workflow automation out of the box, at lower cost and setup complexity, without volume-based pricing.
 
 <!--@include: ./parts/get-started-cta.md-->
 
