@@ -4,7 +4,7 @@ description: |
   Instrument GitLab CI/CD pipelines with CDEvents using cdviz-collector send --run.
   <ul>
   <li>Wrap test jobs to emit testSuiteRun CDEvents with JUnit XML or TAP results automatically parsed.</li>
-  <li>Wrap non-test jobs (build, deploy) with taskRun events — no changes to your existing scripts.</li>
+  <li>Wrap non-test jobs (build, deploy) with taskRun events, without changes to your existing scripts.</li>
   </ul>
 references:
   - title: cdviz-collector send --run reference
@@ -25,9 +25,9 @@ import IntegrationCard from '../../../components/IntegrationCard.vue'
 
 ## Overview
 
-Use `cdviz-collector send --run` to wrap commands inside GitLab CI jobs. For test jobs, use `--run testsuiterun_junit` (or `testsuiterun_tap`) — the collector parses JUnit XML output and emits `testSuiteRun.started` / `testSuiteRun.finished` events with structured test results. For non-test jobs (build, deploy), use `--run taskrun` for exit-code observability.
+Use `cdviz-collector send --run` to wrap commands inside GitLab CI jobs. For test jobs, use `--run testsuiterun_junit` (or `testsuiterun_tap`). The collector parses JUnit XML output and emits `testSuiteRun.started` / `testSuiteRun.finished` events with structured test results. For non-test jobs (build, deploy), use `--run taskrun` for exit-code observability.
 
-Branch, commit SHA, and job name are read automatically from GitLab CI environment variables — **no `--metadata` needed for those**. Use `--metadata` to cross-reference the artifact or environment under test.
+Branch, commit SHA, and job name are read automatically from GitLab CI environment variables. **You need no `--metadata` for them**. Use `--metadata` to cross-reference the artifact or environment under test.
 
 This complements the [GitLab Webhook integration](/docs/integrations/gitlab), which passively tracks repository and pipeline events.
 
@@ -150,7 +150,7 @@ deploy:
 ```
 
 > [!TIP]
-> `$CI_COMMIT_REF_NAME` (branch) and `$CI_COMMIT_SHA` (commit) are detected automatically by `ci_env_detection` — omit `--metadata branch=...` and `--metadata commit=...`.
+> `$CI_COMMIT_REF_NAME` (branch) and `$CI_COMMIT_SHA` (commit) are detected automatically by `ci_env_detection`. Omit `--metadata branch=...` and `--metadata commit=...`.
 
 ## Options Reference
 
@@ -172,4 +172,4 @@ See the [send --run reference](../cdviz-collector/send-run.md) and [send command
 
 ## Related Integrations
 
-- **[GitLab Webhook](./gitlab.md)** — passive tracking of all repository, MR, and pipeline events
+- **[GitLab Webhook](./gitlab.md)**: passive tracking of all repository, MR, and pipeline events
