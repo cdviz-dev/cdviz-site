@@ -531,7 +531,7 @@ export default defineConfig({
     }
   },
 
-  transformHead({ pageData }) {
+  transformHead({ pageData, content }) {
     const siteUrl = "https://cdviz.dev";
     const relativePath = pageData.relativePath.replace(/\.md$/, "").replace(/(^|\/)index$/, "$1");
     const canonicalUrl = `${siteUrl}/${relativePath}`;
@@ -543,8 +543,13 @@ export default defineConfig({
       pageData.description ||
       pageData.frontmatter.description ||
       "Open-source SDLC observability platform built on CDEvents. Monitor software delivery pipelines with Grafana dashboards.";
+    // Social card: frontmatter image, else the first raster image of the page, else the hero.
+    const firstImage = content.match(/<img[^>]+src="(\/[^"]+\.(?:png|jpe?g|webp))"/)?.[1];
     const image =
-      pageData.frontmatter.image || `${siteUrl}/illustrations/hero-dashboard-01-q60.webp`;
+      pageData.frontmatter.image ||
+      (firstImage
+        ? `${siteUrl}${firstImage}`
+        : `${siteUrl}/illustrations/hero-dashboard-01-q60.webp`);
     const keywords = pageData.frontmatter.keywords
       ? Array.isArray(pageData.frontmatter.keywords)
         ? pageData.frontmatter.keywords.join(",")
@@ -699,9 +704,7 @@ export default defineConfig({
             },
           },
           url: `https://cdviz.dev/${pageData.relativePath.replace(/\.md$/, "").replace(/\/index$/, "")}`,
-          image:
-            pageData.frontmatter.image ||
-            "https://cdviz.dev/illustrations/hero-dashboard-01-q60.webp",
+          image,
         };
         head.push(["script", { type: "application/ld+json" }, JSON.stringify(articleSchema)]);
       }
