@@ -2,7 +2,7 @@
 "bun" = "1.4.2"
 "dprint" = "0.60.1"
 # "magick" = "latest" # imagemagick
-"github:cdviz-dev/cdviz-collector" = "0.53.0"
+"github:cdviz-dev/cdviz-collector" = "0.53.1"
 "uv" = "0.12.21"                              # uvx runs SkillSpector (skills:scan)
 
 [tasks."skills:scan"]
