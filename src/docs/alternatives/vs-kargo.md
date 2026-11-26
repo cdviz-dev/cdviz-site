@@ -23,7 +23,7 @@ Full disclosure: Kargo was one of the inspirations for CDviz's [event reaction](
 | Category                                                           |                               SDLC observability + event reaction                               |         Continuous-promotion control plane          |
 | Made by                                                            |                                              CDviz                                              |              Akuity (creators of Argo)              |
 | Self-hosted                                                        |                                             <Yes />                                             |                       <Yes />                       |
-| Commercial offering                                                |                  <Yes>[Cloud](/pricing) €20/mo · [Pro](/pricing) €200/mo</Yes>                  |        <Yes>Kargo Enterprise (Akuity)</Yes>         |
+| Commercial offering                                                |                  <Yes>[Cloud](/pricing) €35/mo · [Pro](/pricing) €200/mo</Yes>                  |        <Yes>Kargo Enterprise (Akuity)</Yes>         |
 | [CDEvents](https://cdevents.dev) standard                          |                                        <Yes>native</Yes>                                        |                       <No />                        |
 | Scope                                                              |                Any SDLC tool (CI, CD, registries, incidents…), Kubernetes or not                |      Kubernetes delivery with GitOps (Argo CD)      |
 | Promotion execution                                                | <Partial>delegates to your workflow engine via [event reaction](/docs/event-reaction)</Partial> |  <Yes>native (Warehouses → Freight → Stages)</Yes>  |
@@ -74,7 +74,7 @@ Kargo and CDviz solve different problems that meet at "promotion". Kargo is the 
 
 **Does Kargo emit CDEvents?** Not natively. Kargo-driven deliveries can still reach CDviz via webhooks from Kargo, Argo CD, or your CI, mapped to CDEvents by the collector.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

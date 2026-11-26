@@ -47,8 +47,8 @@ const pricingPlans = [
     title: "Cloud",
     subtitle: "Managed for small teams. Nothing to run.",
     pricing: {
-      monthly: 20,
-      yearly: 216,
+      monthly: 35,
+      yearly: 378,
     },
     features: [
       { icon: "icon-[lucide--cloud]", text: "Hosted & managed, zero infrastructure" },

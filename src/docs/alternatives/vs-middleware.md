@@ -19,7 +19,7 @@ Both CDviz and Middleware are open-source, Apache 2.0 platforms targeting SDLC o
 | ------------------------------------------------ | :------------------------------------------------------: | :------------------------------------------: |
 | License                                          |                        Apache 2.0                        |                  Apache 2.0                  |
 | Self-hosted                                      |                         <Yes />                          |                   <Yes />                    |
-| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |                   <Yes />                    |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |                   <Yes />                    |
 | Commercial support                               |                         <Yes />                          |          <Yes /> (paid tiers only)           |
 | Data ownership                                   |                     <Yes>full</Yes>                      | <Yes>self-hosted</Yes> / <No>SaaS cloud</No> |
 | [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |                    <No />                    |
@@ -34,7 +34,7 @@ Both CDviz and Middleware are open-source, Apache 2.0 platforms targeting SDLC o
 | Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |                    <No />                    |
 | Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |             built-in dashboards              |
 | Cost (self-hosted)                               |          Free (Community) · Pro €200/mo per org          |                Free community                |
-| Cost (SaaS)                                      |                 Cloud €20/month per org                  |          $39/user/month (Standard)           |
+| Cost (SaaS)                                      |                 Cloud €35/month per org                  |          $39/user/month (Standard)           |
 
 _¹ Jira issue/version webhooks are mapped to CDEvents by a beta transformer, open source and free to self-host on any plan (see [Jira integration](/docs/integrations/jira)), or via a [custom webhook mapping](/docs/integrations/custom)._\
 _² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks/http) plus a workflow tool (n8n, Make, Zapier…) or a custom webhook. There is no ready-made Slack app._
@@ -56,7 +56,7 @@ _² Slack notifications work through the [HTTP sink](/docs/cdviz-collector/sinks
 - You are adopting the CDEvents open standard for interoperability across your toolchain.
 - You need events to trigger downstream workflows, not only to observe them.
 - You want flexible storage, reporting, or integration with BI tools, AI agents, or IDPs.
-- Team size makes per-seat pricing expensive; you prefer a flat per-org cost ([Cloud €20/mo, Pro €200/mo](/pricing)).
+- Team size makes per-seat pricing expensive; you prefer a flat per-org cost ([Cloud €35/mo, Pro €200/mo](/pricing)).
 
 ## When to choose Middleware
 
@@ -79,7 +79,7 @@ Middleware and CDviz are both open-source Apache 2.0 tools, but they solve adjac
 
 **Does CDviz support Jira?** Yes. A Jira webhook transformer (beta) maps issue and version events to CDEvents (`ticket.*`, `artifact.published`). It is open source and free to self-host on any plan, or you can ingest Jira webhooks via a [custom mapping](/docs/integrations/custom). Sprint-level flow metrics are not a current focus.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

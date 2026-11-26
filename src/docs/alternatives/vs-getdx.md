@@ -22,7 +22,7 @@ CDviz is an open-source platform with self-hosted and SaaS options. GetDX is a f
 | ------------------------------------------------ | :------------------------------------------------------: | :-------------------------------: |
 | License                                          |                        Apache 2.0                        |            Proprietary            |
 | Self-hosted                                      |                         <Yes />                          |              <No />               |
-| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |              <Yes />              |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |              <Yes />              |
 | Commercial support                               |                         <Yes />                          |        <Yes /> (included)         |
 | Data ownership                                   |                     <Yes>full</Yes>                      |      <No>vendor-hosted</No>       |
 | [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |              <No />               |
@@ -35,7 +35,7 @@ CDviz is an open-source platform with self-hosted and SaaS options. GetDX is a f
 | Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |              <No />               |
 | Visualization                                    |             Grafana, BI, AI agents, MCP, IDP             |        built-in dashboards        |
 | Primary buyer                                    |                 Platform / DevOps teams                  | Engineering leadership / DX teams |
-| Cost                                             |       Free self-host · Cloud €20/mo · Pro €200/mo        |     Enterprise SaaS contract      |
+| Cost                                             |       Free self-host · Cloud €35/mo · Pro €200/mo        |     Enterprise SaaS contract      |
 
 ## Key differences
 
@@ -76,7 +76,7 @@ GetDX is a strong fit for organizations running formal developer experience prog
 
 **Can I self-host GetDX?** No. GetDX is an enterprise SaaS product.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

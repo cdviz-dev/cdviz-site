@@ -75,7 +75,7 @@ const comparisonRows = [
   {
     feature: "Price",
     community: { text: "€0" },
-    cloud: { text: "€20/mo", highlight: true },
+    cloud: { text: "€35/mo", highlight: true },
     pro: { text: "€200/mo" },
   },
 ];

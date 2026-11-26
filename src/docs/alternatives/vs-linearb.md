@@ -22,7 +22,7 @@ Both platforms surface engineering metrics for software delivery teams. They sol
 | ------------------------------------------------ | :------------------------------------------------------: | :-----------------------------------: |
 | License                                          |                        Apache 2.0                        |              Proprietary              |
 | Self-hosted                                      |                         <Yes />                          |                <No />                 |
-| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |                <Yes />                |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |                <Yes />                |
 | Free tier                                        |                   <Yes>self-host</Yes>                   |    <Yes /> (up to 8 contributors)     |
 | Commercial support                               |                         <Yes />                          |          <Yes /> (included)           |
 | Data ownership                                   |                     <Yes>full</Yes>                      |        <No>vendor-hosted</No>         |
@@ -34,7 +34,7 @@ Both platforms surface engineering metrics for software delivery teams. They sol
 | Built-in integrations                            |           GitHub, GitLab, ArgoCD, Kubernetes…            |     GitHub, GitLab, Jira, Linear…     |
 | Customizable storage backends                    |            <Yes /> (PostgreSQL, ClickHouse…)             |                <No />                 |
 | Visualization                                    |          Grafana, BI, AI agents, MCP, IDP tools          |          built-in dashboards          |
-| Pricing model                                    |       Free self-host · Cloud €20/mo · Pro €200/mo        |    ~$420–$549 per contributor/year    |
+| Pricing model                                    |       Free self-host · Cloud €35/mo · Pro €200/mo        |    ~$420–$549 per contributor/year    |
 
 ## Key differences
 
@@ -77,7 +77,7 @@ LinearB is the fastest path to PR-centric engineering metrics and AI-powered cod
 
 **Does LinearB support CDEvents?** No. LinearB uses a proprietary polling-based data model tied to its own platform.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-contributor pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no per-contributor pricing. [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

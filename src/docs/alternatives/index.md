@@ -32,7 +32,7 @@ The comparisons below cover architecture, integrations, data ownership, and when
 | [Splunk](#splunk)                 | Proprietary | <Yes /> (and SaaS) | <No />            | <Yes /> (included)   | Log/metric ingestion       |
 | [Swarmia](#swarmia)               | Proprietary | <No />             | <No />            | <Yes /> (included)   | Pull-based (polling)       |
 
-_CDviz is free and open-source (Apache 2.0). The Community plan is free forever. [Cloud](/pricing) (€20/month) adds managed hosting with a 14-day free trial; [Pro](/pricing) (€200/month) adds extra integrations and commercial support. Both are billed per organization, not per seat._
+_CDviz is free and open-source (Apache 2.0). The Community plan is free forever. [Cloud](/pricing) (€35/month) adds managed hosting with a 14-day free trial; [Pro](/pricing) (€200/month) adds extra integrations and commercial support. Both are billed per organization, not per seat._
 
 The "data model" column reflects how each tool **stores** data, not just how it collects it: CDviz normalizes both pushed and pulled inputs to CDEvents. [HTTP polling](/docs/cdviz-collector/sources/http_polling) covers historical backfill and webhook-less systems (Jenkins Remote API, legacy CI). The polling-only tools below are tied to a proprietary domain model.
 

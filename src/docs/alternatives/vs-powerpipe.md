@@ -21,7 +21,7 @@ Both are open-source, self-hosted tools for engineering visibility, but they sol
 | ------------------------------------------------ | :------------------------------------------------------: | :-------------------------------: |
 | License                                          |                        Apache 2.0                        |              AGPL v3              |
 | Self-hosted                                      |                         <Yes />                          |              <Yes />              |
-| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |              <No />               |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |              <No />               |
 | Commercial support                               |                         <Yes />                          |              <No />               |
 | [CDEvents](https://cdevents.dev) standard        |                         <Yes />                          |              <No />               |
 | Data model                                       |             Event-driven (push, historical)              | Query-driven (SQL, current state) |
@@ -48,7 +48,7 @@ Both are open-source, self-hosted tools for engineering visibility, but they sol
 - You want events to trigger downstream workflows, not just be observed.
 - You need flexible reporting: Grafana, BI tools, AI agents, MCP, IDP integrations.
 - You are adopting the CDEvents open standard.
-- You want commercial support ([Pro plan](/pricing)) or a managed option ([Cloud plan](/pricing), €20/mo, 14-day free trial).
+- You want commercial support ([Pro plan](/pricing)) or a managed option ([Cloud plan](/pricing), €35/mo, 14-day free trial).
 
 ## When to choose Powerpipe
 
@@ -68,7 +68,7 @@ These tools solve different problems. Powerpipe visualizes current cloud state (
 
 **Can CDviz query cloud APIs like Powerpipe?** Not on demand. CDviz receives push events from your SDLC toolchain and can periodically [poll HTTP/SDLC APIs](/docs/cdviz-collector/sources/http_polling) (e.g. Jenkins), storing the results as CDEvents. Powerpipe instead runs on-demand SQL over live cloud state via Steampipe. It queries current state; it is not a historical event store.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

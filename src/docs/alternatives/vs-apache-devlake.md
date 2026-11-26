@@ -21,7 +21,7 @@ Both are open-source platforms for engineering metrics and SDLC visibility. They
 | ------------------------------------------------ | :------------------------------------------------------: | :----------------------------------------: |
 | License                                          |                        Apache 2.0                        |                 Apache 2.0                 |
 | Self-hosted                                      |                         <Yes />                          |                  <Yes />                   |
-| SaaS option                                      | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |                   <No />                   |
+| SaaS option                                      | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |                   <No />                   |
 | Commercial support                               |                         <Yes />                          |                   <No />                   |
 | [CDEvents](https://cdevents.dev) standard        |                    <Yes>native</Yes>                     |                   <No />                   |
 | Data model                                       |                   Event-driven (push)                    |            Pull-based (polling)            |
@@ -49,7 +49,7 @@ Both are open-source platforms for engineering metrics and SDLC visibility. They
 - You already run Grafana and want to add SDLC visibility to existing dashboards.
 - You need flexible storage (ClickHouse, PostgreSQL) or reporting (BI, AI, MCP, IDP).
 - You want commercial support without building and maintaining everything yourself.
-- You prefer a managed option: the [Cloud plan](/pricing) hosts it for you (€20/mo, 14-day free trial).
+- You prefer a managed option: the [Cloud plan](/pricing) hosts it for you (€35/mo, 14-day free trial).
 
 ## When to choose Apache DevLake
 
@@ -71,7 +71,7 @@ DevLake is the safer "broad coverage" choice for pure metrics and dashboards. CD
 
 **Does CDviz only support push?** No. Push (webhooks, Kafka, NATS, SSE) is the real-time default, but the collector can also **pull** via [HTTP polling](/docs/cdviz-collector/sources/http_polling) and file/object-storage sources, for historical backfill and APIs without webhooks (Jenkins, legacy CI). All inputs are normalized to CDEvents.
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only). [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

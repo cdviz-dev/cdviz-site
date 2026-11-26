@@ -27,7 +27,7 @@ faq:
     a: |
       Three options: the <strong>open-source</strong> components (collector, database schema,
       Grafana dashboards, and all transformers), free to self-host; <strong>CDviz Cloud</strong>,
-      a hosted, managed service at €20/month; and <strong>CDviz Pro</strong>, self-hosted with
+      a hosted, managed service at €35/month; and <strong>CDviz Pro</strong>, self-hosted with
       professional support at €200/month.
       <a href="/pricing">See pricing →</a>
   - q: What are the key features of CDviz?
@@ -49,7 +49,7 @@ faq:
   - q: What's the difference between Cloud and Pro?
     a: |
       <strong>Cloud</strong> is a hosted, managed service for small teams who don't want to run
-      infrastructure. It focuses on cross-repo pipeline visibility, at €20/month.
+      infrastructure. It focuses on cross-repo pipeline visibility, at €35/month.
       <strong>Pro</strong> is for organizations that want to self-host with professional support
       at €200/month.
   - q: What is CDviz's commitment to open source?

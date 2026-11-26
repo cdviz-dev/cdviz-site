@@ -23,7 +23,7 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 | License                                                           |                        Apache 2.0                        |                 Proprietary                 |
 | Primary purpose                                                   |                    SDLC observability                    |     Log aggregation / SIEM / monitoring     |
 | Self-hosted                                                       |                         <Yes />                          |         <Yes /> (Splunk Enterprise)         |
-| SaaS option                                                       | <Yes>[Cloud](/pricing) (€20/mo, 14-day free trial)</Yes> |       <Yes /> (Splunk Cloud Platform)       |
+| SaaS option                                                       | <Yes>[Cloud](/pricing) (€35/mo, 14-day free trial)</Yes> |       <Yes /> (Splunk Cloud Platform)       |
 | Commercial support                                                |                         <Yes />                          |             <Yes /> (included)              |
 | Data ownership                                                    |                     <Yes>full</Yes>                      |         <Yes /> (self-hosted only)          |
 | [CDEvents](https://cdevents.dev) standard                         |                    <Yes>native</Yes>                     |                   <No />                    |
@@ -33,7 +33,7 @@ CDviz is built specifically for SDLC observability using the CDEvents standard. 
 | Deployment & artifact tracking                                    |                         <Yes />                          | <Partial>possible, requires setup</Partial> |
 | Customizable storage backends                                     |            <Yes /> (PostgreSQL, ClickHouse…)             |    <Yes /> (Splunk indexes / SmartStore)    |
 | Visualization                                                     |             Grafana, BI, AI agents, MCP, IDP             |       Splunk dashboards / Grafana OSS       |
-| Pricing model                                                     |       Free self-host · Cloud €20/mo · Pro €200/mo        |      Volume (GB/day) or workload-based      |
+| Pricing model                                                     |       Free self-host · Cloud €35/mo · Pro €200/mo        |      Volume (GB/day) or workload-based      |
 | SDLC-specific setup effort                                        |                      <Yes>low</Yes>                      |           <Partial>high</Partial>           |
 
 ## Key differences
@@ -75,7 +75,7 @@ Splunk is the right choice when you already run it for security or operations an
 
 **Does Splunk support CDEvents?** No. Splunk uses a proprietary index and query language (SPL).
 
-**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no volume-based pricing. [Cloud](/pricing) (€20/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
+**Is CDviz free?** Yes. The Community plan is free forever (Apache 2.0, infrastructure costs only), with no volume-based pricing. [Cloud](/pricing) (€35/month) adds managed hosting; [Pro](/pricing) (€200/month) adds extra integrations and support. Both are billed per organization, not per seat.
 
 ## Related comparisons
 

@@ -19,7 +19,7 @@ faq:
   - q: What happens when the 14-day trial ends?
     a: |
       Nothing is charged: no credit card was taken. You pick the Cloud plan
-      (€20/month, per organization) to keep going, or simply stop. You can also
+      (€35/month, per organization) to keep going, or simply stop. You can also
       switch to self-hosting the open-source stack at any time.
   - q: What access does CDviz Cloud need to my repositories?
     a: |
