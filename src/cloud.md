@@ -1,7 +1,7 @@
 ---
 title: "CDviz Cloud: CI/CD visibility for small teams"
 description: Managed CI/CD observability for small teams. See which pipelines break across all your repos, without running any infrastructure.
-keywords: "CDviz Cloud,managed CI/CD observability,SaaS pipeline monitoring,CI/CD visibility for small teams,hosted DORA metrics"
+keywords: "CDviz Cloud,managed CI/CD observability,SaaS pipeline monitoring,CI/CD visibility for small teams,hosted DORA metrics,MCP server for CI/CD,AI agent CI/CD analytics,bring your own PostgreSQL"
 layout: home
 markdownStyles: false
 faq:
@@ -30,6 +30,13 @@ faq:
       your last 30 days of history. There is no GitHub App and no OAuth grant. CDviz never
       reads your source code, never needs write access, and you can revoke either one from
       your own settings without contacting the CDviz team.
+  - q: Can my AI agent query CDviz Cloud?
+    a: |
+      Yes. Each workspace has a read-only agent API. Claude Code, Cursor and other MCP
+      clients connect over MCP; scripts use UTCP or REST. Any member creates an API token
+      in Settings > API. A token reads one workspace only, and you can revoke it at any
+      time. Then ask "Which pipelines were the slowest over the last 30 days?".
+      <a href="/docs/integrations/ai-agents">Connect an AI agent →</a>
   - q: How long does setup actually take?
     a: |
       Around ten minutes for the webhook, which is what gets live data flowing. Importing
@@ -37,14 +44,16 @@ faq:
       you create yourself. Plan another five minutes for it.
   - q: Where is my data and who can see it?
     a: |
-      Pipeline event metadata is stored in the CDviz managed database, isolated per
-      organization. It's built on the same open-source, CDEvents-based stack you can
-      inspect on <a href="https://github.com/cdviz-dev/cdviz">GitHub</a>.
+      By default, pipeline event metadata is stored in the CDviz managed database, isolated
+      per organization. You can also connect your workspace to your own PostgreSQL in
+      Settings > Database. CDviz Cloud never deletes that database, also after your plan
+      ends. It's built on the same open-source, CDEvents-based stack you can inspect on <a href="https://github.com/cdviz-dev/cdviz">GitHub</a>.
   - q: How is Cloud different from self-hosting CDviz?
     a: |
       Same open-source core. Cloud adds managed hosting, built-in pipeline-reliability
-      dashboards, GitLab support, and an optional 30-day history import, with nothing
-      to run. If you stop, you can always self-host the Apache 2.0 components.
+      dashboards, GitLab support, an optional 30-day history import, and a read-only
+      agent API (MCP) for AI agents, with nothing to run. If you stop, you can always
+      self-host the Apache 2.0 components.
       <a href="/pricing">Compare plans →</a>
 ---
 

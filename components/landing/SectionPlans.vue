@@ -32,7 +32,7 @@ const comparisonRows = [
   {
     feature: "Data ownership",
     community: { text: "Yours", good: true },
-    cloud: { text: "Managed" },
+    cloud: { text: "Managed or yours" },
     pro: { text: "Yours", good: true },
   },
   {
@@ -53,6 +53,12 @@ const comparisonRows = [
     community: { text: "DIY (components)" },
     cloud: { text: "✓ built-in", good: true },
     pro: { text: "components" },
+  },
+  {
+    feature: "AI agent API (MCP, UTCP, REST)",
+    community: { text: "DIY (SQL on PostgreSQL)" },
+    cloud: { text: "✓ built-in", good: true },
+    pro: { text: "DIY (SQL on PostgreSQL)" },
   },
   {
     feature: "30-day history backfill",

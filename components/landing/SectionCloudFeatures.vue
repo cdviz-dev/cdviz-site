@@ -4,6 +4,20 @@ import ScreenshotCarousel from "./ScreenshotCarousel.vue";
 
 const features = [
   {
+    title: "Ask your AI agent about your pipelines",
+    body: 'Ask Claude Code or Cursor "Which pipelines got slower this week?". The agent reads your workspace events over MCP with read-only SQL. You create the token, and you can revoke it at any time.',
+    badge: "New",
+    badgeClass: "bg-primary/12 text-primary",
+    link: "/docs/integrations/ai-agents",
+    linkLabel: "Connect an AI agent →",
+  },
+  {
+    title: "Your data in your own PostgreSQL",
+    body: "Use the managed database, or connect a PostgreSQL you run yourself. Pick it in Settings > Database, before the first collector setup. The dashboards and the agent API work the same on both. CDviz Cloud never deletes your own database, also after your plan ends.",
+    badge: "New",
+    badgeClass: "bg-primary/12 text-primary",
+  },
+  {
     title: "Cross-repo pipeline reliability",
     body: "Failure rates, chronically broken and intermittent pipelines, and trends, ranked across all your connected repos. The thing you came for.",
   },
@@ -124,9 +138,9 @@ const features = [
               v-if="f.link"
               :href="f.link"
               class="text-primary hover:underline"
-              target="_blank"
-              rel="noopener"
-            >signal interest →</a>
+              :target='f.link.startsWith("http") ? "_blank" : undefined'
+              :rel='f.link.startsWith("http") ? "noopener" : undefined'
+            >{{ f.linkLabel ?? "signal interest →" }}</a>
           </p>
           <ScreenshotCarousel
             v-if="f.images"
