@@ -5,7 +5,7 @@ import ScreenshotCarousel from "./ScreenshotCarousel.vue";
 const features = [
   {
     title: "Ask your AI agent about your pipelines",
-    body: 'Connect Claude Code, Cursor or your own scripts over MCP, then ask "Which pipelines got slower this week?". The agent runs read-only SQL on your workspace events, with a token you create and revoke.',
+    body: 'Ask Claude Code or Cursor "Which pipelines got slower this week?". The agent reads your workspace events over MCP with read-only SQL. You create the token, and you can revoke it at any time.',
     badge: "New",
     badgeClass: "bg-primary/12 text-primary",
     link: "/docs/integrations/ai-agents",
@@ -13,7 +13,7 @@ const features = [
   },
   {
     title: "Your data in your own PostgreSQL",
-    body: "Keep the managed database, or connect your workspace to a PostgreSQL you run yourself (Settings > Database, before the first collector setup). The dashboards and the agent API work the same, and CDviz Cloud never deletes your database, even when your subscription ends.",
+    body: "Use the managed database, or connect a PostgreSQL you run yourself. Pick it in Settings > Database, before the first collector setup. The dashboards and the agent API work the same on both. CDviz Cloud never deletes your own database, also after your plan ends.",
     badge: "New",
     badgeClass: "bg-primary/12 text-primary",
   },

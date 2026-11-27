@@ -32,10 +32,10 @@ faq:
       your own settings without contacting the CDviz team.
   - q: Can my AI agent query CDviz Cloud?
     a: |
-      Yes. Each workspace has a read-only agent API: MCP for Claude Code, Cursor and other
-      MCP clients, plus UTCP and REST for scripts. Any member creates an API token in
-      Settings > API; the token reads one workspace only and you can revoke it at any time.
-      Then ask questions such as "Which pipelines were the slowest over the last 30 days?".
+      Yes. Each workspace has a read-only agent API. Claude Code, Cursor and other MCP
+      clients connect over MCP; scripts use UTCP or REST. Any member creates an API token
+      in Settings > API. A token reads one workspace only, and you can revoke it at any
+      time. Then ask "Which pipelines were the slowest over the last 30 days?".
       <a href="/docs/integrations/ai-agents">Connect an AI agent →</a>
   - q: How long does setup actually take?
     a: |
@@ -45,10 +45,9 @@ faq:
   - q: Where is my data and who can see it?
     a: |
       By default, pipeline event metadata is stored in the CDviz managed database, isolated
-      per organization. You can also connect your workspace to your own PostgreSQL
-      (Settings > Database): the events go there, and CDviz Cloud never deletes that
-      database, even when your subscription ends. It's built on the same open-source,
-      CDEvents-based stack you can inspect on <a href="https://github.com/cdviz-dev/cdviz">GitHub</a>.
+      per organization. You can also connect your workspace to your own PostgreSQL in
+      Settings > Database. CDviz Cloud never deletes that database, also after your plan
+      ends. It's built on the same open-source, CDEvents-based stack you can inspect on <a href="https://github.com/cdviz-dev/cdviz">GitHub</a>.
   - q: How is Cloud different from self-hosting CDviz?
     a: |
       Same open-source core. Cloud adds managed hosting, built-in pipeline-reliability

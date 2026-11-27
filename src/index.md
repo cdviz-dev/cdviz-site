@@ -41,10 +41,10 @@ faq:
   - q: Can AI agents use CDviz?
     a: |
       Yes. On CDviz Cloud, each workspace has a read-only agent API (MCP, UTCP and REST).
-      Connect Claude Code, Cursor or your own scripts with an API token, then ask questions
-      such as "Which pipelines were the slowest over the last 30 days?". Self-hosted, the
-      events are in your own PostgreSQL: any agent or SQL tool can read them with the
-      read-only <code>cdviz_reader</code> role.
+      Connect Claude Code, Cursor or a script with an API token. Then ask "Which pipelines
+      were the slowest over the last 30 days?". Self-hosted, the events are in your own
+      PostgreSQL. Any agent or SQL tool can read them with the read-only
+      <code>cdviz_reader</code> role.
       <a href="/docs/integrations/ai-agents">Connect an AI agent →</a>
   - q: Where is CDviz located?
     a: |
