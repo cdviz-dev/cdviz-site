@@ -1,7 +1,7 @@
 ---
 title: Monitor Your Software Delivery Pipeline With Confidence
 description: Open-source CI/CD observability built on CDEvents. Collect software delivery events, see DORA metrics and deployment timelines in Grafana, and trigger workflows.
-keywords: "CDEvents,open-source CI/CD observability,software delivery pipeline monitoring,improve software delivery,engineering analytics platform,DORA metrics,Grafana dashboards,event-driven CI/CD,CDviz"
+keywords: "CDEvents,open-source CI/CD observability,software delivery pipeline monitoring,improve software delivery,engineering analytics platform,DORA metrics,Grafana dashboards,event-driven CI/CD,OpenTelemetry,MCP server,CDviz"
 layout: home
 markdownStyles: false
 
@@ -35,8 +35,17 @@ faq:
       The cdviz-collector collects events from GitHub,
       GitLab, ArgoCD, Kubernetes, custom webhooks, and polling, and normalizes them to CDEvents;
       storage in PostgreSQL + TimescaleDB; Grafana dashboards for DORA metrics, deployments,
-      incidents, and artifact timelines; and event-driven automation via HTTP, NATS, or Kafka
-      sinks. <a href="/docs/">Explore the docs →</a>
+      incidents, and artifact timelines; event-driven automation via HTTP, NATS, or Kafka
+      sinks; and export of the events to any OpenTelemetry (OTLP) backend.
+      <a href="/docs/">Explore the docs →</a>
+  - q: Can AI agents use CDviz?
+    a: |
+      Yes. On CDviz Cloud, each workspace has a read-only agent API (MCP, UTCP and REST).
+      Connect Claude Code, Cursor or your own scripts with an API token, then ask questions
+      such as "Which pipelines were the slowest over the last 30 days?". Self-hosted, the
+      events are in your own PostgreSQL: any agent or SQL tool can read them with the
+      read-only <code>cdviz_reader</code> role.
+      <a href="/docs/integrations/ai-agents">Connect an AI agent →</a>
   - q: Where is CDviz located?
     a: |
       CDviz is built by Alchim312, a French company. CDviz Cloud data is hosted and operated
