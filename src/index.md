@@ -19,7 +19,7 @@ faq:
       CDviz is built on the open <a href="https://cdevents.dev">CDEvents</a> standard and
       collects both push (webhooks, events) and pull (polling), instead of relying only on
       polling proprietary APIs. You own your data: self-hosted, it stays in your own PostgreSQL,
-      queryable with plain SQL and Grafana; on Cloud, ownership can be transferred on demand.
+      queryable with plain SQL and Grafana; on Cloud, use the managed database or connect your own PostgreSQL.
       Open-source (Apache 2.0), customizable and extensible for on-premise deployments, with no
       lock-in. The same events can also drive automation, beyond dashboards.
       <a href="/docs/alternatives/">Compare with alternatives →</a>
